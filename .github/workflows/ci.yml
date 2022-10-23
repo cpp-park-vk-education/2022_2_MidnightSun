@@ -1,0 +1,99 @@
+name: my-workflow-name
+
+on:
+  push:
+    branches: [ Litvak/dev/ci_setup ]
+  pull_request:
+    branches: [ Litvak/dev/ci_setup ]
+jobs:
+  linters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run cppcheck
+        uses: deep5050/cppcheck-action@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN}}
+          force_language: c++
+          std: c++20
+          other_options: --enable=all --inconclusive -I project/ -I project/src/ -I project/include/
+    
+      - name: Install cpplint
+        run: pip install cpplint
+
+      - name: Run cpplint
+        run: cpplint --recursive .
+
+      - name: Install clang-tidy
+        run: sudo apt install clang-tidy
+
+      - name: Run clang-tidy
+        run: clang-tidy project/* project/src/* project/include/*
+  
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+    
+      - name: Install gtest manually
+        run: sudo apt-get install libgtest-dev libgmock-dev &&
+             sudo apt-get install libtbb-dev &&
+             cd /usr/src/googletest/ &&
+             sudo mkdir build &&
+             cd build &&
+             sudo cmake .. &&
+             sudo make && 
+             sudo cp lib/* /usr/lib 
+      
+      - name: Default configure
+        run: mkdir build &&
+             cd build &&
+             cmake .. &&
+             make  
+      
+      - name: Run unit-tests
+        run: cd build &&
+             ./tests
+
+  memtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+
+      - name: Install gtest manually
+        run: sudo apt-get install libgtest-dev libgmock-dev &&
+             sudo apt-get install libtbb-dev &&
+             cd /usr/src/googletest/ &&
+             sudo mkdir build &&
+             cd build &&
+             sudo cmake .. &&
+             sudo make && 
+             sudo cp lib/* /usr/lib 
+      
+      - name: Default configuration
+        run: mkdir build &&
+             cd build &&
+             cmake .. &&
+             make
+
+      - name: Set up environment
+        run: sudo apt update &&
+             sudo apt install -y libev-dev
+   
+      - name: Install valgrind
+        run: sudo apt install valgrind
+
+      - name: Run valgrind
+        run: cd build &&
+             valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ./tests
+
+      - name: configuration for fsanitazer
+        run:  cd build &&
+              cmake -DWITH_MEMCHECK=ON .. &&
+              make
+
+      - name: Run fsanitaze
+        run: cd build &&
+             ./tests
