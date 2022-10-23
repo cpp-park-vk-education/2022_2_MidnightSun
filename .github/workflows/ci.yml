@@ -2,9 +2,9 @@ name: my-workflow-name
 
 on:
   push:
-    branches: [ Litvak/dev/ci_setup ]
+    branches: [ Litvak_dev_ci_setup ]
   pull_request:
-    branches: [ Litvak/dev/ci_setup ]
+    branches: [ Litvak_dev_ci_setup ]
 jobs:
   linters:
     runs-on: ubuntu-latest
