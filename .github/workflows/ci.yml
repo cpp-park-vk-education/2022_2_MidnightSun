@@ -17,7 +17,14 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN}}
           force_language: c++
           std: c++20
-          other_options: --enable=all --inconclusive -I project/ -I project/src/ -I project/include/
+          other_options: --enable=all --inconclusive -I project/audio-player/include 
+                                                     -I project/audio-player/src 
+                                                     -I project/audio-player/include 
+                                                     -I project/net/client/include
+                                                     -I project/net/client/src
+                                                     -I project/net/server/include
+                                                     -I project/net/server/src
+                                                     -I project/tests
     
       - name: Install cpplint
         run: pip install cpplint
