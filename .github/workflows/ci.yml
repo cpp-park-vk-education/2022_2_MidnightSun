@@ -60,7 +60,7 @@ jobs:
              sudo make && 
              sudo cp lib/* /usr/lib 
       
-      - name: Default configure
+      - name: Default configuration
         run: mkdir build &&
              cd build &&
              cmake .. &&
@@ -103,7 +103,7 @@ jobs:
         run: cd build &&
              valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ./tests
 
-      - name: configuration for fsanitazer
+      - name: Configuration for fsanitazer
         run:  cd build &&
               cmake -DWITH_MEMCHECK=ON .. &&
               make
