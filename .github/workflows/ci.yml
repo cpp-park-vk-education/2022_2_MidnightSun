@@ -36,7 +36,7 @@ jobs:
         run: sudo apt install clang-tidy
 
       - name: Run clang-tidy
-        run: clang-tidy square.cpp -- -Iproject/audio-player/src
+        run: clang-tidy project/audio-player/src/square.cpp
         # run: clang-tidy project/audio-player/include/* 
         #                 project/audio-player/src/*
         #                 project/audio-player/include/* 
