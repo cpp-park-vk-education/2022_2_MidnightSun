@@ -36,15 +36,14 @@ jobs:
         run: sudo apt install clang-tidy
 
       - name: Run clang-tidy
-        run: clang-tidy project/audio-player/src/square.cpp
-        # run: clang-tidy project/audio-player/include/* 
-        #                 project/audio-player/src/*
-        #                 project/audio-player/include/* 
-        #                 project/net/client/include/*
-        #                 project/net/client/src/*
-        #                 project/net/server/include/*
-        #                 project/net/server/src/*
-        #                 project/tests/*
+        run: clang-tidy project/audio-player/include/* 
+                        project/audio-player/src/*
+                        project/audio-player/include/* 
+                        project/net/client/include/*
+                        project/net/client/src/*
+                        project/net/server/include/*
+                        project/net/server/src/*
+                        project/tests/*
   
   unit-tests:
     runs-on: ubuntu-latest
