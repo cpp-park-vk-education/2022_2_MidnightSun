@@ -32,6 +32,19 @@ jobs:
       - name: Run cpplint
         run: cpplint --recursive .
 
+      - name: Install scan-build
+        run: pip install scan-build
+      
+      - name: Default configuration
+        run: mkdir build &&
+             cd build &&
+             cmake .. &&
+             make 
+
+      - name: Run scan-build
+        run: cd build &&
+             scan-build ./tests
+
       - name: Install clang-tidy
         run: sudo apt install clang-tidy
 
