@@ -11,29 +11,29 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run cppcheck
-        uses: deep5050/cppcheck-action@main
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN}}
-          force_language: c++
-          std: c++20
-          other_options: --enable=all --inconclusive -I project/audio-player/include 
-                                                     -I project/audio-player/src 
-                                                     -I project/audio-player/include 
-                                                     -I project/net/client/include
-                                                     -I project/net/client/src
-                                                     -I project/net/server/include
-                                                     -I project/net/server/src
-                                                     -I project/tests
+      # - name: Run cppcheck
+      #   uses: deep5050/cppcheck-action@main
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN}}
+      #     force_language: c++
+      #     std: c++20
+      #     other_options: --enable=all --inconclusive -I project/audio-player/include 
+      #                                                -I project/audio-player/src 
+      #                                                -I project/audio-player/include 
+      #                                                -I project/net/client/include
+      #                                                -I project/net/client/src
+      #                                                -I project/net/server/include
+      #                                                -I project/net/server/src
+      #                                                -I project/tests
     
-      - name: Install cpplint
-        run: pip install cpplint
+      # - name: Install cpplint
+      #   run: pip install cpplint
 
-      - name: Run cpplint
-        run: cpplint --recursive .
+      # - name: Run cpplint
+      #   run: cpplint --recursive .
 
-      - name: Install clang-tidy
-        run: sudo apt install clang-tidy
+      # - name: Install clang-tidy
+      #   run: sudo apt install clang-tidy
 
       - name: Run clang-tidy
         run: clang-tidy project/audio-player/include/* 
