@@ -36,7 +36,7 @@ jobs:
         run: sudo apt install clang-tidy
 
       - name: Run clang-tidy
-        run: clang-tidy project/audio-player/include/* 
+        run: clang-tidy project/audio-player/include/* -Iproject/audio-player/include
                         project/audio-player/src/*
                         project/audio-player/include/* 
                         project/net/client/include/*
