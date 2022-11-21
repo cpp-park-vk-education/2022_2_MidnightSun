@@ -1,53 +1,37 @@
 #include "IMediaPlayer.hpp"
+#include "MainWindow.hpp"
 
-class MediaPlayerModel : public IMediaPlayerModel {
+#include <QDebug>
+#include <QFileDialog>
+#include <QStringList>
+#include <QClipboard>
+#include <QTime>
+#include <QMediaPlayer>
+#include <QUrl>
+#include <QMediaPlaylist>
+
+
+class MediaPlayer : public IMediaPlayerModel {
  public:
-    void play() override;
-    void stop() override;
-    void pause() override;
-    void mute() override;
-    void previousTrack() override;
-    void nextTrack() override;
-    void shuffle() override;
-    void repeat() override;
-    void moveVolumeStrip() override;
-    void moveDurationStrip() override;
+      MediaPlayer();
+      ~MediaPlayer();
 
-    void addTrack() override;
-    void deleteTrack() override;
-    void turnOnTheTrack() override;
-    void addQueue() override;
-    void deleteQueue() override;
-    void chooseTrack() override;
- private:
-    QMediaPlayer* mPlayer(nullptr);
-    Ui::MainWindow* ui(nullptr);
-};
+      void play() override;
+      void stop() override;
+      void pause() override;
+      void mute() override;
+      void previousTrack() override;
+      void nextTrack() override;
+      void shuffle() override;
+      void repeat() override;
+      void moveVolumeStrip() override;
+      void moveDurationStrip() override;
 
-class PlaylistModel : public IPlaylistModel {
- public:
-    void addTrack() override;
-    void deleteTrack() override;
-    void turnOnTheTrack() override;
-    void addQueue() override;
-    void deleteQueue() override;
-    void chooseTrack() override;
+      void addTrack() override;
+      void deleteTrack() override;
+      void addQueue() override;
+      void deleteQueue() override;
+      void chooseTrack() override;
  private:
-    MediaPlayerModel* mediaPlayer(nullptr);
-};
-
-class CurrentTrackModel : public ICurrentTrackModel {
- public:
-    void play() override;
-    void stop() override;
-    void pause() override;
-    void mute() override;
-    void previousTrack() override;
-    void nextTrack() override;
-    void shuffle() override;
-    void repeat() override;
-    void moveVolumeStrip() override;
-    void moveDurationStrip() override;
- private:
-    MediaPlayerModel* mediaPlayer(nullptr);
+      QMediaPlayer* mPlayer;
 };

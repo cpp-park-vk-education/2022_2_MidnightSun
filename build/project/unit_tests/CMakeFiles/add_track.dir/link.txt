@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/add_track.dir/add_track_autogen/mocs_compilation.cpp.o CMakeFiles/add_track.dir/add_track.cpp.o -o add_track  /usr/local/lib/libgtest_main.a /usr/local/lib/libgtest.a -lpthread 

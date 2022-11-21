@@ -1,0 +1,5 @@
+if(EXISTS "/home/marcussss1/2022_2_MidnightSun/build/project/unit_tests/add_track[1]_tests.cmake")
+  include("/home/marcussss1/2022_2_MidnightSun/build/project/unit_tests/add_track[1]_tests.cmake")
+else()
+  add_test(add_track_NOT_BUILT add_track_NOT_BUILT)
+endif()

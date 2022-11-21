@@ -1,0 +1,29 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.9)
+
+PROJECT(run)
+
+
+SET(CMAKE_AUTOMOC ON)
+SET(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+FIND_PACKAGE(Qt5Widgets REQUIRED)
+FIND_PACKAGE(Qt5Multimedia REQUIRED)
+FIND_PACKAGE(Qt5Core REQUIRED)
+FIND_PACKAGE(Qt5Gui REQUIRED)
+
+INCLUDE_DIRECTORIES(${Qt5Widgets_INCLUDES})
+ADD_DEFINITIONS(${Qt5Widgets_DEFINITIONS})
+
+SET(CMAKE_CXX_FLAGS "${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
+qt5_wrap_ui(UIS_HDRS
+                    impl/user_interface/mainwindow.ui)
+
+SET(SOURCES 
+           impl/models/MainWindow.cpp
+           main.cpp)
+
+
+ADD_EXECUTABLE(test ${UIS_HDRS} ${SOURCES})
+TARGET_LINK_LIBRARIES(test Qt5::Widgets Qt5::Multimedia)
+
+ADD_SUBDIRECTORY(unit_tests)
