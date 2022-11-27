@@ -26,7 +26,7 @@ jobs:
                                                      -I project/net/server/src
                                                      -I project/tests
       - name: Monitor coverage
-        if: ! contains(github.event.pull_request.user.login, 'dependabot[bot]')
+        
         uses: slavcodev/coverage-monitor-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
