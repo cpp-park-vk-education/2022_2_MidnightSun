@@ -2,7 +2,7 @@ name: my-workflow-name
 
 on:
   push:
-    branches: [ Litvak_dev_ci_setup ]
+    branches: [ Litvak_dev_ci_setup, dev_ci_setup ]
   pull_request:
     branches: [ Litvak_dev_ci_setup ]
 jobs:
@@ -31,7 +31,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           coverage_path: "logs/clover.xml"
-          
+
       - name: Install cpplint
         run: pip install cpplint
 
