@@ -124,11 +124,8 @@ jobs:
       - name: Run fsanitaze
         run: cd build &&
              ./tests
-      - name: Tests
-on: [pull_request]
+      - name: tests
 
-jobs:
-  build:
     runs-on: ubuntu-latest
     steps:
       - name: Monitor coverage
