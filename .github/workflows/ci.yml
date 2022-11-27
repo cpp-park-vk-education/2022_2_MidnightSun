@@ -25,15 +25,13 @@ jobs:
                                                      -I project/net/server/include
                                                      -I project/net/server/src
                                                      -I project/tests
-        build:
-    
-    steps:
       - name: Monitor coverage
         if: ! contains(github.event.pull_request.user.login, 'dependabot[bot]')
         uses: slavcodev/coverage-monitor-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           coverage_path: "logs/clover.xml"
+          
       - name: Install cpplint
         run: pip install cpplint
 
