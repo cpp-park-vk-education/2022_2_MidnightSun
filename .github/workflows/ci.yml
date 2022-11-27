@@ -2,7 +2,7 @@ name: my-workflow-name
 
 on:
   push:
-    branches: [ Litvak_dev_ci_setup, dev_ci_setup ]
+    branches: [ dev/ci_setup,]
   pull_request:
     branches: [ Litvak_dev_ci_setup ]
 jobs:
