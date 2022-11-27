@@ -124,3 +124,16 @@ jobs:
       - name: Run fsanitaze
         run: cd build &&
              ./tests
+      - name: Tests
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Monitor coverage
+        if: ! contains(github.event.pull_request.user.login, 'dependabot[bot]')
+        uses: slavcodev/coverage-monitor-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          coverage_path: "logs/clover.xml"
