@@ -2,8 +2,8 @@
 
 #include <gtest/gtest.h>
 
-TEST(Test, BaseTest) {
-    ASSERT_EQ(square(2), 4);
+TEST(MyMatrix, MatrixSubstractCol) {
+    EXPECT_EQ(square(2), 4);
 }
 
 int main(int argc, char **argv) {
