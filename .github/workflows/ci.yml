@@ -5,6 +5,16 @@ on:
   push:
     branches: [ dev/ci_setup ]
 jobs:
+  codacy-coverage-reporter:
+    runs-on: ubuntu-latest
+    name: codacy-coverage-reporter
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: cobertura.xml
   linters:
     runs-on: ubuntu-latest
     steps:
@@ -117,6 +127,6 @@ jobs:
         run: cd build &&
              ctest
 
-      - name: Jest Code Coverage Report
-        uses: ziishaned/jest-reporter-action@0.1.1
+
+      
 
