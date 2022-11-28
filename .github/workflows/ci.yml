@@ -117,5 +117,11 @@ jobs:
         run: cd build &&
              ctest
 
-      - name: Jest Code Coverage Report
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+       - name: Jest Code Coverage Report
         uses: ziishaned/jest-reporter-action@0.1.1
+
