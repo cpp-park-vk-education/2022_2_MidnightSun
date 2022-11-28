@@ -117,7 +117,6 @@ jobs:
         run: cd build &&
              ctest
 
-  report:
       - name: Jest Code Coverage Report
         uses: ziishaned/jest-reporter-action@0.1.1
 
