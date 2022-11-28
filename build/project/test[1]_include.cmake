@@ -1,5 +1,0 @@
-if(EXISTS "/home/shadowod/2022_2_MidnightSun/build/project/test[1]_tests.cmake")
-  include("/home/shadowod/2022_2_MidnightSun/build/project/test[1]_tests.cmake")
-else()
-  add_test(test_NOT_BUILT test_NOT_BUILT)
-endif()

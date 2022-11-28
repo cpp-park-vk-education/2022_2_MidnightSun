@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++2a -Werror -Wextra -Wpedantic -Wall  -rdynamic CMakeFiles/test.dir/audio-player/src/square.cpp.o CMakeFiles/test.dir/tests/test.cpp.o  -o test  /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a -lpthread 
