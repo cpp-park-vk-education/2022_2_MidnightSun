@@ -5,10 +5,6 @@ on:
   push:
     branches: [ dev/ci_setup ]
 jobs:
-      - name: Coverage monitor
-        uses: slavcodev/coverage-monitor-action@v1
-
-     
   linters:
     runs-on: ubuntu-latest
     steps:
