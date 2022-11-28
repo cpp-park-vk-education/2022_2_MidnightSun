@@ -9,5 +9,8 @@
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
-    square(2);
+    auto num = square(2); // чтобы не ругался на unused functions
+    ++num; //
+    num -= 2; //
+    num *= 3; //
 }
