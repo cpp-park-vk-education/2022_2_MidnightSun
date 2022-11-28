@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 
 TEST(Test, Test) {
-    ASSERT_EQ(1, 1);
+    ASSERT_EQ(square(2), 2);
 }
 
 int main(int argc, char **argv) {
