@@ -32,11 +32,11 @@ jobs:
       #        sudo make && 
       #        sudo cp lib/* /usr/lib 
         
-      # - name: Configuration with clang-tidy
-      #   run: mkdir build &&
-      #        cd build &&
-      #        cmake DWITH_CLANG_TIDY=on .. &&
-      #        make 
+      - name: Configuration with clang-tidy
+        run: mkdir build &&
+             cd build &&
+             cmake DWITH_CLANG_TIDY=on .. &&
+             make 
 
       - name: Install scan-build
         run: pip3 install scan-build
