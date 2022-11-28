@@ -10,17 +10,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # - name: Install cppcheck
-      #   run: sudo apt install cppcheck
+      - name: Install cppcheck
+        run: sudo apt install cppcheck
 
-      # - name: Run cppcheck
-      #   run: cppcheck project --enable=all --inconclusive --error-exitcode=1 -I.
+      - name: Run cppcheck
+        run: cppcheck project --enable=all --inconclusive --error-exitcode=1 -I.
     
-      # - name: Install cpplint
-      #   run: pip install cpplint
+      - name: Install cpplint
+        run: pip install cpplint
 
-      # - name: Run cpplint
-      #   run: cpplint --recursive .
+      - name: Run cpplint
+        run: cpplint --recursive .
 
       - name: Install gtest manually
         run: sudo apt-get install libgtest-dev libgmock-dev &&
