@@ -5,12 +5,22 @@ on:
   push:
     branches: [ dev/ci_setup ]
 jobs:
-  coverage:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Test coverage check
-        uses: sergavshin/gha-test-coverage-check@v1
+      - uses: actions/checkout@v1
 
+      - name: Test
+        run: npm test
+
+      - name: Monitor coverage
+        uses: slavcodev/coverage-monitor-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          coverage_path: "logs/clover.xml"
+          threshold_alert: 10
+          threshold_warning: 50
+          threshold_metric: "lines"
   linters:
     runs-on: ubuntu-latest
     steps:
