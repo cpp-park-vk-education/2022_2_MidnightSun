@@ -1,1 +1,1 @@
-int square(int);
+// int square(int);
