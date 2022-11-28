@@ -1,4 +1,4 @@
-#include "square.hpp"
+// #include "square.hpp"
 
 #include <gtest/gtest.h>
 
@@ -9,6 +9,6 @@
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
-    int num = square(2); // чтобы не ругался на unused functions
-    std::cout << num; //
+    // int num = square(2); // чтобы не ругался на unused functions
+    // std::cout << num; //
 }
