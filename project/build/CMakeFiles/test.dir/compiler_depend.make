@@ -306,9 +306,6 @@ CMakeFiles/test.dir/impl/currentTrack.cpp.o: /home/marcussss1/2022_2_MidnightSun
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSlider \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -323,7 +320,10 @@ CMakeFiles/test.dir/impl/currentTrack.cpp.o: /home/marcussss1/2022_2_MidnightSun
   /usr/include/c++/11/bits/basic_ios.tcc \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
-  /usr/include/c++/11/bits/istream.tcc
+  /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
 
 CMakeFiles/test.dir/impl/leftBoard.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/impl/leftBoard.cpp \
   /home/marcussss1/2022_2_MidnightSun/project/impl/leftBoard.hpp \
@@ -950,9 +950,6 @@ CMakeFiles/test.dir/impl/mainWindow.cpp.o: /home/marcussss1/2022_2_MidnightSun/p
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSlider \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -968,6 +965,9 @@ CMakeFiles/test.dir/impl/mainWindow.cpp.o: /home/marcussss1/2022_2_MidnightSun/p
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
   /home/marcussss1/2022_2_MidnightSun/project/impl/optionsWindow.hpp \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h \
@@ -1623,9 +1623,6 @@ CMakeFiles/test.dir/main.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/main
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSlider \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -1641,6 +1638,9 @@ CMakeFiles/test.dir/main.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/main
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
   /home/marcussss1/2022_2_MidnightSun/project/impl/optionsWindow.hpp \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h \
@@ -1955,9 +1955,6 @@ CMakeFiles/test.dir/test_autogen/mocs_compilation.cpp.o: test_autogen/mocs_compi
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSlider \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -1973,6 +1970,9 @@ CMakeFiles/test.dir/test_autogen/mocs_compilation.cpp.o: test_autogen/mocs_compi
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
   test_autogen/7OA5V33GOM/moc_mainWindow.cpp \
   /home/marcussss1/2022_2_MidnightSun/project/impl/mainWindow.hpp \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile \
@@ -2060,6 +2060,10 @@ test_autogen/7OA5V33GOM/moc_currentTrack.cpp:
 
 /home/marcussss1/2022_2_MidnightSun/project/impl/leftBoard.hpp:
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox:
+
 /usr/include/c++/11/bits/istream.tcc:
 
 /usr/include/c++/11/bits/ostream.tcc:
@@ -2075,10 +2079,6 @@ test_autogen/7OA5V33GOM/moc_currentTrack.cpp:
 /usr/include/c++/11/ostream:
 
 /usr/include/c++/11/iostream:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h:
 
