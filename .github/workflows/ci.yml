@@ -22,15 +22,15 @@ jobs:
       # - name: Run cpplint
       #   run: cpplint --recursive .
 
-      # - name: Install gtest manually
-      #   run: sudo apt-get install libgtest-dev libgmock-dev &&
-      #        sudo apt-get install libtbb-dev &&
-      #        cd /usr/src/googletest/ &&
-      #        sudo mkdir build &&
-      #        cd build &&
-      #        sudo cmake .. &&
-      #        sudo make && 
-      #        sudo cp lib/* /usr/lib 
+      - name: Install gtest manually
+        run: sudo apt-get install libgtest-dev libgmock-dev &&
+             sudo apt-get install libtbb-dev &&
+             cd /usr/src/googletest/ &&
+             sudo mkdir build &&
+             cd build &&
+             sudo cmake .. &&
+             sudo make && 
+             sudo cp lib/* /usr/lib 
         
       - name: Configuration with clang-tidy
         run: mkdir build &&
