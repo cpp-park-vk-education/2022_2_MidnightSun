@@ -6,18 +6,10 @@ on:
     branches: [ dev/ci_setup ]
 jobs:
   coverage_report:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-
-      - name: Monitor coverage
+      - name: Coverage monitor
         uses: slavcodev/coverage-monitor-action@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          coverage_path: "logs/clover.xml"
-          threshold_alert: 10
-          threshold_warning: 50
-          threshold_metric: "lines"
+
+     
   linters:
     runs-on: ubuntu-latest
     steps:
