@@ -1,3 +1,0 @@
-# Hashes of file build rules.
-c517f2481332fa2cfe3ee446ca9827b9 CMakeFiles/test_autogen
-053061927625af65e32b659af32d6235 ui_mainwindow.h
