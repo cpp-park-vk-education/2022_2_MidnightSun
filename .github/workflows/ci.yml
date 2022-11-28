@@ -116,17 +116,21 @@ jobs:
       - name: Run fsanitaze
         run: cd build &&
              ctest
-  codacy-coverage-reporter:
-    runs-on: ubuntu-latest
-    name: codacy-coverage-reporter
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run codacy-coverage-reporter
-        uses: codacy/codacy-coverage-reporter-action@v1
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: cobertura.xml
+             
+  coverage:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
 
+    - run: npm install
+    - run: npm run coverage
+
+    - name: check
+      uses: inzephirum/gha-test-coverage-check
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        min_threshold: '100'
+        report_file_path: './coverage/lcov.info'
 
       
 
