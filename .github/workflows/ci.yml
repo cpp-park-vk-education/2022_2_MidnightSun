@@ -5,13 +5,10 @@ on:
   push:
     branches: [ dev/ci_setup ]
 jobs:
-  build:
+  coverage report:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-
-      - name: Test
-        run: npm test
 
       - name: Monitor coverage
         uses: slavcodev/coverage-monitor-action@v1
