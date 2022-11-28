@@ -1,63 +1,55 @@
+
 name: my-workflow-name
 
 on:
   push:
-    branches: [ Litvak_dev_ci_setup ]
-  pull_request:
-    branches: [ Litvak_dev_ci_setup ]
+    branches: [ dev/ci_setup ]
 jobs:
   linters:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install cppcheck
+        run: sudo apt install cppcheck
+
       - name: Run cppcheck
-        uses: deep5050/cppcheck-action@main
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN}}
-          force_language: c++
-          std: c++20
-          other_options: --enable=all --inconclusive -I project/audio-player/include 
-                                                     -I project/audio-player/src 
-                                                     -I project/audio-player/include 
-                                                     -I project/net/client/include
-                                                     -I project/net/client/src
-                                                     -I project/net/server/include
-                                                     -I project/net/server/src
-                                                     -I project/tests
-      
+        run: cppcheck project --enable=all --inconclusive --error-exitcode=1 -I.
+    
       - name: Install cpplint
         run: pip install cpplint
 
       - name: Run cpplint
         run: cpplint --recursive .
 
+      - name: Install gtest manually
+        run: sudo apt-get install libgtest-dev libgmock-dev &&
+             sudo apt-get install libtbb-dev &&
+             cd /usr/src/googletest/ &&
+             sudo mkdir build &&
+             cd build &&
+             sudo cmake .. &&
+             sudo make && 
+             sudo cp lib/* /usr/lib 
+        
+      - name: Configuration with clang-tidy
+        run: mkdir build &&
+             cd build &&
+             cmake DWITH_CLANG_TIDY=on .. &&
+             make 
+
       - name: Install scan-build
         run: pip install scan-build
 
-      - name: Install clang-tidy
-        run: sudo apt install clang-tidy
+      - name: Default configuration
+        run: cd build &&
+             cmake .. &&
+             make 
 
-      - name: Run clang-tidy
-        run: clang-tidy project/audio-player/include/*
-                        project/audio-player/src/*
-                        project/audio-player/include/* 
-                        project/net/client/include/*
-                        project/net/client/src/*
-                        project/net/server/include/*
-                        project/net/server/src/*
-                        project/tests/*
+      - name: Run scan-build
+        run: cd build &&
+             scan-build ctest
 
-      # - name: Default configuration
-      #   run: mkdir build &&
-      #        cd build &&
-      #        cmake .. &&
-      #        make 
-
-      # - name: Run scan-build
-      #   run: cd build &&
-      #        scan-build-10 ./tests
-  
   unit-tests:
     runs-on: ubuntu-latest
     steps:
@@ -80,8 +72,8 @@ jobs:
              make  
       
       - name: Run unit-tests
-        run: cd build &&
-             ./tests
+        run: cd build && 
+             ctest
 
   memtest:
     runs-on: ubuntu-latest
@@ -113,21 +105,14 @@ jobs:
         run: sudo apt install valgrind
 
       - name: Run valgrind
-        run: cd build &&
-             valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ./tests
+        run: cd build && 
+             valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ctest
 
-      - name: Configuration for fsanitazer
+      - name: Configuration with fsanitazer
         run:  cd build &&
               cmake -DWITH_MEMCHECK=ON .. &&
               make
 
       - name: Run fsanitaze
         run: cd build &&
-             ./tests
-      - name: Jest Code Coverage Report
-        uses: ziishaned/jest-reporter-action@0.1.1
- 
-    
-
-     
-   
+             ctest

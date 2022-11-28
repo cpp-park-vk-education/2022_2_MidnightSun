@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++2a -Werror -Wextra -Wpedantic -Wall  -rdynamic CMakeFiles/tests.dir/project/audio-player/src/square.cpp.o CMakeFiles/tests.dir/project/net/client/src/client.cpp.o CMakeFiles/tests.dir/project/net/server/src/server.cpp.o CMakeFiles/tests.dir/project/tests/test.cpp.o  -o tests  -Wl,-Bstatic -lgtest -Wl,-Bdynamic -lpthread 

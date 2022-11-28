@@ -1,10 +1,10 @@
-#include "square.hpp"
+// #include "square.hpp" // чтобы не ругался на unused functions
 
 #include <gtest/gtest.h>
 
-TEST(Test, Test) {
-    ASSERT_EQ(1, 1);
-}
+// TEST(MyMatrix, MatrixSubstractCol) {
+//     EXPECT_EQ(square(2), 4);
+// } // чтобы не ругался на unused functions
 
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
