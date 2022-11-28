@@ -118,7 +118,6 @@ jobs:
              ctest
 
   report:
-    runs-on: ubuntu-latest
-       - name: Jest Code Coverage Report
-         uses: ziishaned/jest-reporter-action@0.1.1
+      - name: Jest Code Coverage Report
+        uses: ziishaned/jest-reporter-action@0.1.1
 
