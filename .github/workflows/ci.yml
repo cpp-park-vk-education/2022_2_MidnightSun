@@ -1,0 +1,119 @@
+
+
+name: my-workflow-name
+
+on:
+  push:
+    branches: [ dev_Litvak_RK2 ]
+jobs:
+  linters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install cppcheck
+        run: sudo apt install cppcheck
+
+      - name: Run cppcheck
+        run: cppcheck project --enable=all --inconclusive --error-exitcode=1 -I.
+    
+      - name: Install cpplint
+        run: pip install cpplint
+
+      - name: Run cpplint
+        run: cpplint --recursive .
+
+      - name: Install gtest manually
+        run: sudo apt-get install libgtest-dev libgmock-dev &&
+             sudo apt-get install libtbb-dev &&
+             cd /usr/src/googletest/ &&
+             sudo mkdir build &&
+             cd build &&
+             sudo cmake .. &&
+             sudo make && 
+             sudo cp lib/* /usr/lib 
+        
+      - name: Configuration with clang-tidy
+        run: mkdir build &&
+             cd build &&
+             cmake DWITH_CLANG_TIDY=on .. &&
+             make 
+
+      - name: Install scan-build
+        run: pip install scan-build
+
+      - name: Default configuration
+        run: cd build &&
+             cmake .. &&
+             make 
+
+      - name: Run scan-build
+        run: cd build &&
+             scan-build ctest
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+    
+      - name: Install gtest manually
+        run: sudo apt-get install libgtest-dev libgmock-dev &&
+             sudo apt-get install libtbb-dev &&
+             cd /usr/src/googletest/ &&
+             sudo mkdir build &&
+             cd build &&
+             sudo cmake .. &&
+             sudo make && 
+             sudo cp lib/* /usr/lib 
+      
+      - name: Default configuration
+        run: mkdir build &&
+             cd build &&
+             cmake .. &&
+             make  
+      
+      - name: Run unit-tests
+        run: cd build && 
+             ctest
+
+  memtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+
+      - name: Install gtest manually
+        run: sudo apt-get install libgtest-dev libgmock-dev &&
+             sudo apt-get install libtbb-dev &&
+             cd /usr/src/googletest/ &&
+             sudo mkdir build &&
+             cd build &&
+             sudo cmake .. &&
+             sudo make && 
+             sudo cp lib/* /usr/lib 
+      
+      - name: Default configuration
+        run: mkdir build &&
+             cd build &&
+             cmake .. &&
+             make
+
+      - name: Set up environment
+        run: sudo apt update &&
+             sudo apt install -y libev-dev
+   
+      - name: Install valgrind
+        run: sudo apt install valgrind
+
+      - name: Run valgrind
+        run: cd build && 
+             valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ctest
+
+      - name: Configuration with fsanitazer
+        run:  cd build &&
+              cmake -DWITH_MEMCHECK=ON .. &&
+              make
+
+      - name: Run fsanitaze
+        run: cd build &&
+             ctest

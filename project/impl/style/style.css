@@ -1,0 +1,23 @@
+QWidget { background-color: black; }
+QWidget #currentTrack { background-color: #0b263b;}
+QWidget #optionsWindow { background-color: #1f2936; }
+QWidget #leftBoard { background-color: #17212b; }
+QPushButton { background-color: #1f2936;
+              border: none; }
+QSlider { background-color: #1f2936;
+          border: none; }
+QSlider::groove:horizontal { border: 1px solid #999999;
+                             height: 18px;
+                             border-radius: 9px; }
+QSlider::handle:horizontal { width: 18px;
+                             background-image: url(:/slider-knob.png) }
+QSlider::add-page:qlineargradient { background: lightgrey;
+                                    border-top-right-radius: 9px;
+                                    border-bottom-right-radius: 9px;
+                                    border-top-left-radius: 0px;
+                                    border-bottom-left-radius: 0px; }
+QSlider::sub-page:qlineargradient { background: blue;
+                                    border-top-right-radius: 0px;
+                                    border-bottom-right-radius: 0px;
+                                    border-top-left-radius: 9px;
+                                    border-bottom-left-radius: 9px; }
