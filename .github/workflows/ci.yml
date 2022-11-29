@@ -33,7 +33,7 @@ jobs:
       #        sudo make && 
       #        sudo cp lib/* /usr/lib 
       - name: Install qt5
-        run: sudo apt install qt5-default
+        run: sudo apt-get install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
         
       - name: Configuration with clang-tidy
         run: mkdir build &&
