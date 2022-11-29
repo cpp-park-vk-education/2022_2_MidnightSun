@@ -54,6 +54,7 @@ jobs:
 
       - name: Run scan-build
         run: cd build &&
+             cd project &&
              scan-build ./test
 
       - name: Set up environment
@@ -65,6 +66,7 @@ jobs:
 
       - name: Run valgrind
         run: cd build && 
+             cd project &&
              valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ./test
 
       - name: Configuration with fsanitazer
@@ -74,4 +76,5 @@ jobs:
 
       - name: Run fsanitaze
         run: cd build &&
+             cd project &&
              ./test
