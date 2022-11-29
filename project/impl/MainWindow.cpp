@@ -40,3 +40,7 @@ MainView::MainView()
 void MainView::show() {
     mainWindowWidget_.show();
 }
+
+void MainView::close() {
+    mainWindowWidget_.close();
+}

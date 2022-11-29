@@ -26,6 +26,7 @@ class MainView {
     MainView();
     ~MainView() = default;
     void show();
+    void close();
   private:
     MainWindowWidget mainWindowWidget_;
     TitleBarButtonsWidget titleBarButtonsWidget_;
