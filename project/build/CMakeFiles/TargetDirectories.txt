@@ -1,4 +1,0 @@
-/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles/test.dir
-/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles/edit_cache.dir
-/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles/rebuild_cache.dir
-/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles/test_autogen.dir
