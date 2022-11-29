@@ -1,7 +1,9 @@
-#include "leftBoard.hpp"
+#include "LeftWall.hpp"
 
 #define LEFT_BOARD_WIDTH 200
 #define LEFT_BOARD_HEIGHT 600
+
+//////////////////////////////////////// Left Board Widget ////////////////////////////////////////
 
 LeftBoardWidget::LeftBoardWidget(QWidget* parent) 
                                  : leftBoard_(new QWidget(parent)) {
@@ -11,9 +13,15 @@ LeftBoardWidget::LeftBoardWidget(QWidget* parent)
                                   LEFT_BOARD_HEIGHT));
 }
 
-LeftBoardWidget::~LeftBoardWidget() {}
+LeftBoardWidget::~LeftBoardWidget() {
+
+}
+
+//////////////////////////////////////// Left Board View ////////////////////////////////////////
 
 LeftBoardView::LeftBoardView(QWidget* parent) 
                   : leftBoardWidget_(parent) {}
 
-LeftBoardView::~LeftBoardView() {}
+LeftBoardView::~LeftBoardView() {
+
+}

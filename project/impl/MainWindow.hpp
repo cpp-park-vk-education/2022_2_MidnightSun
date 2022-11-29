@@ -5,9 +5,9 @@
 #include <QApplication>
 #include <QtGui/QMouseEvent>
 
-#include "currentTrack.hpp"
-#include "optionsWindow.hpp"
-#include "leftBoard.hpp"
+#include "CurrentTrack.hpp"
+#include "TitleBarButtons.hpp"
+#include "LeftWall.hpp"
 
 class MainWindowWidget : public QWidget {
  Q_OBJECT
@@ -28,10 +28,8 @@ class MainView {
     void show();
   private:
     MainWindowWidget mainWindowWidget_;
+    TitleBarButtonsWidget optionWindow_;
 
     CurrentTrackView currentTrackView_;
-
-    OptionsWindowWidget optionWindow_;
-
     LeftBoardView leftBoardView_;
 };

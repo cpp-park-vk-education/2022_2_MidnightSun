@@ -2,6 +2,8 @@
 
 #include <QWidget>
 
+//////////////////////////////////////// Left Board Widget ////////////////////////////////////////
+
 class LeftBoardWidget {
   public:
     explicit LeftBoardWidget(QWidget* parent);
@@ -9,6 +11,8 @@ class LeftBoardWidget {
   private:
     QWidget* leftBoard_; 
 };
+
+//////////////////////////////////////// Left Board View ////////////////////////////////////////
 
 class LeftBoardView {
  public:

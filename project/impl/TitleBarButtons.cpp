@@ -1,4 +1,4 @@
-#include "optionsWindow.hpp"
+#include "TitleBarButtons.hpp"
 
 #define OPTIONS_WINDOW_WIDTH 800 
 #define OPTIONS_WINDOW_HEIGHT 25
@@ -14,21 +14,21 @@
 #define COLLAPSE_TO_WINDOW_Y 0
 #define ROLLUP_Y 0
 
-OptionsWindowWidget::OptionsWindowWidget(QWidget* parent) 
-    : optionsWindow_(new QWidget(parent)) {
+TitleBarButtonsWidget::TitleBarButtonsWidget(QWidget* parent) 
+    : titleBarButtons_(new QWidget(parent)) {
     
-    optionsWindow_->setObjectName("optionsWindow");
-    optionsWindow_->setGeometry(QRect(0, 0, OPTIONS_WINDOW_WIDTH, OPTIONS_WINDOW_HEIGHT));
+    titleBarButtons_->setObjectName("optionsWindow");
+    titleBarButtons_->setGeometry(QRect(0, 0, OPTIONS_WINDOW_WIDTH, OPTIONS_WINDOW_HEIGHT));
 
-    close_ = new QPushButton(optionsWindow_);
+    close_ = new QPushButton(titleBarButtons_);
     close_->setGeometry(QRect(CLOSE_X, CLOSE_Y, 
                               BUTTON_WIDTH, BUTTON_HEIGHT));
 
-    collapseToWindow_ = new QPushButton(optionsWindow_);
+    collapseToWindow_ = new QPushButton(titleBarButtons_);
     collapseToWindow_->setGeometry(QRect(COLLAPSE_TO_WINDOW_X, COLLAPSE_TO_WINDOW_Y, 
                                          BUTTON_WIDTH, BUTTON_HEIGHT));
 
-    rollup_ = new QPushButton(optionsWindow_);
+    rollup_ = new QPushButton(titleBarButtons_);
     rollup_->setGeometry(QRect(ROLLUP_X, ROLLUP_Y, 
                                BUTTON_WIDTH, BUTTON_HEIGHT));
 
@@ -48,9 +48,9 @@ OptionsWindowWidget::OptionsWindowWidget(QWidget* parent)
     close_->setIconSize(QSize(25, 25));
 }
 
-OptionsWindowWidget::~OptionsWindowWidget() {}
+TitleBarButtonsWidget::~TitleBarButtonsWidget() {}
 
-OptionsWindowView::OptionsWindowView(QWidget* parent) 
-    : optionsWindowWidget_(parent) {}
+TitleBarButtonsView::TitleBarButtonsView(QWidget* parent) 
+    : titleBarButtonsWidget_(parent) {}
 
-OptionsWindowView::~OptionsWindowView() {}
+TitleBarButtonsView::~TitleBarButtonsView() {}

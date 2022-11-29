@@ -36,9 +36,11 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Gui REQUIRED)
+find_package(Qt5Multimedia REQUIRED)
 
 include_directories(${PROJECT_SOURCES_DIR}/project/test)
 include_directories(${Qt5Widgets_INCLUDES})
+
 add_definitions(${Qt5Widgets_DEFINITIONS})
 
 set(CMAKE_CXX_FLAGS "${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
@@ -47,4 +49,4 @@ qt5_wrap_ui(UIS_HDRS
 
 
 add_executable(test ${UIS_HDRS} project/test/main.cpp project/test/abc.cpp)
-target_link_libraries(test ${Qt5Widgets_LIBRARIES})
+target_link_libraries(QtTesting Qt5::Widgets Qt5::Multimedia)

@@ -97,86 +97,104 @@ CMakeFiles/test.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcussss1/2022_2_MidnightSun/project/main.cpp -o CMakeFiles/test.dir/main.cpp.s
 
-CMakeFiles/test.dir/impl/mainWindow.cpp.o: CMakeFiles/test.dir/flags.make
-CMakeFiles/test.dir/impl/mainWindow.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/impl/mainWindow.cpp
-CMakeFiles/test.dir/impl/mainWindow.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/test.dir/impl/mainWindow.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/impl/mainWindow.cpp.o -MF CMakeFiles/test.dir/impl/mainWindow.cpp.o.d -o CMakeFiles/test.dir/impl/mainWindow.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/mainWindow.cpp
+CMakeFiles/test.dir/impl/MainWindow.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/impl/MainWindow.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/impl/MainWindow.cpp
+CMakeFiles/test.dir/impl/MainWindow.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/test.dir/impl/MainWindow.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/impl/MainWindow.cpp.o -MF CMakeFiles/test.dir/impl/MainWindow.cpp.o.d -o CMakeFiles/test.dir/impl/MainWindow.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/MainWindow.cpp
 
-CMakeFiles/test.dir/impl/mainWindow.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/impl/mainWindow.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcussss1/2022_2_MidnightSun/project/impl/mainWindow.cpp > CMakeFiles/test.dir/impl/mainWindow.cpp.i
+CMakeFiles/test.dir/impl/MainWindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/impl/MainWindow.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcussss1/2022_2_MidnightSun/project/impl/MainWindow.cpp > CMakeFiles/test.dir/impl/MainWindow.cpp.i
 
-CMakeFiles/test.dir/impl/mainWindow.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/impl/mainWindow.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcussss1/2022_2_MidnightSun/project/impl/mainWindow.cpp -o CMakeFiles/test.dir/impl/mainWindow.cpp.s
+CMakeFiles/test.dir/impl/MainWindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/impl/MainWindow.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcussss1/2022_2_MidnightSun/project/impl/MainWindow.cpp -o CMakeFiles/test.dir/impl/MainWindow.cpp.s
 
-CMakeFiles/test.dir/impl/currentTrack.cpp.o: CMakeFiles/test.dir/flags.make
-CMakeFiles/test.dir/impl/currentTrack.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/impl/currentTrack.cpp
-CMakeFiles/test.dir/impl/currentTrack.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/test.dir/impl/currentTrack.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/impl/currentTrack.cpp.o -MF CMakeFiles/test.dir/impl/currentTrack.cpp.o.d -o CMakeFiles/test.dir/impl/currentTrack.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/currentTrack.cpp
+CMakeFiles/test.dir/impl/CurrentTrack.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/impl/CurrentTrack.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/impl/CurrentTrack.cpp
+CMakeFiles/test.dir/impl/CurrentTrack.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/test.dir/impl/CurrentTrack.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/impl/CurrentTrack.cpp.o -MF CMakeFiles/test.dir/impl/CurrentTrack.cpp.o.d -o CMakeFiles/test.dir/impl/CurrentTrack.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/CurrentTrack.cpp
 
-CMakeFiles/test.dir/impl/currentTrack.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/impl/currentTrack.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcussss1/2022_2_MidnightSun/project/impl/currentTrack.cpp > CMakeFiles/test.dir/impl/currentTrack.cpp.i
+CMakeFiles/test.dir/impl/CurrentTrack.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/impl/CurrentTrack.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcussss1/2022_2_MidnightSun/project/impl/CurrentTrack.cpp > CMakeFiles/test.dir/impl/CurrentTrack.cpp.i
 
-CMakeFiles/test.dir/impl/currentTrack.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/impl/currentTrack.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcussss1/2022_2_MidnightSun/project/impl/currentTrack.cpp -o CMakeFiles/test.dir/impl/currentTrack.cpp.s
+CMakeFiles/test.dir/impl/CurrentTrack.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/impl/CurrentTrack.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcussss1/2022_2_MidnightSun/project/impl/CurrentTrack.cpp -o CMakeFiles/test.dir/impl/CurrentTrack.cpp.s
 
-CMakeFiles/test.dir/impl/optionsWindow.cpp.o: CMakeFiles/test.dir/flags.make
-CMakeFiles/test.dir/impl/optionsWindow.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/impl/optionsWindow.cpp
-CMakeFiles/test.dir/impl/optionsWindow.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/test.dir/impl/optionsWindow.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/impl/optionsWindow.cpp.o -MF CMakeFiles/test.dir/impl/optionsWindow.cpp.o.d -o CMakeFiles/test.dir/impl/optionsWindow.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/optionsWindow.cpp
+CMakeFiles/test.dir/impl/TitleBarButtons.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/impl/TitleBarButtons.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/impl/TitleBarButtons.cpp
+CMakeFiles/test.dir/impl/TitleBarButtons.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/test.dir/impl/TitleBarButtons.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/impl/TitleBarButtons.cpp.o -MF CMakeFiles/test.dir/impl/TitleBarButtons.cpp.o.d -o CMakeFiles/test.dir/impl/TitleBarButtons.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/TitleBarButtons.cpp
 
-CMakeFiles/test.dir/impl/optionsWindow.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/impl/optionsWindow.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcussss1/2022_2_MidnightSun/project/impl/optionsWindow.cpp > CMakeFiles/test.dir/impl/optionsWindow.cpp.i
+CMakeFiles/test.dir/impl/TitleBarButtons.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/impl/TitleBarButtons.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcussss1/2022_2_MidnightSun/project/impl/TitleBarButtons.cpp > CMakeFiles/test.dir/impl/TitleBarButtons.cpp.i
 
-CMakeFiles/test.dir/impl/optionsWindow.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/impl/optionsWindow.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcussss1/2022_2_MidnightSun/project/impl/optionsWindow.cpp -o CMakeFiles/test.dir/impl/optionsWindow.cpp.s
+CMakeFiles/test.dir/impl/TitleBarButtons.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/impl/TitleBarButtons.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcussss1/2022_2_MidnightSun/project/impl/TitleBarButtons.cpp -o CMakeFiles/test.dir/impl/TitleBarButtons.cpp.s
 
-CMakeFiles/test.dir/impl/leftBoard.cpp.o: CMakeFiles/test.dir/flags.make
-CMakeFiles/test.dir/impl/leftBoard.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/impl/leftBoard.cpp
-CMakeFiles/test.dir/impl/leftBoard.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/test.dir/impl/leftBoard.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/impl/leftBoard.cpp.o -MF CMakeFiles/test.dir/impl/leftBoard.cpp.o.d -o CMakeFiles/test.dir/impl/leftBoard.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/leftBoard.cpp
+CMakeFiles/test.dir/impl/LeftWall.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/impl/LeftWall.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/impl/LeftWall.cpp
+CMakeFiles/test.dir/impl/LeftWall.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/test.dir/impl/LeftWall.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/impl/LeftWall.cpp.o -MF CMakeFiles/test.dir/impl/LeftWall.cpp.o.d -o CMakeFiles/test.dir/impl/LeftWall.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/LeftWall.cpp
 
-CMakeFiles/test.dir/impl/leftBoard.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/impl/leftBoard.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcussss1/2022_2_MidnightSun/project/impl/leftBoard.cpp > CMakeFiles/test.dir/impl/leftBoard.cpp.i
+CMakeFiles/test.dir/impl/LeftWall.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/impl/LeftWall.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcussss1/2022_2_MidnightSun/project/impl/LeftWall.cpp > CMakeFiles/test.dir/impl/LeftWall.cpp.i
 
-CMakeFiles/test.dir/impl/leftBoard.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/impl/leftBoard.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcussss1/2022_2_MidnightSun/project/impl/leftBoard.cpp -o CMakeFiles/test.dir/impl/leftBoard.cpp.s
+CMakeFiles/test.dir/impl/LeftWall.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/impl/LeftWall.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcussss1/2022_2_MidnightSun/project/impl/LeftWall.cpp -o CMakeFiles/test.dir/impl/LeftWall.cpp.s
+
+CMakeFiles/test.dir/lib/InterfaceButtons.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/lib/InterfaceButtons.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/lib/InterfaceButtons.cpp
+CMakeFiles/test.dir/lib/InterfaceButtons.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/test.dir/lib/InterfaceButtons.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/lib/InterfaceButtons.cpp.o -MF CMakeFiles/test.dir/lib/InterfaceButtons.cpp.o.d -o CMakeFiles/test.dir/lib/InterfaceButtons.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/lib/InterfaceButtons.cpp
+
+CMakeFiles/test.dir/lib/InterfaceButtons.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/lib/InterfaceButtons.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcussss1/2022_2_MidnightSun/project/lib/InterfaceButtons.cpp > CMakeFiles/test.dir/lib/InterfaceButtons.cpp.i
+
+CMakeFiles/test.dir/lib/InterfaceButtons.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/lib/InterfaceButtons.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcussss1/2022_2_MidnightSun/project/lib/InterfaceButtons.cpp -o CMakeFiles/test.dir/lib/InterfaceButtons.cpp.s
 
 # Object files for target test
 test_OBJECTS = \
 "CMakeFiles/test.dir/test_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/test.dir/main.cpp.o" \
-"CMakeFiles/test.dir/impl/mainWindow.cpp.o" \
-"CMakeFiles/test.dir/impl/currentTrack.cpp.o" \
-"CMakeFiles/test.dir/impl/optionsWindow.cpp.o" \
-"CMakeFiles/test.dir/impl/leftBoard.cpp.o"
+"CMakeFiles/test.dir/impl/MainWindow.cpp.o" \
+"CMakeFiles/test.dir/impl/CurrentTrack.cpp.o" \
+"CMakeFiles/test.dir/impl/TitleBarButtons.cpp.o" \
+"CMakeFiles/test.dir/impl/LeftWall.cpp.o" \
+"CMakeFiles/test.dir/lib/InterfaceButtons.cpp.o"
 
 # External object files for target test
 test_EXTERNAL_OBJECTS =
 
 test: CMakeFiles/test.dir/test_autogen/mocs_compilation.cpp.o
 test: CMakeFiles/test.dir/main.cpp.o
-test: CMakeFiles/test.dir/impl/mainWindow.cpp.o
-test: CMakeFiles/test.dir/impl/currentTrack.cpp.o
-test: CMakeFiles/test.dir/impl/optionsWindow.cpp.o
-test: CMakeFiles/test.dir/impl/leftBoard.cpp.o
+test: CMakeFiles/test.dir/impl/MainWindow.cpp.o
+test: CMakeFiles/test.dir/impl/CurrentTrack.cpp.o
+test: CMakeFiles/test.dir/impl/TitleBarButtons.cpp.o
+test: CMakeFiles/test.dir/impl/LeftWall.cpp.o
+test: CMakeFiles/test.dir/lib/InterfaceButtons.cpp.o
 test: CMakeFiles/test.dir/build.make
 test: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
+test: /usr/lib/x86_64-linux-gnu/libQt5Multimedia.so.5.12.8
 test: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
+test: /usr/lib/x86_64-linux-gnu/libQt5Network.so.5.12.8
 test: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
 test: CMakeFiles/test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/marcussss1/2022_2_MidnightSun/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

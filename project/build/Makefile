@@ -142,101 +142,125 @@ test_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_autogen.dir/build.make CMakeFiles/test_autogen.dir/build
 .PHONY : test_autogen/fast
 
-impl/currentTrack.o: impl/currentTrack.cpp.o
-.PHONY : impl/currentTrack.o
+impl/CurrentTrack.o: impl/CurrentTrack.cpp.o
+.PHONY : impl/CurrentTrack.o
 
 # target to build an object file
-impl/currentTrack.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/currentTrack.cpp.o
-.PHONY : impl/currentTrack.cpp.o
+impl/CurrentTrack.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/CurrentTrack.cpp.o
+.PHONY : impl/CurrentTrack.cpp.o
 
-impl/currentTrack.i: impl/currentTrack.cpp.i
-.PHONY : impl/currentTrack.i
+impl/CurrentTrack.i: impl/CurrentTrack.cpp.i
+.PHONY : impl/CurrentTrack.i
 
 # target to preprocess a source file
-impl/currentTrack.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/currentTrack.cpp.i
-.PHONY : impl/currentTrack.cpp.i
+impl/CurrentTrack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/CurrentTrack.cpp.i
+.PHONY : impl/CurrentTrack.cpp.i
 
-impl/currentTrack.s: impl/currentTrack.cpp.s
-.PHONY : impl/currentTrack.s
+impl/CurrentTrack.s: impl/CurrentTrack.cpp.s
+.PHONY : impl/CurrentTrack.s
 
 # target to generate assembly for a file
-impl/currentTrack.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/currentTrack.cpp.s
-.PHONY : impl/currentTrack.cpp.s
+impl/CurrentTrack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/CurrentTrack.cpp.s
+.PHONY : impl/CurrentTrack.cpp.s
 
-impl/leftBoard.o: impl/leftBoard.cpp.o
-.PHONY : impl/leftBoard.o
+impl/LeftWall.o: impl/LeftWall.cpp.o
+.PHONY : impl/LeftWall.o
 
 # target to build an object file
-impl/leftBoard.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/leftBoard.cpp.o
-.PHONY : impl/leftBoard.cpp.o
+impl/LeftWall.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/LeftWall.cpp.o
+.PHONY : impl/LeftWall.cpp.o
 
-impl/leftBoard.i: impl/leftBoard.cpp.i
-.PHONY : impl/leftBoard.i
+impl/LeftWall.i: impl/LeftWall.cpp.i
+.PHONY : impl/LeftWall.i
 
 # target to preprocess a source file
-impl/leftBoard.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/leftBoard.cpp.i
-.PHONY : impl/leftBoard.cpp.i
+impl/LeftWall.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/LeftWall.cpp.i
+.PHONY : impl/LeftWall.cpp.i
 
-impl/leftBoard.s: impl/leftBoard.cpp.s
-.PHONY : impl/leftBoard.s
+impl/LeftWall.s: impl/LeftWall.cpp.s
+.PHONY : impl/LeftWall.s
 
 # target to generate assembly for a file
-impl/leftBoard.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/leftBoard.cpp.s
-.PHONY : impl/leftBoard.cpp.s
+impl/LeftWall.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/LeftWall.cpp.s
+.PHONY : impl/LeftWall.cpp.s
 
-impl/mainWindow.o: impl/mainWindow.cpp.o
-.PHONY : impl/mainWindow.o
+impl/MainWindow.o: impl/MainWindow.cpp.o
+.PHONY : impl/MainWindow.o
 
 # target to build an object file
-impl/mainWindow.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/mainWindow.cpp.o
-.PHONY : impl/mainWindow.cpp.o
+impl/MainWindow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/MainWindow.cpp.o
+.PHONY : impl/MainWindow.cpp.o
 
-impl/mainWindow.i: impl/mainWindow.cpp.i
-.PHONY : impl/mainWindow.i
+impl/MainWindow.i: impl/MainWindow.cpp.i
+.PHONY : impl/MainWindow.i
 
 # target to preprocess a source file
-impl/mainWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/mainWindow.cpp.i
-.PHONY : impl/mainWindow.cpp.i
+impl/MainWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/MainWindow.cpp.i
+.PHONY : impl/MainWindow.cpp.i
 
-impl/mainWindow.s: impl/mainWindow.cpp.s
-.PHONY : impl/mainWindow.s
+impl/MainWindow.s: impl/MainWindow.cpp.s
+.PHONY : impl/MainWindow.s
 
 # target to generate assembly for a file
-impl/mainWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/mainWindow.cpp.s
-.PHONY : impl/mainWindow.cpp.s
+impl/MainWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/MainWindow.cpp.s
+.PHONY : impl/MainWindow.cpp.s
 
-impl/optionsWindow.o: impl/optionsWindow.cpp.o
-.PHONY : impl/optionsWindow.o
+impl/TitleBarButtons.o: impl/TitleBarButtons.cpp.o
+.PHONY : impl/TitleBarButtons.o
 
 # target to build an object file
-impl/optionsWindow.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/optionsWindow.cpp.o
-.PHONY : impl/optionsWindow.cpp.o
+impl/TitleBarButtons.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/TitleBarButtons.cpp.o
+.PHONY : impl/TitleBarButtons.cpp.o
 
-impl/optionsWindow.i: impl/optionsWindow.cpp.i
-.PHONY : impl/optionsWindow.i
+impl/TitleBarButtons.i: impl/TitleBarButtons.cpp.i
+.PHONY : impl/TitleBarButtons.i
 
 # target to preprocess a source file
-impl/optionsWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/optionsWindow.cpp.i
-.PHONY : impl/optionsWindow.cpp.i
+impl/TitleBarButtons.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/TitleBarButtons.cpp.i
+.PHONY : impl/TitleBarButtons.cpp.i
 
-impl/optionsWindow.s: impl/optionsWindow.cpp.s
-.PHONY : impl/optionsWindow.s
+impl/TitleBarButtons.s: impl/TitleBarButtons.cpp.s
+.PHONY : impl/TitleBarButtons.s
 
 # target to generate assembly for a file
-impl/optionsWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/optionsWindow.cpp.s
-.PHONY : impl/optionsWindow.cpp.s
+impl/TitleBarButtons.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/impl/TitleBarButtons.cpp.s
+.PHONY : impl/TitleBarButtons.cpp.s
+
+lib/InterfaceButtons.o: lib/InterfaceButtons.cpp.o
+.PHONY : lib/InterfaceButtons.o
+
+# target to build an object file
+lib/InterfaceButtons.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/lib/InterfaceButtons.cpp.o
+.PHONY : lib/InterfaceButtons.cpp.o
+
+lib/InterfaceButtons.i: lib/InterfaceButtons.cpp.i
+.PHONY : lib/InterfaceButtons.i
+
+# target to preprocess a source file
+lib/InterfaceButtons.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/lib/InterfaceButtons.cpp.i
+.PHONY : lib/InterfaceButtons.cpp.i
+
+lib/InterfaceButtons.s: lib/InterfaceButtons.cpp.s
+.PHONY : lib/InterfaceButtons.s
+
+# target to generate assembly for a file
+lib/InterfaceButtons.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/lib/InterfaceButtons.cpp.s
+.PHONY : lib/InterfaceButtons.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -296,18 +320,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test_autogen"
 	@echo "... test"
-	@echo "... impl/currentTrack.o"
-	@echo "... impl/currentTrack.i"
-	@echo "... impl/currentTrack.s"
-	@echo "... impl/leftBoard.o"
-	@echo "... impl/leftBoard.i"
-	@echo "... impl/leftBoard.s"
-	@echo "... impl/mainWindow.o"
-	@echo "... impl/mainWindow.i"
-	@echo "... impl/mainWindow.s"
-	@echo "... impl/optionsWindow.o"
-	@echo "... impl/optionsWindow.i"
-	@echo "... impl/optionsWindow.s"
+	@echo "... impl/CurrentTrack.o"
+	@echo "... impl/CurrentTrack.i"
+	@echo "... impl/CurrentTrack.s"
+	@echo "... impl/LeftWall.o"
+	@echo "... impl/LeftWall.i"
+	@echo "... impl/LeftWall.s"
+	@echo "... impl/MainWindow.o"
+	@echo "... impl/MainWindow.i"
+	@echo "... impl/MainWindow.s"
+	@echo "... impl/TitleBarButtons.o"
+	@echo "... impl/TitleBarButtons.i"
+	@echo "... impl/TitleBarButtons.s"
+	@echo "... lib/InterfaceButtons.o"
+	@echo "... lib/InterfaceButtons.i"
+	@echo "... lib/InterfaceButtons.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -1,10 +1,10 @@
 
 
-name: my-workflow-name
+name: d.litvak-workflow
 
 on:
   push:
-    branches: [ dev_Litvak_RK2 ]
+    branches: [ dev/d.litvak/tests-carcass-uml ]
 jobs:
   linters:
     runs-on: ubuntu-latest

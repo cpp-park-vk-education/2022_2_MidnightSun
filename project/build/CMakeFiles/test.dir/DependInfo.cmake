@@ -8,10 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/marcussss1/2022_2_MidnightSun/project/impl/currentTrack.cpp" "CMakeFiles/test.dir/impl/currentTrack.cpp.o" "gcc" "CMakeFiles/test.dir/impl/currentTrack.cpp.o.d"
-  "/home/marcussss1/2022_2_MidnightSun/project/impl/leftBoard.cpp" "CMakeFiles/test.dir/impl/leftBoard.cpp.o" "gcc" "CMakeFiles/test.dir/impl/leftBoard.cpp.o.d"
-  "/home/marcussss1/2022_2_MidnightSun/project/impl/mainWindow.cpp" "CMakeFiles/test.dir/impl/mainWindow.cpp.o" "gcc" "CMakeFiles/test.dir/impl/mainWindow.cpp.o.d"
-  "/home/marcussss1/2022_2_MidnightSun/project/impl/optionsWindow.cpp" "CMakeFiles/test.dir/impl/optionsWindow.cpp.o" "gcc" "CMakeFiles/test.dir/impl/optionsWindow.cpp.o.d"
+  "/home/marcussss1/2022_2_MidnightSun/project/impl/CurrentTrack.cpp" "CMakeFiles/test.dir/impl/CurrentTrack.cpp.o" "gcc" "CMakeFiles/test.dir/impl/CurrentTrack.cpp.o.d"
+  "/home/marcussss1/2022_2_MidnightSun/project/impl/LeftWall.cpp" "CMakeFiles/test.dir/impl/LeftWall.cpp.o" "gcc" "CMakeFiles/test.dir/impl/LeftWall.cpp.o.d"
+  "/home/marcussss1/2022_2_MidnightSun/project/impl/MainWindow.cpp" "CMakeFiles/test.dir/impl/MainWindow.cpp.o" "gcc" "CMakeFiles/test.dir/impl/MainWindow.cpp.o.d"
+  "/home/marcussss1/2022_2_MidnightSun/project/impl/TitleBarButtons.cpp" "CMakeFiles/test.dir/impl/TitleBarButtons.cpp.o" "gcc" "CMakeFiles/test.dir/impl/TitleBarButtons.cpp.o.d"
+  "/home/marcussss1/2022_2_MidnightSun/project/lib/InterfaceButtons.cpp" "CMakeFiles/test.dir/lib/InterfaceButtons.cpp.o" "gcc" "CMakeFiles/test.dir/lib/InterfaceButtons.cpp.o.d"
   "/home/marcussss1/2022_2_MidnightSun/project/main.cpp" "CMakeFiles/test.dir/main.cpp.o" "gcc" "CMakeFiles/test.dir/main.cpp.o.d"
   "/home/marcussss1/2022_2_MidnightSun/project/build/test_autogen/mocs_compilation.cpp" "CMakeFiles/test.dir/test_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/test.dir/test_autogen/mocs_compilation.cpp.o.d"
   )

@@ -1,8 +1,8 @@
-#include "mainWindow.hpp"
+#include "MainWindow.hpp"
 
-#include <QStyle>
-#include <QPushButton>
 #include <QBoxLayout>
+#include <QPushButton>
+#include <QStyle>
 
 #define MAIN_WINDOW_WIDTH 800 
 #define MAIN_WINDOW_HEIGHT 600
