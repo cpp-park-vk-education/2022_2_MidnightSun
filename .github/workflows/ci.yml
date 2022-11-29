@@ -52,11 +52,6 @@ jobs:
              cmake .. &&
              make
 
-      - name: Run scan-build
-        run: cd build &&
-             cd project &&
-             scan-build ./test
-
       - name: Set up environment
         run: sudo apt update &&
              sudo apt install -y libev-dev
