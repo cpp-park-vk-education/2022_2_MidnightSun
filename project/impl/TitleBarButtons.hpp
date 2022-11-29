@@ -1,7 +1,37 @@
 #pragma once
 
+#include <QMainWindow>
 #include <QPushButton>
 #include <QWidget>
+
+class ITitleBarButton : public QMainWindow {
+ Q_OBJECT
+ public:
+    friend class CurrentTrackView;
+    explicit ITitleBarButton(QWidget* parent = nullptr);
+    ~ITitleBarButton();
+
+    void setStyle(int buttonX, int buttonY,
+                  int buttonWidth, int buttonHeight,
+                  const char* buttonName);
+ private:
+    QPushButton* button_;
+};
+
+struct CloseButton : public ITitleBarButton {
+ public:
+    explicit CloseButton(QWidget* parent);
+};
+
+struct ZoomButton : public ITitleBarButton {
+ public:
+    explicit ZoomButton(QWidget* parent);
+};
+
+struct MinimizeButton : public ITitleBarButton {
+ public:
+    explicit MinimizeButton(QWidget* parent);
+};
 
 class TitleBarButtonsWidget {
  public:
@@ -15,11 +45,11 @@ class TitleBarButtonsWidget {
     TitleBarButtonsWidget& operator=(TitleBarButtonsWidget&& rhs) = delete;
 
  private:
-    QWidget* titleBarButtons_;
+    QWidget* titleBarButtonsWidget_;
 
-    QPushButton* close_;
-    QPushButton* zoom_;
-    QPushButton* minimize_;
+    CloseButton close_;
+    ZoomButton zoom_;
+    MinimizeButton minimize_;
 };
 
 class TitleBarButtonsView {

@@ -1,58 +1,81 @@
 #include "TitleBarButtons.hpp"
 
-const int OPTIONS_WINDOW_WIDTH = 800;
-const int OPTIONS_WINDOW_HEIGHT = 25;
-
-const int BUTTON_WIDTH = 30;
-const int BUTTON_HEIGHT = 25;
+//////////////////////////////////////// Coordinats x ////////////////////////////////////////
 
 const int CLOSE_X = 765;
-const int COLLAPSE_TO_WINDOW_X = 730;
-const int ROLLUP_X = 690;
+const int ZOOM_X = 730;
+const int MINIMIZE_X = 690;
+
+//////////////////////////////////////// Coordinats y ////////////////////////////////////////
 
 const int CLOSE_Y = 0;
-const int COLLAPSE_TO_WINDOW_Y = 0;
-const int ROLLUP_Y = 0;
+const int ZOOM_Y = 0;
+const int MINIMIZE_Y = 0;
+
+//////////////////////////////////////// Widths ////////////////////////////////////////
+
+const int OPTIONS_WINDOW_WIDTH = 800;
+const int BUTTON_WIDTH = 30;
+
+//////////////////////////////////////// Heights ////////////////////////////////////////
+
+const int OPTIONS_WINDOW_HEIGHT = 25;
+const int BUTTON_HEIGHT = 25;
+
+//////////////////////////////////////// Names ////////////////////////////////////////
+
+const char* CLOSE_NAME = "close";
+const char* ZOOM_NAME = "zoom";
+const char* MINIMIZE_NAME = "minimize";
+
+ITitleBarButton::ITitleBarButton(QWidget* parent)
+    : button_(new QPushButton(parent)) {}
+
+ITitleBarButton::~ITitleBarButton() {
+    delete button_;
+}
+
+void ITitleBarButton::setStyle(int buttonX, int buttonY,
+                               int buttonWidth, int buttonHeight,
+                               const char* buttonName) {
+    button_->setObjectName(buttonName);
+    button_->setGeometry(QRect(buttonX, buttonY,
+                               buttonWidth, buttonHeight));
+}
+
+CloseButton::CloseButton(QWidget* parent)
+    : ITitleBarButton(parent) {
+    setStyle(CLOSE_X, CLOSE_Y,
+             BUTTON_WIDTH, BUTTON_HEIGHT,
+             CLOSE_NAME);
+}
+
+ZoomButton::ZoomButton(QWidget* parent)
+    : ITitleBarButton(parent) {
+    setStyle(ZOOM_X, ZOOM_Y,
+             BUTTON_WIDTH, BUTTON_HEIGHT,
+             ZOOM_NAME);
+}
+
+MinimizeButton::MinimizeButton(QWidget* parent)
+    : ITitleBarButton(parent) {
+    setStyle(MINIMIZE_X, MINIMIZE_Y,
+             BUTTON_WIDTH, BUTTON_HEIGHT,
+             MINIMIZE_NAME);
+}
 
 TitleBarButtonsWidget::TitleBarButtonsWidget(QWidget* parent)
-    : titleBarButtons_(new QWidget(parent)) {
+    : titleBarButtonsWidget_(new QWidget(parent)),
+      close_(parent),
+      zoom_(parent),
+      minimize_(parent) {
 
-    titleBarButtons_->setObjectName("optionsWindow");
-    titleBarButtons_->setGeometry(QRect(0, 0, OPTIONS_WINDOW_WIDTH, OPTIONS_WINDOW_HEIGHT));
-
-    close_ = new QPushButton(titleBarButtons_);
-    close_->setGeometry(QRect(CLOSE_X, CLOSE_Y,
-                              BUTTON_WIDTH, BUTTON_HEIGHT));
-
-    zoom_ = new QPushButton(titleBarButtons_);
-    zoom_->setGeometry(QRect(COLLAPSE_TO_WINDOW_X, COLLAPSE_TO_WINDOW_Y,
-                             BUTTON_WIDTH, BUTTON_HEIGHT));
-
-    minimize_ = new QPushButton(titleBarButtons_);
-    minimize_->setGeometry(QRect(ROLLUP_X, ROLLUP_Y,
-                                 BUTTON_WIDTH, BUTTON_HEIGHT));
-
-    QPixmap f("/home/marcussss1/2022_2_MidnightSun/project/impl/icons/rollup.png");
-    QIcon e(f);
-    minimize_->setIcon(e);
-    minimize_->setIconSize(QSize(25, 25));
-
-    QPixmap c("/home/marcussss1/2022_2_MidnightSun/project/impl/icons/collapseToWindow.png");
-    QIcon d(c);
-    zoom_->setIcon(d);
-    zoom_->setIconSize(QSize(25, 25));
-
-    QPixmap a("/home/marcussss1/2022_2_MidnightSun/project/impl/icons/close.png");
-    QIcon b(a);
-    close_->setIcon(b);
-    close_->setIconSize(QSize(25, 25));
+    titleBarButtonsWidget_->setObjectName("optionsWindow");
+    titleBarButtonsWidget_->setGeometry(QRect(0, 0, OPTIONS_WINDOW_WIDTH, OPTIONS_WINDOW_HEIGHT));
 }
 
 TitleBarButtonsWidget::~TitleBarButtonsWidget() {
-    delete titleBarButtons_;
-    delete close_;
-    delete zoom_;
-    delete minimize_;
+    delete titleBarButtonsWidget_;
 }
 
 TitleBarButtonsView::TitleBarButtonsView(QWidget* parent)

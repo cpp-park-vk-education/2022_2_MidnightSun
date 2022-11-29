@@ -5,7 +5,9 @@ QWidget#leftBoard { background-color: #17212b; }
 QPushButton { background-color: #1f2936;
               border: none; }
 
-/* сделать то что снизу и с кнопками закрыть, развернуть, свернуть */
+QPushButton#close { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/close.png); }     
+QPushButton#zoom { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/zoom.png); }     
+QPushButton#minimize { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/minimize.png); }     
 
 QPushButton#shuffle { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/shuffle.png); }            
 QPushButton#previousTrack { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/previousTrack.png); } 

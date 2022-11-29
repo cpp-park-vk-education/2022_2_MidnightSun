@@ -41,32 +41,6 @@ const char* MUTE_NAME = "mute";
 
 //////////////////////////////////////// Current Track Buttons ////////////////////////////////////////
 
-// IButton::IButton(QWidget* parent)
-//     : button_(new QPushButton(parent)) {}
-
-// IButton::~IButton() {
-
-// }
-
-// CurrentTrackWidget::CurrentTrackWidget(QWidget* parent)
-//     : currentTrackWidget_(new QWidget(parent)) {
-//     currentTrackWidget_->setObjectName("currentTrackWidget");
-//     currentTrackWidget_->setGeometry(QRect(CURRENT_TRACK_WIDGET_X,
-//                                            CURRENT_TRACK_WIDGET_Y,
-//                                            CURRENT_TRACK_WIDGET_WIDTH,
-//                                            CURRENT_TRACK_WIDGET_HEIGHT));
-// }
-
-// CurrentTrackWidget::~CurrentTrackWidget() {}
-
-// void IButton::setStyle(int buttonX, int buttonY,
-//                        int buttonWidth, int buttonHeight,
-//                        const char* buttonName) {
-//     button_->setObjectName(buttonName);
-//     button_->setGeometry(QRect(buttonX, buttonY,
-//                                buttonWidth, buttonHeight));
-// }
-
 IButton::IButton(QWidget* parent)
     : button_(new QPushButton(parent)) {}
 
@@ -246,12 +220,12 @@ CurrentTrackView::CurrentTrackView(QWidget* parent)
 
 // Упрощенная запись кнопок
 
-    auto shuffle = baseFunctionalButtons_.shuffle_.button_;
-    auto previousTrack = baseFunctionalButtons_.previousTrack_.button_;
-    auto play = baseFunctionalButtons_.play_.button_;
-    auto nextTrack = baseFunctionalButtons_.nextTrack_.button_;
-    auto repeat = baseFunctionalButtons_.repeat_.button_;
-    auto mute = baseFunctionalButtons_.mute_.button_;
+    auto* shuffle = baseFunctionalButtons_.shuffle_.button_;
+    auto* previousTrack = baseFunctionalButtons_.previousTrack_.button_;
+    auto* play = baseFunctionalButtons_.play_.button_;
+    auto* nextTrack = baseFunctionalButtons_.nextTrack_.button_;
+    auto* repeat = baseFunctionalButtons_.repeat_.button_;
+    auto* mute = baseFunctionalButtons_.mute_.button_;
 
 // Связывание слотов контроллера и сигналов кнопок при нажатии
 
