@@ -13,7 +13,7 @@ class MainWindowWidget : public QWidget {
  Q_OBJECT
  public:
     explicit MainWindowWidget(QWidget* parent = nullptr);
-    ~MainWindowWidget();
+    ~MainWindowWidget() = default;
   protected:
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
@@ -24,7 +24,7 @@ class MainWindowWidget : public QWidget {
 class MainView {
   public:
     MainView();
-    ~MainView();
+    ~MainView() = default;
     void show();
   private:
     MainWindowWidget mainWindowWidget_;

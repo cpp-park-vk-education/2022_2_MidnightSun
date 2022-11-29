@@ -2,42 +2,42 @@
 
 //////////////////////////////////////// Coordinats x ////////////////////////////////////////
 
-#define CURRENT_TRACK_WIDGET_X 150
-#define SHUFFLE_BUTTON_X 325
-#define PREVIOUS_TRACK_BUTTON_X 370
-#define PLAY_BUTTON_X 415
-#define NEXT_TRACK_BUTTON_X 480
-#define REPEAT_BUTTON_X 525
-#define MUTE_BUTTON_X 605
-#define VOLUME_SLIDER_X 655
+const int CURRENT_TRACK_WIDGET_X = 150;
+const int SHUFFLE_BUTTON_X = 325;
+const int PREVIOUS_TRACK_BUTTON_X = 370;
+const int PLAY_BUTTON_X = 415;
+const int NEXT_TRACK_BUTTON_X = 480;
+const int REPEAT_BUTTON_X = 525;
+const int MUTE_BUTTON_X = 605;
+const int VOLUME_SLIDER_X = 655;
 
 //////////////////////////////////////// Coordinats y ////////////////////////////////////////
 
-#define CURRENT_TRACK_WIDGET_Y 500
-#define BUTTON_Y 535
-#define PLAY_BUTTON_Y 525
+const int CURRENT_TRACK_WIDGET_Y = 500;
+const int BUTTON_Y = 535;
+const int PLAY_BUTTON_Y = 525;
 
 //////////////////////////////////////// Widths ////////////////////////////////////////
 
-#define CURRENT_TRACK_WIDGET_WIDTH 700
-#define BUTTON_WIDTH 35
-#define PLAY_BUTTON_WIDTH 50
-#define VOLUME_SLIDER_WIDTH 125
+const int CURRENT_TRACK_WIDGET_WIDTH = 700;
+const int BUTTON_WIDTH = 35;
+const int PLAY_BUTTON_WIDTH = 50;
+const int VOLUME_SLIDER_WIDTH = 125;
 
 //////////////////////////////////////// Heights ////////////////////////////////////////
 
-#define CURRENT_TRACK_WIDGET_HEIGHT 150
-#define BUTTON_HEIGHT 35
-#define PLAY_BUTTON_HEIGHT 50
+const int CURRENT_TRACK_WIDGET_HEIGHT = 150;
+const int BUTTON_HEIGHT = 35;
+const int PLAY_BUTTON_HEIGHT = 50;
 
 //////////////////////////////////////// Names ////////////////////////////////////////
 
-#define SHUFFLE_NAME "shuffle"
-#define PREVIOUS_TRACK_NAME "previousTrack"
-#define PLAY_NAME "play"
-#define NEXT_TRACK_NAME "nextTrack"
-#define REPEAT_NAME "repeat"
-#define MUTE_NAME "mute"
+const char* SHUFFLE_NAME = "shuffle";
+const char* PREVIOUS_TRACK_NAME = "previousTrack";
+const char* PLAY_NAME = "play";
+const char* NEXT_TRACK_NAME = "nextTrack";
+const char* REPEAT_NAME = "repeat";
+const char* MUTE_NAME = "mute";
 
 //////////////////////////////////////// Current Track Buttons ////////////////////////////////////////
 
@@ -48,16 +48,16 @@
 
 // }
 
-CurrentTrackWidget::CurrentTrackWidget(QWidget* parent)
-    : currentTrackWidget_(new QWidget(parent)) {
-    currentTrackWidget_->setObjectName("currentTrackWidget");
-    currentTrackWidget_->setGeometry(QRect(CURRENT_TRACK_WIDGET_X,
-                                           CURRENT_TRACK_WIDGET_Y,
-                                           CURRENT_TRACK_WIDGET_WIDTH,
-                                           CURRENT_TRACK_WIDGET_HEIGHT));
-}
+// CurrentTrackWidget::CurrentTrackWidget(QWidget* parent)
+//     : currentTrackWidget_(new QWidget(parent)) {
+//     currentTrackWidget_->setObjectName("currentTrackWidget");
+//     currentTrackWidget_->setGeometry(QRect(CURRENT_TRACK_WIDGET_X,
+//                                            CURRENT_TRACK_WIDGET_Y,
+//                                            CURRENT_TRACK_WIDGET_WIDTH,
+//                                            CURRENT_TRACK_WIDGET_HEIGHT));
+// }
 
-CurrentTrackWidget::~CurrentTrackWidget() {}
+// CurrentTrackWidget::~CurrentTrackWidget() {}
 
 // void IButton::setStyle(int buttonX, int buttonY,
 //                        int buttonWidth, int buttonHeight,
@@ -115,7 +115,22 @@ VolumeSlider::VolumeSlider(QWidget* parent)
                                      VOLUME_SLIDER_WIDTH, BUTTON_HEIGHT));
 }
 
-VolumeSlider::~VolumeSlider() {}
+VolumeSlider::~VolumeSlider() {
+    delete volumeSlider_;
+}
+
+CurrentTrackWidget::CurrentTrackWidget(QWidget* parent)
+    : currentTrackWidget_(new QWidget(parent)) {
+    currentTrackWidget_->setObjectName("currentTrackWidget");
+    currentTrackWidget_->setGeometry(QRect(CURRENT_TRACK_WIDGET_X,
+                                           CURRENT_TRACK_WIDGET_Y,
+                                           CURRENT_TRACK_WIDGET_WIDTH,
+                                           CURRENT_TRACK_WIDGET_HEIGHT));
+}
+
+CurrentTrackWidget::~CurrentTrackWidget() {
+    delete currentTrackWidget_;
+}
 
 //////////////////////////////////////// Current Track Window ////////////////////////////////////////
 
@@ -128,8 +143,6 @@ CurrentTrackWindow::CurrentTrackWindow(QWidget* parent)
       repeat_(parent),
       mute_(parent),
       volumeSlider_(parent) {}
-
-CurrentTrackWindow::~CurrentTrackWindow() {}
 
 //////////////////////////////////////// Current Track UIModel ////////////////////////////////////////
 
@@ -175,7 +188,9 @@ void CurrentTrackUIModel::mute() {
     emit muteFunctionSuccess();
 }
 
-CurrentTrackUIModel::~CurrentTrackUIModel() {}
+CurrentTrackUIModel::~CurrentTrackUIModel() {
+    delete mPlayer_;
+}
 
 //////////////////////////////////////// Current Track Controller ////////////////////////////////////////
 

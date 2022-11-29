@@ -4,8 +4,8 @@
 #include <QPushButton>
 #include <QStyle>
 
-#define MAIN_WINDOW_WIDTH 800
-#define MAIN_WINDOW_HEIGHT 600
+const int MAIN_WINDOW_WIDTH = 800;
+const int MAIN_WINDOW_HEIGHT = 600;
 
 MainWindowWidget::MainWindowWidget(QWidget* parent)
     : QWidget(parent) {
@@ -31,8 +31,6 @@ void MainWindowWidget::mouseMoveEvent(QMouseEvent *event) {
     move(pos() + delta);
 }
 
-MainWindowWidget::~MainWindowWidget() {}
-
 MainView::MainView()
     : mainWindowWidget_(nullptr),
       titleBarButtonsWidget_(&mainWindowWidget_),
@@ -42,5 +40,3 @@ MainView::MainView()
 void MainView::show() {
     mainWindowWidget_.show();
 }
-
-MainView::~MainView() {}

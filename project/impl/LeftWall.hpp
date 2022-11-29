@@ -24,7 +24,7 @@ class LeftBoardWidget {
 class LeftBoardView {
  public:
     explicit LeftBoardView(QWidget* parent);
-    ~LeftBoardView();
+    ~LeftBoardView() = default;
  private:
     LeftBoardWidget leftBoardWidget_;
 };

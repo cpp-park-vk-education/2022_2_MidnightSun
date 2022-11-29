@@ -69,6 +69,8 @@
         "qmediaplayer": "cpp",
         "qmessagebox": "cpp",
         "qdebug": "cpp",
-        "qstyle": "cpp"
+        "qstyle": "cpp",
+        "qfile": "cpp",
+        "qslider": "cpp"
     }
 }

@@ -18,14 +18,14 @@ class TitleBarButtonsWidget {
     QWidget* titleBarButtons_;
 
     QPushButton* close_;
-    QPushButton* collapseToWindow_;
-    QPushButton* rollup_;
+    QPushButton* zoom_;
+    QPushButton* minimize_;
 };
 
 class TitleBarButtonsView {
  public:
     explicit TitleBarButtonsView(QWidget* parent);
-    ~TitleBarButtonsView();
+    ~TitleBarButtonsView() = default;
  private:
     TitleBarButtonsWidget titleBarButtonsWidget_;
 };
