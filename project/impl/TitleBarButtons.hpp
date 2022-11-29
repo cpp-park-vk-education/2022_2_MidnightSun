@@ -7,6 +7,13 @@ class TitleBarButtonsWidget {
  public:
     explicit TitleBarButtonsWidget(QWidget* parent);
     ~TitleBarButtonsWidget();
+
+    TitleBarButtonsWidget(const TitleBarButtonsWidget& rhs) = delete;
+    TitleBarButtonsWidget(TitleBarButtonsWidget&& rhs) = delete;
+
+    TitleBarButtonsWidget& operator=(const TitleBarButtonsWidget& rhs) = delete;
+    TitleBarButtonsWidget& operator=(TitleBarButtonsWidget&& rhs) = delete;
+
  private:
     QWidget* titleBarButtons_;
 

@@ -1,0 +1,5 @@
+/home/marcussss1/2022_2_MidnightSun/build/CMakeFiles/edit_cache.dir
+/home/marcussss1/2022_2_MidnightSun/build/CMakeFiles/rebuild_cache.dir
+/home/marcussss1/2022_2_MidnightSun/build/project/CMakeFiles/test.dir
+/home/marcussss1/2022_2_MidnightSun/build/project/CMakeFiles/edit_cache.dir
+/home/marcussss1/2022_2_MidnightSun/build/project/CMakeFiles/rebuild_cache.dir

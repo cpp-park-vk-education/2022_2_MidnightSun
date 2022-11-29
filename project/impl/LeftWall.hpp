@@ -8,15 +8,22 @@ class LeftBoardWidget {
   public:
     explicit LeftBoardWidget(QWidget* parent);
     ~LeftBoardWidget();
+
+    LeftBoardWidget(const LeftBoardWidget& rhs) = delete;
+    LeftBoardWidget(LeftBoardWidget&& rhs) = delete;
+
+    LeftBoardWidget& operator=(const LeftBoardWidget& rhs) = delete;
+    LeftBoardWidget& operator=(LeftBoardWidget&& rhs) = delete;
+
   private:
-    QWidget* leftBoard_; 
+    QWidget* leftBoard_;
 };
 
 //////////////////////////////////////// Left Board View ////////////////////////////////////////
 
 class LeftBoardView {
  public:
-    LeftBoardView(QWidget* parent);
+    explicit LeftBoardView(QWidget* parent);
     ~LeftBoardView();
  private:
     LeftBoardWidget leftBoardWidget_;

@@ -15,7 +15,7 @@
 // class IButton : public QMainWindow {
 
 //  Q_OBJECT
-//  public:   
+//  public:
 //     friend class CurrentTrackView;
 //     explicit IButton(QWidget* parent = nullptr);
 //     ~IButton();
@@ -54,9 +54,15 @@ struct MuteButton : public IButton {
 };
 
 class VolumeSlider {
-  public:
+ public:
     explicit VolumeSlider(QWidget* parent);
     ~VolumeSlider();
+
+    VolumeSlider(const VolumeSlider& rhs) = delete;
+    VolumeSlider(VolumeSlider&& rhs) = delete;
+
+    VolumeSlider& operator=(const VolumeSlider& rhs) = delete;
+    VolumeSlider& operator=(VolumeSlider&& rhs) = delete;
  private:
     QSlider* volumeSlider_;
 };
@@ -65,6 +71,13 @@ class CurrentTrackWidget {
  public:
     explicit CurrentTrackWidget(QWidget* parent = nullptr);
     ~CurrentTrackWidget();
+
+    CurrentTrackWidget(const CurrentTrackWidget& rhs) = delete;
+    CurrentTrackWidget(CurrentTrackWidget&& rhs) = delete;
+
+    CurrentTrackWidget& operator=(const CurrentTrackWidget& rhs) = delete;
+    CurrentTrackWidget& operator=(CurrentTrackWidget&& rhs) = delete;
+
  private:
     QWidget* currentTrackWidget_;
 };
@@ -92,9 +105,10 @@ class CurrentTrackWindow {
 
 class CurrentTrackUIModel : public QMainWindow, public ICurrentTrackUIModel {
  Q_OBJECT
+
  public:
     template<typename CurrentTrackView>
-    CurrentTrackUIModel(CurrentTrackView* view);
+    explicit CurrentTrackUIModel(CurrentTrackView* view);
     ~CurrentTrackUIModel();
 
     void shuffle() override;
@@ -110,13 +124,14 @@ class CurrentTrackUIModel : public QMainWindow, public ICurrentTrackUIModel {
     void nextTrackFunctionSuccess();
     void repeatFunctionSuccess();
     void muteFunctionSuccess();
+
  private:
     enum RepeatFlags {
-        None = 0, 
-        One = 1, 
+        None = 0,
+        One = 1,
         All = 2
     };
-    
+
     bool shuffleFlag_;
     bool playFlag_;
     QMediaPlayer* mPlayer_;
@@ -130,7 +145,7 @@ class CurrentTrackController : public QMainWindow, public ICurrentTrackControlle
     friend class CurrentTrackView;
 
     template <typename View>
-    CurrentTrackController(View* view);
+    explicit CurrentTrackController(View* view);
     ~CurrentTrackController() = default;
  private slots:
     void shuffle() override;
@@ -161,5 +176,5 @@ class CurrentTrackView : public QMainWindow {
  private:
     CurrentTrackWindow baseFunctionalButtons_;
     CurrentTrackController controller_;
-    CurrentTrackUIModel model_ ;
+    CurrentTrackUIModel model_;
 };

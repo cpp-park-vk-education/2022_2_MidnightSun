@@ -4,7 +4,7 @@
 #include <QPushButton>
 #include <QStyle>
 
-#define MAIN_WINDOW_WIDTH 800 
+#define MAIN_WINDOW_WIDTH 800
 #define MAIN_WINDOW_HEIGHT 600
 
 MainWindowWidget::MainWindowWidget(QWidget* parent)
@@ -18,12 +18,14 @@ MainWindowWidget::MainWindowWidget(QWidget* parent)
     setGeometry(QRect(0, 0, MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT));
 }
 
+// cppcheck-suppress unusedFunction
 void MainWindowWidget::mousePressEvent(QMouseEvent *event) {
     if (event->button() == Qt::LeftButton) {
         oldPos = event->pos();
     }
 }
 
+// cppcheck-suppress unusedFunction
 void MainWindowWidget::mouseMoveEvent(QMouseEvent *event) {
     QPoint delta = event->pos() - oldPos;
     move(pos() + delta);
@@ -31,10 +33,10 @@ void MainWindowWidget::mouseMoveEvent(QMouseEvent *event) {
 
 MainWindowWidget::~MainWindowWidget() {}
 
-MainView::MainView() 
+MainView::MainView()
     : mainWindowWidget_(nullptr),
+      titleBarButtonsWidget_(&mainWindowWidget_),
       currentTrackView_(&mainWindowWidget_),
-      optionWindow_(&mainWindowWidget_),
       leftBoardView_(&mainWindowWidget_) {}
 
 void MainView::show() {

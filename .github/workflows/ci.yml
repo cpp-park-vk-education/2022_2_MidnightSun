@@ -15,13 +15,13 @@ jobs:
         run: sudo apt install cppcheck
 
       - name: Run cppcheck
-        run: cppcheck project --enable=all --inconclusive --error-exitcode=1 -I.
+        run: cppcheck project --inline-suppr --enable=all --inconclusive --error-exitcode=1 -I.
     
       - name: Install cpplint
         run: pip install cpplint
 
       - name: Run cpplint
-        run: cpplint --recursive .
+        run: cpplint --recursive project/impl project/lib project/main.cpp
 
       - name: Install gtest manually
         run: sudo apt-get install libgtest-dev libgmock-dev &&

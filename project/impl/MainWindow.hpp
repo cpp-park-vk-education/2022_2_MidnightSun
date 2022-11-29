@@ -12,7 +12,7 @@
 class MainWindowWidget : public QWidget {
  Q_OBJECT
  public:
-    MainWindowWidget(QWidget* parent = nullptr);
+    explicit MainWindowWidget(QWidget* parent = nullptr);
     ~MainWindowWidget();
   protected:
     void mousePressEvent(QMouseEvent *event);
@@ -28,7 +28,7 @@ class MainView {
     void show();
   private:
     MainWindowWidget mainWindowWidget_;
-    TitleBarButtonsWidget optionWindow_;
+    TitleBarButtonsWidget titleBarButtonsWidget_;
 
     CurrentTrackView currentTrackView_;
     LeftBoardView leftBoardView_;

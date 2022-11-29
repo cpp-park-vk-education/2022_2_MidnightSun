@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++2a -Werror -Wextra -Wpedantic -Wall -rdynamic CMakeFiles/test.dir/main.cpp.o -o test 
