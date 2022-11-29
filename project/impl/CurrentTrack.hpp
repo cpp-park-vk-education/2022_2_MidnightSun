@@ -161,7 +161,7 @@ class CurrentTrackView : public QMainWindow {
  Q_OBJECT
  public:
     explicit CurrentTrackView(QWidget* parent);
-    ~CurrentTrackView();
+    ~CurrentTrackView() = default;
  private slots:
     void shuffleClicked();
     void previousTrackClicked();

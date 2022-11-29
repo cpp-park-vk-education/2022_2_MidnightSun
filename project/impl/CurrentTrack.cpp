@@ -274,5 +274,3 @@ void CurrentTrackView::nextTrackClicked() {}
 void CurrentTrackView::repeatClicked() {}
 
 void CurrentTrackView::muteClicked() {}
-
-CurrentTrackView::~CurrentTrackView() {}
