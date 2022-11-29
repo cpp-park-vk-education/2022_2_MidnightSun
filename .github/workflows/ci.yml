@@ -11,27 +11,31 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install cppcheck
-        run: sudo apt install cppcheck
+      # - name: Install cppcheck
+      #   run: sudo apt install cppcheck
 
-      - name: Run cppcheck
-        run: cppcheck project --inline-suppr --enable=all --inconclusive --error-exitcode=1 -I.
+      # - name: Run cppcheck
+      #   run: cppcheck project --inline-suppr --enable=all --inconclusive --error-exitcode=1 -I.
     
-      - name: Install cpplint
-        run: pip install cpplint
+      # - name: Install cpplint
+      #   run: pip install cpplint
 
-      - name: Run cpplint
-        run: cpplint --recursive project/impl project/lib project/main.cpp
+      # - name: Run cpplint
+      #   run: cpplint --recursive project/impl project/lib project/main.cpp
 
-      - name: Install gtest manually
-        run: sudo apt-get install libgtest-dev libgmock-dev &&
-             sudo apt-get install libtbb-dev &&
-             cd /usr/src/googletest/ &&
-             sudo mkdir build &&
-             cd build &&
-             sudo cmake .. &&
-             sudo make && 
-             sudo cp lib/* /usr/lib 
+      # - name: Install gtest manually
+      #   run: sudo apt-get install libgtest-dev libgmock-dev &&
+      #        sudo apt-get install libtbb-dev &&
+      #        cd /usr/src/googletest/ &&
+      #        sudo mkdir build &&
+      #        cd build &&
+      #        sudo cmake .. &&
+      #        sudo make && 
+      #        sudo cp lib/* /usr/lib 
+      - name: Install qt5
+        run: sudo apt-get install build-essential
+             sudo apt-get install qtcreator
+             sudo apt-get install qt5-default
         
       - name: Configuration with clang-tidy
         run: mkdir build &&
