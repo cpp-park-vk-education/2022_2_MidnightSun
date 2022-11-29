@@ -33,9 +33,7 @@ jobs:
       #        sudo make && 
       #        sudo cp lib/* /usr/lib 
       - name: Install qt5
-        run: sudo apt-get install build-essential &&
-             sudo apt-get install qtcreator &&
-             sudo apt-get install qt5-default 
+        run: sudo apt-get install build-essential libgl1-mesa-dev
         
       - name: Configuration with clang-tidy
         run: mkdir build &&
