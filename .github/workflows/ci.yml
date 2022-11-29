@@ -56,13 +56,13 @@ jobs:
         run: sudo apt update &&
              sudo apt install -y libev-dev
    
-      - name: Install valgrind
-        run: sudo apt install valgrind
+      # - name: Install valgrind
+      #   run: sudo apt install valgrind
 
-      - name: Run valgrind
-        run: cd build && 
-             cd project &&
-             valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ./test
+      # - name: Run valgrind
+      #   run: cd build && 
+      #        cd project &&
+      #        valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ./test
 
       - name: Configuration with fsanitazer
         run:  cd build &&
