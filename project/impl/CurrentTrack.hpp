@@ -2,7 +2,6 @@
 
 #include "currentTrackController.hpp"
 #include "currentTrackUIModel.hpp"
-#include "InterfaceButtons.hpp"
 
 #include <QMainWindow>
 #include <QMediaPlayer>
