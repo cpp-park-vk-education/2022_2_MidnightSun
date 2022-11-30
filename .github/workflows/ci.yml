@@ -36,6 +36,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-dir
+          path: build
+
       - name: Install cppcheck
         run: sudo apt install cppcheck
 
@@ -47,12 +53,6 @@ jobs:
 
       - name: Run cpplint
         run: cpplint --recursive .
-      
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: build-dir
-          path: build
         
       - name: Configuration with clang-tidy
         run: cd build &&
@@ -97,9 +97,12 @@ jobs:
         run: sudo apt install valgrind
 
       - name: Run valgrind
-        run: cd build && 
-             cd project &&
-            valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes sudo chmod 777 ./build/project/test
+        run: valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes sudo chmod 777 ./build/project/test
+
+      - name: Configuration with fsanitazer
+        run:  cd build &&
+              cmake -DWITH_MEMCHECK=ON .. &&
+              make
 
       - name: Configuration with fsanitazer
         run:  cd build &&
@@ -107,8 +110,7 @@ jobs:
               make
 
       - name: Run fsanitaze
-        run: cd build &&
-             sudo chmod 777 ./build/project/test
+        run: sudo chmod 777 ./build/project/test
   # valgrind:
   #   needs: [ build-project ]
   #   runs-on: ubuntu-latest
