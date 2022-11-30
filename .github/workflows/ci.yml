@@ -30,34 +30,8 @@ jobs:
           name: build-dir
           path: build
 
-  linters-build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install gtest manually
-        run: sudo apt-get install libgtest-dev libgmock-dev &&
-             sudo apt-get install libtbb-dev &&
-             cd /usr/src/googletest/ &&
-             sudo mkdir build &&
-             cd build &&
-             sudo cmake .. &&
-             sudo make && 
-             sudo cp lib/* /usr/lib 
-
-      - name: Building
-        run: |
-          cmake -B build -DWITH_CLANG_TIDY=ON
-          cmake --build build
-      
-      - name: Upload our build dir
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-dir
-          path: build
-
   linters:
-    needs: [ linters-build ]
+    needs: [ default-build ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -96,8 +70,7 @@ jobs:
         with:
           name: build-dir
           path: build
-      # - name: abc
-      #   run: cd build && ls
+
       - name: Run unit-tests
         run: sudo chmod 777 ./build/project/test
             #  sudo ctest
@@ -212,15 +185,15 @@ jobs:
   #   steps:
   #     - uses: actions/checkout@v1
     
-  #     - name: Install gtest manually
-  #       run: sudo apt-get install libgtest-dev libgmock-dev &&
-  #            sudo apt-get install libtbb-dev &&
-  #            cd /usr/src/googletest/ &&
-  #            sudo mkdir build &&
-  #            cd build &&
-  #            sudo cmake .. &&
-  #            sudo make && 
-  #            sudo cp lib/* /usr/lib 
+      # - name: Install gtest manually
+      #   run: sudo apt-get install libgtest-dev libgmock-dev &&
+      #        sudo apt-get install libtbb-dev &&
+      #        cd /usr/src/googletest/ &&
+      #        sudo mkdir build &&
+      #        cd build &&
+      #        sudo cmake .. &&
+      #        sudo make && 
+      #        sudo cp lib/* /usr/lib 
       
   #     - name: Default configuration
   #       run: mkdir build &&
