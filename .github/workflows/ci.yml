@@ -65,7 +65,7 @@ jobs:
           name: build-dir
           path: build
       - name: abc
-        run: ls
+        run: cd build && ls
       # - name: Run unit-tests
       #   run: cd build && 
       #        ctest
