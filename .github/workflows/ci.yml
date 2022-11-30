@@ -67,6 +67,7 @@ jobs:
       
       - name: Run unit-tests
         run: cd build && 
+             cd project &&
              ctest
       
   memtest:
@@ -91,6 +92,7 @@ jobs:
 
       - name: Run valgrind
         run: cd build && 
+             cd project &&
              valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ctest
 
       - name: Configuration with fsanitazer
@@ -100,6 +102,7 @@ jobs:
 
       - name: Run fsanitaze
         run: cd build &&
+             cd project &&
              ctest
   # valgrind:
   #   needs: [ build-project ]

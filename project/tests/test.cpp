@@ -2,9 +2,9 @@
 
 #include <gtest/gtest.h>
 
-TEST(Test, MyTest) {
-    EXPECT_EQ(1, 1);
-} // чтобы не ругался на unused functions
+// TEST(Test, MyTest) {
+//     EXPECT_EQ(1, 1);
+// } // чтобы не ругался на unused functions
 
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
