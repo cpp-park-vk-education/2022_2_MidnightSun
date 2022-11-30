@@ -73,8 +73,7 @@ jobs:
       # - name: abc
       #   run: cd build && ls
       - name: Run unit-tests
-        run: cd build && 
-             sudo chmod 777 ./build/project/test
+        run: sudo chmod 777 ./build/project/test
             #  sudo ctest
       
   memtest:
