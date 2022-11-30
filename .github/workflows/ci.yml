@@ -47,6 +47,12 @@ jobs:
 
       - name: Run cpplint
         run: cpplint --recursive .
+      
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-dir
+          path: build
         
       - name: Configuration with clang-tidy
         run: cd build &&
