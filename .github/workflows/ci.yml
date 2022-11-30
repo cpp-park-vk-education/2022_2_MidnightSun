@@ -82,8 +82,8 @@ jobs:
           path: build
 
       - name: Run unit-tests
-        run: cd build &&
-             sudo chmod 777 build/project/test &&
+        run: sudo chmod 777 build/project/test &&
+             cd build &&
              sudo ctest
         # run: sudo chmod 777 ./build/project/test
   
