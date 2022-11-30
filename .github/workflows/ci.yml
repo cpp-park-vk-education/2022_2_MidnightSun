@@ -82,7 +82,8 @@ jobs:
           path: build
 
       - name: Run unit-tests
-        run: sudo ctest
+        run: sudo cd build && 
+             sudo ctest
         # run: sudo chmod 777 ./build/project/test
   
   memtest:
