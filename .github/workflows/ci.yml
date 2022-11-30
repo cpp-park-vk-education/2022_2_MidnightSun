@@ -52,6 +52,13 @@ jobs:
         with:
           name: build-dir
           path: build
+  
+      - name: Set up environment
+        run: sudo apt update &&
+             sudo apt install -y libev-dev
+   
+      - name: Install valgrind
+        run: sudo apt install valgrind
 
       - name: Move to workspace
         run: cd build &&
