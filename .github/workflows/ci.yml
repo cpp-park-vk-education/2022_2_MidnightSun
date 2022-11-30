@@ -102,18 +102,18 @@ jobs:
         run: sudo chmod 777 ./build/project/test
             #  sudo ctest
       
-  memtest:
-    needs: [ build-project ]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-python@v1
+  # memtest:
+  #   needs: [ build-project ]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - uses: actions/setup-python@v1
 
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: build-dir
-          path: build
+  #     - name: Download artifacts
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: build-dir
+  #         path: build
 
       # - name: Set up environment
       #   run: sudo apt update &&
@@ -125,18 +125,18 @@ jobs:
       # - name: Run valgrind
       #   run: valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes sudo chmod 777 ./build/project/test
 
-      - name: Configuration with fsanitazer
-        run:  cd build &&
-              cmake -DWITH_MEMCHECK=ON .. &&
-              make
+      # - name: Configuration with fsanitazer
+      #   run:  cd build &&
+      #         cmake -DWITH_MEMCHECK=ON .. &&
+      #         make
 
-      - name: Configuration with fsanitazer
-        run:  cd build &&
-              cmake -DWITH_MEMCHECK=ON .. &&
-              make
+      # - name: Configuration with fsanitazer
+      #   run:  cd build &&
+      #         cmake -DWITH_MEMCHECK=ON .. &&
+      #         make
 
-      - name: Run fsanitaze
-        run: sudo chmod 777 ./build/project/test
+      # - name: Run fsanitaze
+      #   run: sudo chmod 777 ./build/project/test
   # valgrind:
   #   needs: [ build-project ]
   #   runs-on: ubuntu-latest
