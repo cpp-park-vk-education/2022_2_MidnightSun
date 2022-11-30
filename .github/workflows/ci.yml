@@ -84,7 +84,7 @@ jobs:
       - name: Run unit-tests
         run: sudo chmod 777 ./build/project/test
   
-   memtest:
+  memtest:
     needs: [ default-build ]
     runs-on: ubuntu-latest
     steps:
