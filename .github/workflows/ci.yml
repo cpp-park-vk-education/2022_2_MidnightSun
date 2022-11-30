@@ -115,7 +115,10 @@ jobs:
         run: sudo apt install valgrind
 
       - name: Run valgrind
-        run: valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes sudo chmod 777 ./build/project/test
+        run: sudo chmod 777 build/project/test &&
+             cd build &&
+             cd project &&
+             valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ./test
 
       - name: Configuration with fsanitazer
         run:  cd build &&
