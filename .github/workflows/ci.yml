@@ -4,7 +4,7 @@ on:
   push:
     branches: [ dev/ci_setup ]
 jobs:
-  build-project:
+  default-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -30,8 +30,34 @@ jobs:
           name: build-dir
           path: build
 
+  linters-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install gtest manually
+        run: sudo apt-get install libgtest-dev libgmock-dev &&
+             sudo apt-get install libtbb-dev &&
+             cd /usr/src/googletest/ &&
+             sudo mkdir build &&
+             cd build &&
+             sudo cmake .. &&
+             sudo make && 
+             sudo cp lib/* /usr/lib 
+
+      - name: Building
+        run: |
+          cmake -B build -DWITH_CLANG_TIDY=ON
+          cmake --build build
+      
+      - name: Upload our build dir
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-dir
+          path: build
+
   linters:
-    needs: [ build-project ]
+    needs: [ linters-build ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -60,7 +86,7 @@ jobs:
              make
 
   unit-tests:
-    needs: [ build-project ]
+    needs: [ default-build ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
