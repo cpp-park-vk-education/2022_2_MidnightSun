@@ -84,8 +84,7 @@ jobs:
       - name: Run unit-tests
         run: sudo chmod 777 build/project/test &&
              cd build &&
-             sudo ctest
-        # run: sudo chmod 777 ./build/project/test
+             ctest
   
   memtest:
     needs: [ default-build ]
@@ -115,13 +114,15 @@ jobs:
 
       - name: Run valgrind
         run: sudo chmod 777 build/project/test &&
-             valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ./build/project/test
+             cd build &&
+             valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ctest
 
       - name: Configuration with fsanitazer
-        run:  cd build &&
-              cmake -DWITH_MEMCHECK=ON .. &&
-              make
+        run: cd build &&
+             cmake -DWITH_MEMCHECK=ON .. &&
+             make
 
       - name: Run fsanitaze
-        run: sudo chmod 777 ./build/project/test
-        # run: sudo ctest
+        run: sudo chmod 777 build/project/test &&
+             cd build &&
+             ctest
