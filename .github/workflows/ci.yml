@@ -4,25 +4,25 @@ on:
   push:
     branches: [ dev/ci_setup ]
 jobs:
-  linters:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+  # linters:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Install cppcheck
-        run: sudo apt install cppcheck
+  #     - name: Install cppcheck
+  #       run: sudo apt install cppcheck
 
-      - name: Run cppcheck
-        run: cppcheck project --enable=all --inconclusive --error-exitcode=1 -I.
+  #     - name: Run cppcheck
+  #       run: cppcheck project --enable=all --inconclusive --error-exitcode=1 -I.
     
-      - name: Install cpplint
-        run: pip install cpplint
+  #     - name: Install cpplint
+  #       run: pip install cpplint
 
-      - name: Run cpplint
-        run: cpplint --recursive .
+  #     - name: Run cpplint
+  #       run: cpplint --recursive .
 
   build-project:
-    needs: [ linters ]
+    needs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -47,6 +47,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-artifact
+          path: build
   valgrind:
     needs: [ build-project ]
     runs-on: ubuntu-latest
