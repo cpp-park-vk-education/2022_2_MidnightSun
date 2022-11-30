@@ -4,6 +4,25 @@ on:
   push:
     branches: [ dev/ci_setup ]
 jobs:
+  build-project:
+
+    runs-on: ubuntu-latest
+    container: midnight_sun
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure CMake
+        run: cmake -B ${{ github.workflow }}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+      - name: Build
+        run: cmake --build ${{ github.workflow }}/build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifact
+
   linters:
     runs-on: ubuntu-latest
     steps:
@@ -37,17 +56,17 @@ jobs:
              cmake DWITH_CLANG_TIDY=on .. &&
              make 
 
-      - name: Install scan-build
-        run: pip install scan-build
+      # - name: Install scan-build
+      #   run: pip install scan-build
 
-      - name: Default configuration
-        run: cd build &&
-             cmake .. &&
-             make 
+      # - name: Default configuration
+      #   run: cd build &&
+      #        cmake .. &&
+      #        make 
 
-      - name: Run scan-build
-        run: cd build &&
-             scan-build ctest
+      # - name: Run scan-build
+      #   run: cd build &&
+      #        scan-build ctest
 
   unit-tests:
     runs-on: ubuntu-latest
@@ -115,9 +134,3 @@ jobs:
       - name: Run fsanitaze
         run: cd build &&
              ctest
-      
-
- 
-    
-      
-
