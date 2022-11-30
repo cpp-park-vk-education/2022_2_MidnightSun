@@ -31,6 +31,7 @@ jobs:
           path: build
 
   linters:
+    needs: [ build-project ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -48,8 +49,7 @@ jobs:
         run: cpplint --recursive .
         
       - name: Configuration with clang-tidy
-        run: mkdir build &&
-             cd build &&
+        run: cd build &&
              cmake DWITH_CLANG_TIDY=on .. &&
              make
 
