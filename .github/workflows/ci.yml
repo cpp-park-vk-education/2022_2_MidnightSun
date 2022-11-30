@@ -64,11 +64,11 @@ jobs:
         with:
           name: build-dir
           path: build
-      
-      - name: Run unit-tests
-        run: cd build && 
-             cd project &&
-             ctest
+      - name: abc
+        run: ls
+      # - name: Run unit-tests
+      #   run: cd build && 
+      #        ctest
       
   memtest:
     needs: [ build-project ]
@@ -102,7 +102,6 @@ jobs:
 
       - name: Run fsanitaze
         run: cd build &&
-             cd project &&
              ctest
   # valgrind:
   #   needs: [ build-project ]
