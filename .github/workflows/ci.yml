@@ -4,23 +4,6 @@ on:
   push:
     branches: [ dev/ci_setup ]
 jobs:
-  # linters:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-
-  #     - name: Install cppcheck
-  #       run: sudo apt install cppcheck
-
-  #     - name: Run cppcheck
-  #       run: cppcheck project --enable=all --inconclusive --error-exitcode=1 -I.
-    
-  #     - name: Install cpplint
-  #       run: pip install cpplint
-
-  #     - name: Run cpplint
-  #       run: cpplint --recursive .
-
   build-project:
     needs:
     runs-on: ubuntu-latest
@@ -63,6 +46,24 @@ jobs:
       - name: Move to workspace
         run: cd build &&
              valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ctest
+
+
+      # linters:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+
+  #     - name: Install cppcheck
+  #       run: sudo apt install cppcheck
+
+  #     - name: Run cppcheck
+  #       run: cppcheck project --enable=all --inconclusive --error-exitcode=1 -I.
+    
+  #     - name: Install cpplint
+  #       run: pip install cpplint
+
+  #     - name: Run cpplint
+  #       run: cpplint --recursive .
 
       # - name: valgrind
       #   run: |
