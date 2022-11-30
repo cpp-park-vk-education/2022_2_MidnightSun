@@ -47,7 +47,26 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-artifact
+  valgrind:
+    needs: [ build-project ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
 
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifact
+          path: ${{ github.workflow }}/build
+
+      - name: Move to workspace
+        run: cd build &&
+             valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ctest
+
+      # - name: valgrind
+      #   run: |
+      #     chmod 777 ${{github.workspace}}/build/Tests/MOND_DB_TESTS
+      #     valgrind --tool=memcheck --leak-check=yes ${{github.workspace}}/build/Tests/MOND_DB_TESTS
   # linters:
   #   runs-on: ubuntu-latest
   #   steps:
