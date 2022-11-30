@@ -64,11 +64,11 @@ jobs:
         with:
           name: build-dir
           path: build
-      - name: abc
-        run: cd build && ls
-      # - name: Run unit-tests
-      #   run: cd build && 
-      #        ctest
+      # - name: abc
+      #   run: cd build && ls
+      - name: Run unit-tests
+        run: cd build && 
+             sudo chmod 777 ctest
       
   memtest:
     needs: [ build-project ]
@@ -93,7 +93,7 @@ jobs:
       - name: Run valgrind
         run: cd build && 
              cd project &&
-             valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ctest
+             sudo chmod 777 valgrind --tool=memcheck --leak-check=summary --leak-check=full --track-origins=yes ctest
 
       - name: Configuration with fsanitazer
         run:  cd build &&
@@ -102,7 +102,7 @@ jobs:
 
       - name: Run fsanitaze
         run: cd build &&
-             ctest
+             sudo chmod 777 ctest
   # valgrind:
   #   needs: [ build-project ]
   #   runs-on: ubuntu-latest
