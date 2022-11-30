@@ -82,7 +82,8 @@ jobs:
           path: build
 
       - name: Run unit-tests
-        run: sudo chmod 777 ./build/project/test
+        run: sudo ctest
+        # run: sudo chmod 777 ./build/project/test
   
   memtest:
     needs: [ default-build ]
@@ -106,10 +107,6 @@ jobs:
         with:
           name: build-dir
           path: build
-
-      # - name: Set up environment
-      #   run: sudo apt update &&
-      #        sudo apt install -y libev-dev
    
       - name: Install valgrind
         run: sudo apt install valgrind
@@ -125,4 +122,4 @@ jobs:
 
       - name: Run fsanitaze
         run: sudo chmod 777 ./build/project/test
-            #  sudo ctest
+        # run: sudo ctest
