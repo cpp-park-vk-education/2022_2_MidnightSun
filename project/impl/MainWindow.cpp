@@ -35,7 +35,9 @@ MainView::MainView()
     : mainWindowWidget_(nullptr),
       titleBarButtonsWidget_(&mainWindowWidget_),
       currentTrackView_(&mainWindowWidget_),
-      leftBoardView_(&mainWindowWidget_) {}
+      currentPlaylistView_(&mainWindowWidget_),
+      leftBoardView_(&mainWindowWidget_),
+      menuBarView_(&mainWindowWidget_) {}
 
 void MainView::show() {
     mainWindowWidget_.show();

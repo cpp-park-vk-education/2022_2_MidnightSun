@@ -38,5 +38,7 @@ ADD_EXECUTABLE(test main.cpp
                     impl/MainWindow.cpp 
                     impl/CurrentTrack.cpp 
                     impl/TitleBarButtons.cpp 
-                    impl/LeftWall.cpp)
+                    impl/LeftWall.cpp
+                    impl/CurrentPlaylist.cpp
+                    impl/MenuBar.cpp)
 TARGET_LINK_LIBRARIES(test ${Qt5Widgets_LIBRARIES} ${Qt5Multimedia_LIBRARIES})

@@ -5,9 +5,11 @@
 #include <QApplication>
 #include <QtGui/QMouseEvent>
 
+#include "CurrentPlaylist.hpp"
 #include "CurrentTrack.hpp"
-#include "TitleBarButtons.hpp"
 #include "LeftWall.hpp"
+#include "MenuBar.hpp"
+#include "TitleBarButtons.hpp"
 
 class MainWindowWidget : public QWidget {
  Q_OBJECT
@@ -32,5 +34,7 @@ class MainView {
     TitleBarButtonsWidget titleBarButtonsWidget_;
 
     CurrentTrackView currentTrackView_;
+    CurrentPlaylistView currentPlaylistView_;
     LeftBoardView leftBoardView_;
+    MenuBarView menuBarView_;
 };
