@@ -11,91 +11,52 @@
 
 //////////////////////////////////////// Current Track Buttons ////////////////////////////////////////
 
-class IButton : public QMainWindow {
+class Button : public QObject {
+ Q_OBJECT
+
+ public:
+    explicit Button(QWidget* parent = nullptr);
+    ~Button();
+
+    void editStatus();
+    void setStyle(int buttonX, int buttonY,
+                  int buttonWidth, int buttonHeight,
+                  const char* buttonName);
+    QPushButton* getPtr() const;
+
+ protected:
+    QPushButton* button_;
+};
+
+class Slider : public QObject  {
  Q_OBJECT
  public:
-    friend class CurrentTrackView;
-    explicit IButton(QWidget* parent = nullptr);
-    ~IButton();
+    explicit Slider(QWidget* parent = nullptr);
+    ~Slider();
 
     void setStyle(int buttonX, int buttonY,
                   int buttonWidth, int buttonHeight,
                   const char* buttonName);
  private:
-    QPushButton* button_;
+    QSlider* slider_;
 };
 
-struct ShuffleButton : public IButton {
- public:
-    explicit ShuffleButton(QWidget* parent);
-};
-
-struct PreviousTrackButton : public IButton {
-    explicit PreviousTrackButton(QWidget* parent);
-};
-
-struct PlayButton : public IButton {
-    explicit PlayButton(QWidget* parent);;
-};
-
-struct NextTrackButton : public IButton {
-    explicit NextTrackButton(QWidget* parent);
-};
-
-struct RepeatButton : public IButton {
-    explicit RepeatButton(QWidget* parent);
-};
-
-struct MuteButton : public IButton {
-    explicit MuteButton(QWidget* parent);
-};
-
-class VolumeSlider {
+class VolumeSlider : public Slider {
  public:
     explicit VolumeSlider(QWidget* parent);
-    ~VolumeSlider();
+};
 
-    VolumeSlider(const VolumeSlider& rhs) = delete;
-    VolumeSlider(VolumeSlider&& rhs) = delete;
-
-    VolumeSlider& operator=(const VolumeSlider& rhs) = delete;
-    VolumeSlider& operator=(VolumeSlider&& rhs) = delete;
- private:
-    QSlider* volumeSlider_;
+class DurationSlider : public Slider {
+ public:
+    explicit DurationSlider(QWidget* parent);
 };
 
 class CurrentTrackWidget {
  public:
     explicit CurrentTrackWidget(QWidget* parent = nullptr);
     ~CurrentTrackWidget();
-
-    CurrentTrackWidget(const CurrentTrackWidget& rhs) = delete;
-    CurrentTrackWidget(CurrentTrackWidget&& rhs) = delete;
-
-    CurrentTrackWidget& operator=(const CurrentTrackWidget& rhs) = delete;
-    CurrentTrackWidget& operator=(CurrentTrackWidget&& rhs) = delete;
-
  private:
     QWidget* currentTrackWidget_;
-};
-
-//////////////////////////////////////// Current Track Window ////////////////////////////////////////
-
-class CurrentTrackWindow {
- public:
-    friend class CurrentTrackView;
-
-    explicit CurrentTrackWindow(QWidget* parent);
-    ~CurrentTrackWindow() = default;
- private:
-    CurrentTrackWidget currentTrackWidget_;
-    ShuffleButton shuffle_;
-    PreviousTrackButton previousTrack_;
-    PlayButton play_;
-    NextTrackButton nextTrack_;
-    RepeatButton repeat_;
-    MuteButton mute_;
-    VolumeSlider volumeSlider_;
 };
 
 //////////////////////////////////////// Current Track UIModel ////////////////////////////////////////
@@ -114,6 +75,9 @@ class CurrentTrackUIModel : public QMainWindow, public ICurrentTrackUIModel {
     void nextTrack() override;
     void repeat() override;
     void mute() override;
+    void moveDurationSlider() override;
+    void moveVolumeSlider() override;
+
  signals:
     void shuffleFunctionSuccess();
     void previousTrackFunctionSuccess();
@@ -121,6 +85,8 @@ class CurrentTrackUIModel : public QMainWindow, public ICurrentTrackUIModel {
     void nextTrackFunctionSuccess();
     void repeatFunctionSuccess();
     void muteFunctionSuccess();
+    void moveDurationSliderSuccess();
+    void moveVolumeSliderSuccess();
 
  private:
     enum RepeatFlags {
@@ -139,11 +105,10 @@ class CurrentTrackUIModel : public QMainWindow, public ICurrentTrackUIModel {
 class CurrentTrackController : public QMainWindow, public ICurrentTrackController {
  Q_OBJECT
  public:
-    friend class CurrentTrackView;
-
-    template <typename View>
-    explicit CurrentTrackController(View* view);
+    template <typename CurrentTrackView>
+    explicit CurrentTrackController(CurrentTrackView* view);
     ~CurrentTrackController() = default;
+
  private slots:
     void shuffle() override;
     void previousTrack() override;
@@ -151,17 +116,21 @@ class CurrentTrackController : public QMainWindow, public ICurrentTrackControlle
     void nextTrack() override;
     void repeat() override;
     void mute() override;
+    void moveDurationSlider() override;
+    void moveVolumeSlider() override;
+
  private:
     CurrentTrackUIModel model_;
 };
 
 //////////////////////////////////////// Current Track View ////////////////////////////////////////
 
-class CurrentTrackView : public QMainWindow {
+class CurrentTrackView : public QObject {
  Q_OBJECT
  public:
     explicit CurrentTrackView(QWidget* parent);
     ~CurrentTrackView() = default;
+
  private slots:
     void shuffleClicked();
     void previousTrackClicked();
@@ -169,9 +138,21 @@ class CurrentTrackView : public QMainWindow {
     void nextTrackClicked();
     void repeatClicked();
     void muteClicked();
+    void durationSliderMoved();
+    void volumeSliderMoved();
 
  private:
-    CurrentTrackWindow baseFunctionalButtons_;
     CurrentTrackController controller_;
-    CurrentTrackUIModel model_;
+
+    CurrentTrackWidget currentTrackWidget_;
+
+    Button shuffle_;
+    Button previousTrack_;
+    Button play_;
+    Button nextTrack_;
+    Button repeat_;
+    Button mute_;
+
+    DurationSlider durationSlider_;
+    VolumeSlider volumeSlider_;
 };

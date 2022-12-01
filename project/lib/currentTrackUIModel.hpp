@@ -8,4 +8,6 @@ class ICurrentTrackUIModel {
     virtual void nextTrack() = 0;
     virtual void repeat() = 0;
     virtual void mute() = 0;
+    virtual void moveDurationSlider() = 0;
+    virtual void moveVolumeSlider() = 0;
 };

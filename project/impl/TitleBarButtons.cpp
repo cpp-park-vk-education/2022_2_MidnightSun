@@ -48,6 +48,7 @@ CloseButton::CloseButton(QWidget* parent)
     setStyle(CLOSE_X, CLOSE_Y,
              BUTTON_WIDTH, BUTTON_HEIGHT,
              CLOSE_NAME);
+    // connect(CloseButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::QueuedConnection);
 }
 
 ZoomButton::ZoomButton(QWidget* parent)

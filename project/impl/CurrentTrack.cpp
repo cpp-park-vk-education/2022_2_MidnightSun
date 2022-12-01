@@ -41,14 +41,14 @@ const char* MUTE_NAME = "mute";
 
 //////////////////////////////////////// Current Track Buttons ////////////////////////////////////////
 
-IButton::IButton(QWidget* parent)
+Button::Button(QWidget* parent)
     : button_(new QPushButton(parent)) {}
 
-IButton::~IButton() {
+Button::~Button() {
     delete button_;
 }
 
-void IButton::setStyle(int buttonX, int buttonY,
+void Button::setStyle(int buttonX, int buttonY,
                        int buttonWidth, int buttonHeight,
                        const char* buttonName) {
     button_->setObjectName(buttonName);
@@ -56,56 +56,38 @@ void IButton::setStyle(int buttonX, int buttonY,
                                buttonWidth, buttonHeight));
 }
 
-ShuffleButton::ShuffleButton(QWidget* parent)
-    : IButton(parent) {
-    setStyle(SHUFFLE_BUTTON_X, BUTTON_Y,
-             BUTTON_WIDTH, BUTTON_HEIGHT,
-             SHUFFLE_NAME);
+QPushButton* Button::getPtr() const {
+    return button_;
 }
 
-PreviousTrackButton::PreviousTrackButton(QWidget* parent)
-    : IButton(parent) {
-    setStyle(PREVIOUS_TRACK_BUTTON_X, BUTTON_Y,
-             BUTTON_WIDTH, BUTTON_HEIGHT,
-             PREVIOUS_TRACK_NAME);
+Slider::Slider(QWidget* parent)
+    : slider_(new QSlider(Qt::Horizontal, parent)) {}
+
+Slider::~Slider() {
+    delete slider_;
 }
 
-PlayButton::PlayButton(QWidget* parent)
-    : IButton(parent) {
-    setStyle(PLAY_BUTTON_X, PLAY_BUTTON_Y,
-             PLAY_BUTTON_WIDTH, PLAY_BUTTON_HEIGHT,
-             PLAY_NAME);
-}
-
-NextTrackButton::NextTrackButton(QWidget* parent)
-    : IButton(parent) {
-    setStyle(NEXT_TRACK_BUTTON_X, BUTTON_Y,
-             BUTTON_WIDTH, BUTTON_HEIGHT,
-             NEXT_TRACK_NAME);
-}
-
-RepeatButton::RepeatButton(QWidget* parent)
-    : IButton(parent) {
-    setStyle(REPEAT_BUTTON_X, BUTTON_Y,
-             BUTTON_WIDTH, BUTTON_HEIGHT,
-             REPEAT_NAME);
-}
-
-MuteButton::MuteButton(QWidget* parent)
-    : IButton(parent) {
-    setStyle(MUTE_BUTTON_X, BUTTON_Y,
-             BUTTON_WIDTH, BUTTON_HEIGHT,
-             MUTE_NAME);
+void Slider::setStyle(int buttonX, int buttonY,
+                       int buttonWidth, int buttonHeight,
+                       const char* buttonName) {
+    slider_->setObjectName(buttonName);
+    slider_->setGeometry(QRect(buttonX, buttonY,
+                               buttonWidth, buttonHeight));
 }
 
 VolumeSlider::VolumeSlider(QWidget* parent)
-    : volumeSlider_(new QSlider(Qt::Horizontal, parent)) {
-    volumeSlider_->setGeometry(QRect(VOLUME_SLIDER_X, BUTTON_Y,
-                                     VOLUME_SLIDER_WIDTH, BUTTON_HEIGHT));
+    : Slider(parent) {
+    setStyle(VOLUME_SLIDER_X, BUTTON_Y,
+             VOLUME_SLIDER_WIDTH, BUTTON_HEIGHT,
+             "заглущка");
 }
 
-VolumeSlider::~VolumeSlider() {
-    delete volumeSlider_;
+DurationSlider::DurationSlider(QWidget* parent)
+    : Slider(parent) {
+        // TODO
+    setStyle(VOLUME_SLIDER_X, BUTTON_Y,
+             VOLUME_SLIDER_WIDTH, BUTTON_HEIGHT,
+             "заглущка");
 }
 
 CurrentTrackWidget::CurrentTrackWidget(QWidget* parent)
@@ -121,30 +103,26 @@ CurrentTrackWidget::~CurrentTrackWidget() {
     delete currentTrackWidget_;
 }
 
-//////////////////////////////////////// Current Track Window ////////////////////////////////////////
-
-CurrentTrackWindow::CurrentTrackWindow(QWidget* parent)
-    : currentTrackWidget_(parent),
-      shuffle_(parent),
-      previousTrack_(parent),
-      play_(parent),
-      nextTrack_(parent),
-      repeat_(parent),
-      mute_(parent),
-      volumeSlider_(parent) {}
-
 //////////////////////////////////////// Current Track UIModel ////////////////////////////////////////
 
 template<typename CurrentTrackView>
 CurrentTrackUIModel::CurrentTrackUIModel(CurrentTrackView* view) {
-// Связывание вьюшки и сигналов UI модели
-
-    connect(this, SIGNAL(shuffleFunctionSuccess()), view, SLOT(shuffleClicked()));
-    connect(this, SIGNAL(previousTrackFunctionSuccess()), view, SLOT(previousTrackClicked()));
-    connect(this, SIGNAL(playFunctionSuccess()), view, SLOT(playClicked()));
-    connect(this, SIGNAL(nextTrackFunctionSuccess()), view, SLOT(nextTrackClicked()));
-    connect(this, SIGNAL(repeatFunctionSuccess()), view, SLOT(repeatClicked()));
-    connect(this, SIGNAL(muteFunctionSuccess()), view, SLOT(muteClicked()));
+    connect(this, SIGNAL(shuffleFunctionSuccess()),
+            view, SLOT(shuffleClicked()));
+    connect(this, SIGNAL(previousTrackFunctionSuccess()),
+            view, SLOT(previousTrackClicked()));
+    connect(this, SIGNAL(playFunctionSuccess()),
+            view, SLOT(playClicked()));
+    connect(this, SIGNAL(nextTrackFunctionSuccess()),
+            view, SLOT(nextTrackClicked()));
+    connect(this, SIGNAL(repeatFunctionSuccess()),
+            view, SLOT(repeatClicked()));
+    connect(this, SIGNAL(muteFunctionSuccess()),
+            view, SLOT(muteClicked()));
+    connect(this, SIGNAL(moveDurationSliderSuccess()),
+            view, SLOT(durationSliderMoved()));
+    connect(this, SIGNAL(moveVolumeSliderSuccess()),
+            view, SLOT(volumeSliderMoved()));
 }
 
 void CurrentTrackUIModel::shuffle() {
@@ -177,14 +155,24 @@ void CurrentTrackUIModel::mute() {
     emit muteFunctionSuccess();
 }
 
+void CurrentTrackUIModel::moveDurationSlider() {
+    // ...
+    emit moveDurationSliderSuccess();
+}
+
+void CurrentTrackUIModel::moveVolumeSlider() {
+    // ...
+    emit moveVolumeSliderSuccess();
+}
+
 CurrentTrackUIModel::~CurrentTrackUIModel() {
     delete mPlayer_;
 }
 
 //////////////////////////////////////// Current Track Controller ////////////////////////////////////////
 
-template <typename View>
-CurrentTrackController::CurrentTrackController(View* view)
+template <typename CurrentTrackView>
+CurrentTrackController::CurrentTrackController(CurrentTrackView* view) 
     : model_(view) {}
 
 void CurrentTrackController::shuffle() {
@@ -211,40 +199,89 @@ void CurrentTrackController::mute() {
     model_.mute();
 }
 
+void CurrentTrackController::moveDurationSlider() {
+    model_.moveDurationSlider();
+}
+
+void CurrentTrackController::moveVolumeSlider() {
+    model_.moveVolumeSlider();
+}
+
 //////////////////////////////////////// Current Track View ////////////////////////////////////////
 
 CurrentTrackView::CurrentTrackView(QWidget* parent)
-    : baseFunctionalButtons_(parent),
-      controller_(this),
-      model_(this) {
+    : controller_(this),
+      currentTrackWidget_(parent),
+      shuffle_(parent),
+      previousTrack_(parent),
+      play_(parent),
+      nextTrack_(parent),
+      repeat_(parent),
+      mute_(parent),
+      durationSlider_(parent),
+      volumeSlider_(parent) {
 
-// Упрощенная запись кнопок
+    connect(shuffle_.getPtr(), SIGNAL(clicked()), 
+            &controller_, SLOT(shuffle()));
+    connect(previousTrack_.getPtr(), SIGNAL(clicked()), 
+            &controller_, SLOT(previousTrack()));
+    connect(play_.getPtr(), SIGNAL(clicked()), 
+            &controller_, SLOT(play()));
+    connect(nextTrack_.getPtr(), SIGNAL(clicked()), 
+            &controller_, SLOT(nextTrack()));
+    connect(repeat_.getPtr(), SIGNAL(clicked()), 
+            &controller_, SLOT(repeat()));
+    connect(mute_.getPtr(), SIGNAL(clicked()), 
+            &controller_, SLOT(mute()));
 
-    auto* shuffle = baseFunctionalButtons_.shuffle_.button_;
-    auto* previousTrack = baseFunctionalButtons_.previousTrack_.button_;
-    auto* play = baseFunctionalButtons_.play_.button_;
-    auto* nextTrack = baseFunctionalButtons_.nextTrack_.button_;
-    auto* repeat = baseFunctionalButtons_.repeat_.button_;
-    auto* mute = baseFunctionalButtons_.mute_.button_;
-
-// Связывание слотов контроллера и сигналов кнопок при нажатии
-
-    connect(shuffle, SIGNAL(clicked()), &controller_, SLOT(shuffle()));
-    connect(previousTrack, SIGNAL(clicked()), &controller_, SLOT(previousTrack()));
-    connect(play, SIGNAL(clicked()), &controller_, SLOT(play()));
-    connect(nextTrack, SIGNAL(clicked()), &controller_, SLOT(nextTrack()));
-    connect(repeat, SIGNAL(clicked()), &controller_, SLOT(repeat()));
-    connect(mute, SIGNAL(clicked()), &controller_, SLOT(mute()));
+    shuffle_.setStyle(SHUFFLE_BUTTON_X, BUTTON_Y,
+                      BUTTON_WIDTH, BUTTON_HEIGHT,
+                      SHUFFLE_NAME);
+    previousTrack_.setStyle(PREVIOUS_TRACK_BUTTON_X, BUTTON_Y,
+                            BUTTON_WIDTH, BUTTON_HEIGHT,
+                            PREVIOUS_TRACK_NAME);
+    play_.setStyle(PLAY_BUTTON_X, PLAY_BUTTON_Y,
+                   PLAY_BUTTON_WIDTH, PLAY_BUTTON_HEIGHT,
+                   PLAY_NAME);
+    nextTrack_.setStyle(NEXT_TRACK_BUTTON_X, BUTTON_Y,
+                        BUTTON_WIDTH, BUTTON_HEIGHT,
+                        NEXT_TRACK_NAME);
+    repeat_.setStyle(REPEAT_BUTTON_X, BUTTON_Y,
+                     BUTTON_WIDTH, BUTTON_HEIGHT,
+                     REPEAT_NAME);
+    mute_.setStyle(MUTE_BUTTON_X, BUTTON_Y,
+                   BUTTON_WIDTH, BUTTON_HEIGHT,
+                   MUTE_NAME);
 }
 
-void CurrentTrackView::shuffleClicked() {}
+void CurrentTrackView::shuffleClicked() {
+    // shuffle_.editStatus();
+}
 
-void CurrentTrackView::previousTrackClicked() {}
+void CurrentTrackView::previousTrackClicked() {
 
-void CurrentTrackView::playClicked() {}
+}
 
-void CurrentTrackView::nextTrackClicked() {}
+void CurrentTrackView::playClicked() {
 
-void CurrentTrackView::repeatClicked() {}
+}
 
-void CurrentTrackView::muteClicked() {}
+void CurrentTrackView::nextTrackClicked() {
+
+}
+
+void CurrentTrackView::repeatClicked() {
+
+}
+
+void CurrentTrackView::muteClicked() {
+
+}
+
+void CurrentTrackView::durationSliderMoved() {
+
+}
+
+void CurrentTrackView::volumeSliderMoved() {
+
+}
