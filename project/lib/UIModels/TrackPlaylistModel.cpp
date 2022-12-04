@@ -39,8 +39,8 @@ Status CurrentTrackUIModel::mute() {
 
 Status CurrentTrackUIModel::moveDuration() {
     mediator_->notify(this, DurationEnd); // узнаем, промотали на конец трека или нет
-                                       // если полоску промотали на конец трека,
-                                       // включаем следующий трек
+                                          // если полоску промотали на конец трека,
+                                          // включаем следующий трек
     return Success;
 }
 
@@ -79,14 +79,6 @@ Status PlaylistUIModel::deleteTrack() {
 
 Status PlaylistUIModel::chooseTrack() {
     mediator_->notify(this, ChooseTrack);
-    return Success;
-}
-
-Status PlaylistUIModel::addQueue() {
-    return Success;
-}
-
-Status PlaylistUIModel::deleteQueue() {
     return Success;
 }
 
@@ -139,75 +131,3 @@ void TrackPlaylistModel::notify(Sender* sender, Function function) {
         currentTrack_->chooseTrack();
     }
 }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// CurrentTrackController::CurrentTrackController(Mediator* mediator)
-//     model_(new CurrentTrackUIModel(mediator)) {}
-
-// Status CurrentTrackController::shuffle() {
-//     model_->shuffle();
-//     return Success;
-// }
-
-// Status CurrentTrackController::previousTrack() {
-//     model_->previousTrack();
-//     return Success;
-// }
-
-// Status CurrentTrackController::play() {
-//     model_->play();
-//     return Success;
-// }
-
-// Status CurrentTrackController::nextTrack() {
-//     model_->nextTrack();
-//     return Success;
-// }
-
-// Status CurrentTrackController::repeat() {
-//     model_->repeat();
-//     return Success;
-// }
-
-// Status CurrentTrackController::mute() {
-//     model_->mute();
-//     return Success;
-// }
-
-// Status CurrentTrackController::moveDuration() {
-//     model_->moveDuration();
-//     return Success;
-// }
-
-// Status CurrentTrackController::moveVolume() {
-//     model_->moveVolume();
-//     return Success;
-// }
-
-
-
-// Status PlaylistController::addTrack() {
-//     model_->addTrack();
-//     return Success;
-// }
-
-// Status PlaylistController::deleteTrack() {
-//     model_->deleteTrack();
-//     return Success;
-// }
-
-// Status PlaylistController::chooseTrack() {
-//     model_->chooseTrack();
-//     return Success;
-// }
-
-// Status PlaylistController::addQueue() {
-//     model_->addQueue();
-//     return Success;
-// }
-
-// Status PlaylistController::deelteQueue() {
-//     model_->addQueue();
-//     return Success;
-// }

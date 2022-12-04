@@ -94,20 +94,6 @@ Status MockPlaylist::chooseTrack() {
     return Success;
 }
 
-Status MockPlaylist::addQueue() {
-    PlaylistUIModel::addQueue();
-    doAddQueue();
-    return Success;
-}
-
-Status MockPlaylist::deleteQueue() {
-    PlaylistUIModel::deleteQueue();
-    doDeleteQueue();
-    return Success;
-}
-
-
-
 Status MockPlaylist::setShuffle() {
     PlaylistUIModel::setShuffle();
     doSetShuffle();

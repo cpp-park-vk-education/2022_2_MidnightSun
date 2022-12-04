@@ -6,21 +6,21 @@
 #include <random>
 #include <vector>
 
-class TrackModel {
+class Track {
  public:
-    TrackModel(const std::string& trackName);
-    TrackModel(const std::chrono::seconds& duration);
-    TrackModel() = default;
-    ~TrackModel() = default;
+    Track(const std::string& trackName);
+    Track(const std::chrono::seconds& duration);
+    Track() = default;
+    ~Track() = default;
     
-    TrackModel(const TrackModel& rhs) = default;
-    TrackModel(TrackModel&& rhs) = default;
+    Track(const Track& rhs) = default;
+    Track(Track&& rhs) = default;
 
-    TrackModel& operator=(const TrackModel& rhs) = default;
-    TrackModel& operator=(TrackModel&& rhs) = default;
+    Track& operator=(const Track& rhs) = default;
+    Track& operator=(Track&& rhs) = default;
 
-    bool operator==(const TrackModel& other) const;
-    bool operator!=(const TrackModel& other) const;
+    bool operator==(const Track& other) const;
+    bool operator!=(const Track& other) const;
 
     void play() noexcept;
     void pause() noexcept;
@@ -52,30 +52,30 @@ class TrackModel {
     std::vector<std::string> tags_;
 };
 
-class PlaylistModel {
+class Playlist {
  public:
-    void addTrack(const TrackModel& newTrack);
-    void deleteTrack(TrackModel& deletedTrack);
+    void addTrack(const Track& newTrack);
+    void deleteTrack(Track& deletedTrack);
 
-    void setCurrentTrack(const TrackModel& newCurrentTrack);
+    void setCurrentTrack(const Track& newCurrentTrack);
     void setNextTrack();
     void setPreviousTrack();
 
     void shuffle();
 
-    TrackModel& operator[](size_t i) noexcept {
+    Track& operator[](size_t i) noexcept {
         return tracksList_[i];
     }
 
-    TrackModel operator[](size_t i) const noexcept {
+    Track operator[](size_t i) const noexcept {
         return tracksList_[i];
     }
 
     size_t getSize() const noexcept;
-    TrackModel getCurrentTrack() const noexcept;
+    Track getCurrentTrack() const noexcept;
  private:
     std::string playlistName_ = "";
-    TrackModel currentTrack_;
+    Track currentTrack_;
     size_t currentTrackPosition_ = 0;
-    std::vector<TrackModel> tracksList_;
+    std::vector<Track> tracksList_;
 };

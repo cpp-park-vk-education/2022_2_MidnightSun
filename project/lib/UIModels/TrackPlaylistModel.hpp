@@ -1,13 +1,12 @@
 #pragma once
 
 enum Function {
-// Значения, указывающие какие функции нужно стриггерить у Playlist
+// Значения, указывающие какие функции нужно стриггерить у UI моделей
     Shuffle,
     PreviousTrack,
     NextTrack,
     Repeat,
     DurationEnd,
-// Значения, указывающие какие функции нужно стриггерить у Current Track
     ChooseTrack
 };
 
@@ -43,10 +42,10 @@ class CurrentTrackUIModel : public Sender {
     virtual Status moveDuration();
     virtual Status moveVolume();
 
-// функции, которые триггерятся Playlist моделью
+// функции, которые триггерятся Playlist UI моделью
     virtual Status chooseTrack();
 
-// функции, которые триггерятся Model
+// функции, которые триггерятся Current Track UI моделью
     virtual Status choosePreviousTrack();
     virtual Status chooseNextTrack();
 };
@@ -59,16 +58,13 @@ class PlaylistUIModel : public Sender {
     virtual Status addTrack();
     virtual Status deleteTrack();
     virtual Status chooseTrack();
-    virtual Status addQueue();
-    virtual Status deleteQueue();
 
-// функции, которые триггерятся Current Track моделью
+// функции, которые триггерятся Current Track UI моделью
     virtual Status setShuffle();
     virtual Status setRepeat();
     virtual Status choosePreviousTrack();
     virtual Status chooseNextTrack();
 };
-
 
 class TrackPlaylistModel : public Mediator {
  public:
@@ -80,29 +76,3 @@ class TrackPlaylistModel : public Mediator {
     CurrentTrackUIModel* currentTrack_;
     PlaylistUIModel* playlist_;
 };
-
-// class CurrentTrackController {
-//  public:
-//     explicit CurrentTrackController(Mediator* mediator);
-//     Status shuffle();
-//     Status previousTrack();
-//     Status play();
-//     Status nextTrack();
-//     Status repeat();
-//     Status mute();
-//     Status moveDuration();
-//     Status moveVolume();
-//  private:
-//     CurrentTrackUIModel* model_;
-// };
-
-// class PlaylistController {
-//  public:
-//     Status addTrack();
-//     Status deleteTrack();
-//     Status chooseTrack();
-//     Status addQueue();
-//     Status deelteQueue();
-//  private:
-//     PlaylistUIModel* model_;
-// };

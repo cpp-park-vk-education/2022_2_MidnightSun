@@ -1,37 +1,37 @@
 #include "Models.hpp"
 
-TrackModel::TrackModel(const std::string& trackName)
+Track::Track(const std::string& trackName)
     : trackName_(trackName) {}
 
-TrackModel::TrackModel(const std::chrono::seconds& duration)
+Track::Track(const std::chrono::seconds& duration)
     : duration_(duration) {}
 
-bool TrackModel::operator==(const TrackModel& other) const {
+bool Track::operator==(const Track& other) const {
     return trackName_ == other.trackName_;
 }
 
-bool TrackModel::operator!=(const TrackModel& other) const {
+bool Track::operator!=(const Track& other) const {
     return trackName_ != other.trackName_;
 }
 
-void TrackModel::play() noexcept {
+void Track::play() noexcept {
     if (!isPlaying_) {
         isPlaying_ = true;
     }
 }
 
-void TrackModel::pause() noexcept {
+void Track::pause() noexcept {
     if (isPlaying_) {
         isPlaying_ = false;
     }
 }
 
-void TrackModel::stop() noexcept {
+void Track::stop() noexcept {
     isPlaying_ = false;
     currentTime_ = std::chrono::seconds::zero();
 }
 
-void TrackModel::repeat() noexcept {
+void Track::repeat() noexcept {
     if (isRepeating_) {
         isRepeating_ = false;
     } else {
@@ -39,11 +39,11 @@ void TrackModel::repeat() noexcept {
     }
 }
 
-void TrackModel::mute() noexcept {
+void Track::mute() noexcept {
     volume_ = 0;
 }
 
-void TrackModel::setDurationPosition(const std::chrono::seconds& time) noexcept {
+void Track::setDurationPosition(const std::chrono::seconds& time) noexcept {
     if (time > duration_) {
         currentTime_ = duration_;
     } else {
@@ -51,7 +51,7 @@ void TrackModel::setDurationPosition(const std::chrono::seconds& time) noexcept 
     }
 }
 
-void TrackModel::setVolume(float newVolume) noexcept {
+void Track::setVolume(float newVolume) noexcept {
     if (newVolume > 100) {
         volume_ = 100;
     } else {
@@ -59,34 +59,34 @@ void TrackModel::setVolume(float newVolume) noexcept {
     }
 }
 
-bool TrackModel::isPlaying() const noexcept {
+bool Track::isPlaying() const noexcept {
     return isPlaying_;
 }
 
-bool TrackModel::isRepeating() const noexcept {
+bool Track::isRepeating() const noexcept {
     return isRepeating_;
 }
 
-std::chrono::seconds TrackModel::getCurrentTime() const noexcept {
+std::chrono::seconds Track::getCurrentTime() const noexcept {
     return currentTime_;
 }
 
-std::chrono::seconds TrackModel::getDuration() const noexcept {
+std::chrono::seconds Track::getDuration() const noexcept {
     return duration_;
 }
 
-float TrackModel::getVolume() const noexcept {
+float Track::getVolume() const noexcept {
     return volume_;
 }
 
 
 
 
-void PlaylistModel::addTrack(const TrackModel& newTrack) {
+void Playlist::addTrack(const Track& newTrack) {
     tracksList_.push_back(newTrack);
 }
 
-void PlaylistModel::deleteTrack(TrackModel& deletedTrack) {
+void Playlist::deleteTrack(Track& deletedTrack) {
     if (&deletedTrack == &currentTrack_ && tracksList_.size() != 1) {
         if (currentTrackPosition_ + 1 == tracksList_.size()) { // если текущий трек последний в плейлисте
             setCurrentTrack(tracksList_[currentTrackPosition_ - 1]);
@@ -102,7 +102,7 @@ void PlaylistModel::deleteTrack(TrackModel& deletedTrack) {
     }
 }
 
-void PlaylistModel::setCurrentTrack(const TrackModel& newCurrentTrack) {
+void Playlist::setCurrentTrack(const Track& newCurrentTrack) {
     auto newCurrentTrackInPlaylist = find(tracksList_.begin(),
                                           tracksList_.end(),
                                           newCurrentTrack);
@@ -113,7 +113,7 @@ void PlaylistModel::setCurrentTrack(const TrackModel& newCurrentTrack) {
     }
 }
 
-void PlaylistModel::setNextTrack() {
+void Playlist::setNextTrack() {
     if (currentTrackPosition_ + 1 == tracksList_.size()) {
         currentTrack_ = tracksList_[0];
         currentTrackPosition_ = 0;
@@ -122,22 +122,22 @@ void PlaylistModel::setNextTrack() {
     }
 }
 
-void PlaylistModel::setPreviousTrack() {
+void Playlist::setPreviousTrack() {
     if (currentTrackPosition_ != 0) {
         currentTrack_ = tracksList_[--currentTrackPosition_];
     } 
 }
 
-void PlaylistModel::shuffle() {
+void Playlist::shuffle() {
     std::shuffle(tracksList_.begin(),
                  tracksList_.end(),
                  std::random_device());
 }
 
-size_t PlaylistModel::getSize() const noexcept {
+size_t Playlist::getSize() const noexcept {
     return tracksList_.size();
 }
 
-TrackModel PlaylistModel::getCurrentTrack() const noexcept {
+Track Playlist::getCurrentTrack() const noexcept {
     return currentTrack_;
 }

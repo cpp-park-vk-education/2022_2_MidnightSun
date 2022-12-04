@@ -41,8 +41,6 @@ class MockPlaylist : public PlaylistUIModel {
     MOCK_METHOD0(doAddTrack, Status());
     MOCK_METHOD0(doDeleteTrack, Status());
     MOCK_METHOD0(doChooseTrack, Status());
-    MOCK_METHOD0(doAddQueue, Status());
-    MOCK_METHOD0(doDeleteQueue, Status());
 
     MOCK_METHOD0(doSetShuffle, Status());
     MOCK_METHOD0(doSetRepeat, Status());
@@ -52,8 +50,6 @@ class MockPlaylist : public PlaylistUIModel {
     Status addTrack() override;
     Status deleteTrack() override;
     Status chooseTrack() override;
-    Status addQueue() override;
-    Status deleteQueue() override;
 
     Status setShuffle() override;
     Status setRepeat() override;
@@ -65,6 +61,9 @@ class MockModel : public TrackPlaylistModel {
   public:
     MOCK_METHOD2(doNotify, void(Sender*, Function));
     void notify(Sender* sender, Function function) override;
+
+    using TrackPlaylistModel::setCurrentTrack; // для компилятора
+    using TrackPlaylistModel::setPlaylist; // для компилятора
 
     void setCurrentTrack(MockCurrentTrack* model);
     void setPlaylist(MockPlaylist* model);
