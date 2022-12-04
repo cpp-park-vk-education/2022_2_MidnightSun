@@ -5,13 +5,17 @@ PROJECT(tests)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Werror -Wextra -Wpedantic -Wall -fPIE -fPIC")
 
+INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} lib/Components")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} lib/GlobalModels")
 INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} lib/Models")
-INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} lib/UIModels")
 INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} tests/MockClasses")
 
 SET(SOURCES 
-           lib/Models/Models.cpp
-           lib/UIModels/TrackPlaylistModel.cpp)
+           lib/Components/CurrentPlaylist.cpp
+           lib/Components/CurrentTrack.cpp
+           lib/GlobalModels/TrackPlaylistModel.cpp
+           lib/Models/Playlist.cpp
+           lib/Models/Track.cpp)
 
 SET(MOCKSOURCES 
                tests/MockClasses/MockClasses.cpp)
