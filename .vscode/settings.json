@@ -71,6 +71,11 @@
         "qdebug": "cpp",
         "qstyle": "cpp",
         "qfile": "cpp",
-        "qslider": "cpp"
+        "qslider": "cpp",
+        "bitset": "cpp",
+        "complex": "cpp",
+        "set": "cpp",
+        "iomanip": "cpp",
+        "typeindex": "cpp"
     }
 }

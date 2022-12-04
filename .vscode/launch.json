@@ -8,7 +8,7 @@
             "name": "(gdb) Запустить",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/project/current_track_test",
+            "program": "${workspaceFolder}/project/tests/test",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

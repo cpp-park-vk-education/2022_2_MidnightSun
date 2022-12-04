@@ -1,0 +1,49 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.9)
+
+
+PROJECT(tests)
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Werror -Wextra -Wpedantic -Wall")
+
+IF(WITH_CLANG_TIDY)
+    SET(CMAKE_CXX_CLANG_TIDY 
+        clang-tidy;
+        -header-filter=<gtest/gtest.h>;
+        -checks=*)
+ENDIF()
+
+if (WITH_MEMCHECK)
+    SET(CMAKE_CXX_FLAGS "-fsanitize=address")   
+endif()
+
+INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} lib/Models")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} lib/UIModels")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} lib/MockClasses")
+
+SET(SOURCES 
+           lib/Models/Models.cpp
+           lib/UIModels/TrackPlaylistModel.cpp)
+
+# SET(GMOCKSOURCES 
+#                 tests/MockClasses/MockClasses.cpp)
+
+INCLUDE(CTest)
+FIND_PACKAGE(GTest REQUIRED)
+INCLUDE_DIRECTORIES(GoogleTest)
+
+ADD_EXECUTABLE(playlist_model_test ${SOURCES} tests/ModelsTests/PlaylistModelTest.cpp)
+ADD_EXECUTABLE(track_model_test ${SOURCES} tests/ModelsTests/TrackModelTest.cpp)
+# ADD_EXECUTABLE(playlist_model_test ${SOURCES} tests/ModelsTests/PlaylistModelTest.cpp)
+# ADD_EXECUTABLE(current_track_UIModel_test ${SOURCES} ${GMOCKSOURCES} tests/UIModelsTests/CurrentTrackUIModelTest.cpp)
+
+TARGET_LINK_LIBRARIES(playlist_model_test GTest::GTest GTest::Main)
+TARGET_LINK_LIBRARIES(track_model_test GTest::GTest GTest::Main)
+# TARGET_LINK_LIBRARIES(current_track_UIModel_test GTest::GTest GTest::Main)
+
+GTEST_DISCOVER_TESTS(playlist_model_test)
+GTEST_DISCOVER_TESTS(track_model_test)
+# GTEST_DISCOVER_TESTS(current_track_UIModel_test)
+
+ADD_TEST(NAME PlaylistModelTest COMMAND playlist_model_test)
+ADD_TEST(NAME TrackModelTest COMMAND track_model_test)
+# ADD_TEST(NAME CurrentTrackUIModelTest COMMAND current_track_UIModel_test)

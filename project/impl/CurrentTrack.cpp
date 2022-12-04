@@ -254,8 +254,11 @@ CurrentTrackView::CurrentTrackView(QWidget* parent)
                    MUTE_NAME);
 }
 
+#include <QDebug>
+
 void CurrentTrackView::shuffleClicked() {
     // shuffle_.editStatus();
+    qDebug() << 1;
 }
 
 void CurrentTrackView::previousTrackClicked() {

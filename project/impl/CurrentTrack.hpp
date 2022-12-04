@@ -128,10 +128,10 @@ class CurrentTrackController : public QMainWindow, public ICurrentTrackControlle
 class CurrentTrackView : public QObject {
  Q_OBJECT
  public:
-    explicit CurrentTrackView(QWidget* parent);
+    explicit CurrentTrackView(QWidget* parent = nullptr);
     ~CurrentTrackView() = default;
 
- private slots:
+ public slots:
     void shuffleClicked();
     void previousTrackClicked();
     void playClicked();
@@ -141,7 +141,8 @@ class CurrentTrackView : public QObject {
     void durationSliderMoved();
     void volumeSliderMoved();
 
- private:
+//  private:
+ public:
     CurrentTrackController controller_;
 
     CurrentTrackWidget currentTrackWidget_;
