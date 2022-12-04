@@ -1,0 +1,1 @@
+/usr/bin/g++-9 -g -rdynamic CMakeFiles/SOURCES.dir/SOURCES_autogen/mocs_compilation.cpp.o -o SOURCES  /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Multimedia.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Network.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8 

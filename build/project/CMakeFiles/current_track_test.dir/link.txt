@@ -1,0 +1,1 @@
+/usr/bin/g++-9 -g -rdynamic CMakeFiles/current_track_test.dir/current_track_test_autogen/mocs_compilation.cpp.o -o current_track_test  /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Multimedia.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Network.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8 

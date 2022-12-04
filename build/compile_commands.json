@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/home/marcussss1/2022_2_MidnightSun/build/project",
+  "command": "/usr/bin/g++-9 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/home/marcussss1/2022_2_MidnightSun/build/project -I/home/marcussss1/2022_2_MidnightSun/project -I/home/marcussss1/2022_2_MidnightSun/build/project/test_autogen/include -I/home/marcussss1/2022_2_MidnightSun/project/impl -I/home/marcussss1/2022_2_MidnightSun/project/impl/style -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtMultimedia -isystem /usr/include/x86_64-linux-gnu/qt5/QtNetwork -g -fPIC -o CMakeFiles/test.dir/test_autogen/mocs_compilation.cpp.o -c /home/marcussss1/2022_2_MidnightSun/build/project/test_autogen/mocs_compilation.cpp",
+  "file": "/home/marcussss1/2022_2_MidnightSun/build/project/test_autogen/mocs_compilation.cpp"
+},
+{
+  "directory": "/home/marcussss1/2022_2_MidnightSun/build/project",
+  "command": "/usr/bin/g++-9 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/home/marcussss1/2022_2_MidnightSun/build/project -I/home/marcussss1/2022_2_MidnightSun/project -I/home/marcussss1/2022_2_MidnightSun/build/project/test_autogen/include -I/home/marcussss1/2022_2_MidnightSun/project/impl -I/home/marcussss1/2022_2_MidnightSun/project/impl/style -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtMultimedia -isystem /usr/include/x86_64-linux-gnu/qt5/QtNetwork -g -fPIC -o CMakeFiles/test.dir/main.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/main.cpp",
+  "file": "/home/marcussss1/2022_2_MidnightSun/project/main.cpp"
+},
+{
+  "directory": "/home/marcussss1/2022_2_MidnightSun/build/project",
+  "command": "/usr/bin/g++-9 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/home/marcussss1/2022_2_MidnightSun/build/project -I/home/marcussss1/2022_2_MidnightSun/project -I/home/marcussss1/2022_2_MidnightSun/build/project/test_autogen/include -I/home/marcussss1/2022_2_MidnightSun/project/impl -I/home/marcussss1/2022_2_MidnightSun/project/impl/style -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtMultimedia -isystem /usr/include/x86_64-linux-gnu/qt5/QtNetwork -g -fPIC -o CMakeFiles/test.dir/impl/MainWindow.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/MainWindow.cpp",
+  "file": "/home/marcussss1/2022_2_MidnightSun/project/impl/MainWindow.cpp"
+},
+{
+  "directory": "/home/marcussss1/2022_2_MidnightSun/build/project",
+  "command": "/usr/bin/g++-9 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/home/marcussss1/2022_2_MidnightSun/build/project -I/home/marcussss1/2022_2_MidnightSun/project -I/home/marcussss1/2022_2_MidnightSun/build/project/test_autogen/include -I/home/marcussss1/2022_2_MidnightSun/project/impl -I/home/marcussss1/2022_2_MidnightSun/project/impl/style -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtMultimedia -isystem /usr/include/x86_64-linux-gnu/qt5/QtNetwork -g -fPIC -o CMakeFiles/test.dir/impl/CurrentPlaylist.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/CurrentPlaylist.cpp",
+  "file": "/home/marcussss1/2022_2_MidnightSun/project/impl/CurrentPlaylist.cpp"
+},
+{
+  "directory": "/home/marcussss1/2022_2_MidnightSun/build/project",
+  "command": "/usr/bin/g++-9 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/home/marcussss1/2022_2_MidnightSun/build/project -I/home/marcussss1/2022_2_MidnightSun/project -I/home/marcussss1/2022_2_MidnightSun/build/project/test_autogen/include -I/home/marcussss1/2022_2_MidnightSun/project/impl -I/home/marcussss1/2022_2_MidnightSun/project/impl/style -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtMultimedia -isystem /usr/include/x86_64-linux-gnu/qt5/QtNetwork -g -fPIC -o CMakeFiles/test.dir/impl/CurrentTrack.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/CurrentTrack.cpp",
+  "file": "/home/marcussss1/2022_2_MidnightSun/project/impl/CurrentTrack.cpp"
+},
+{
+  "directory": "/home/marcussss1/2022_2_MidnightSun/build/project",
+  "command": "/usr/bin/g++-9 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/home/marcussss1/2022_2_MidnightSun/build/project -I/home/marcussss1/2022_2_MidnightSun/project -I/home/marcussss1/2022_2_MidnightSun/build/project/test_autogen/include -I/home/marcussss1/2022_2_MidnightSun/project/impl -I/home/marcussss1/2022_2_MidnightSun/project/impl/style -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtMultimedia -isystem /usr/include/x86_64-linux-gnu/qt5/QtNetwork -g -fPIC -o CMakeFiles/test.dir/impl/LeftWall.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/LeftWall.cpp",
+  "file": "/home/marcussss1/2022_2_MidnightSun/project/impl/LeftWall.cpp"
+},
+{
+  "directory": "/home/marcussss1/2022_2_MidnightSun/build/project",
+  "command": "/usr/bin/g++-9 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/home/marcussss1/2022_2_MidnightSun/build/project -I/home/marcussss1/2022_2_MidnightSun/project -I/home/marcussss1/2022_2_MidnightSun/build/project/test_autogen/include -I/home/marcussss1/2022_2_MidnightSun/project/impl -I/home/marcussss1/2022_2_MidnightSun/project/impl/style -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtMultimedia -isystem /usr/include/x86_64-linux-gnu/qt5/QtNetwork -g -fPIC -o CMakeFiles/test.dir/impl/MenuBar.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/MenuBar.cpp",
+  "file": "/home/marcussss1/2022_2_MidnightSun/project/impl/MenuBar.cpp"
+},
+{
+  "directory": "/home/marcussss1/2022_2_MidnightSun/build/project",
+  "command": "/usr/bin/g++-9 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/home/marcussss1/2022_2_MidnightSun/build/project -I/home/marcussss1/2022_2_MidnightSun/project -I/home/marcussss1/2022_2_MidnightSun/build/project/test_autogen/include -I/home/marcussss1/2022_2_MidnightSun/project/impl -I/home/marcussss1/2022_2_MidnightSun/project/impl/style -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtMultimedia -isystem /usr/include/x86_64-linux-gnu/qt5/QtNetwork -g -fPIC -o CMakeFiles/test.dir/impl/TitleBarButtons.cpp.o -c /home/marcussss1/2022_2_MidnightSun/project/impl/TitleBarButtons.cpp",
+  "file": "/home/marcussss1/2022_2_MidnightSun/project/impl/TitleBarButtons.cpp"
+}
+]

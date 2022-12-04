@@ -1,0 +1,96 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.9"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "project",
+					"jsonFile" : "directory-project-Debug-357bc229ad25d66d3f3e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.9"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "project",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "MP3Player"
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "tests",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "test::@1ff0e79755c878899e1a",
+					"jsonFile" : "target-test-Debug-a7bd0abca586c1a4b64c.json",
+					"name" : "test",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_autogen::@1ff0e79755c878899e1a",
+					"jsonFile" : "target-test_autogen-Debug-e844ea962f5be76dc488.json",
+					"name" : "test_autogen",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/marcussss1/2022_2_MidnightSun/build",
+		"source" : "/home/marcussss1/2022_2_MidnightSun"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
