@@ -1,0 +1,69 @@
+/* QWidget { background-color: black; } */
+
+QWidget#currentTrackWidget { background-color: #242f3d;}
+QWidget#optionsWindow { background-color: #1f2936; }
+QWidget#leftBoard { background-color: #17212b; }
+
+QTableWidget { background-color: black; }
+
+QMenuBar { background-color: #1f2936; }
+/* QAction {background-color: red;} */
+/* QMenu::item:default { background-color: white; } */
+/* QMenuBar { background-color: white; } */
+/* QAction { background-color: white; } */
+
+/* QPushButton { background-color: #1f2936;
+              border: none; } */
+
+QPushButton#close { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/close.png); }     
+QPushButton#zoom { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/zoom.png); }     
+QPushButton#minimize { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/minimize.png); }
+
+QPushButton#shuffle { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/shuffle.png); }            
+QPushButton#previousTrack { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/previousTrack.png); } 
+QPushButton#play { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/play.png); } 
+QPushButton#pause { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/shuffle.png); } 
+QPushButton#nextTrack { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/nextTrack.png); } 
+QPushButton#repeat { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeat.png); } 
+QPushButton#mute { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/muteOff.png); } 
+
+QPushButton:hover#shuffle { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/shuffleFocus.png); }            
+QPushButton:hover#previousTrack { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/previousTrackFocus.png); } 
+QPushButton:hover#play { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/playFocus.png); } 
+QPushButton:hover#nextTrack { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/nextTrackFocus.png); } 
+QPushButton:hover#repeat { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeatFocus.png); } 
+QPushButton:hover#mute { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/muteOffFocus.png); } 
+
+QSlider#volumeSlider { background-color: #242f3d;
+          border: none; }
+/* QSlider::groove:horizontal#volumeSlider { border: 1px solid #999999;
+                             height: 18px;
+                             border-radius: 9px; }
+QSlider::handle:horizontal#volumeSlider { width: 18px; } */
+                             /* background-image: url(:/slider-knob.png) } /* не понятно насколько необходима эта строка, кажется, бесполезна */
+QSlider::add-page:qlineargradient#volumeSlider { background: lightgrey;
+                                    border-top-right-radius: 9px;
+                                    border-bottom-right-radius: 9px;
+                                    border-top-left-radius: 0px;
+                                    border-bottom-left-radius: 0px; }
+QSlider::sub-page:qlineargradient#volumeSlider { background: blue;
+                                    border-top-right-radius: 0px;
+                                    border-bottom-right-radius: 0px;
+                                    border-top-left-radius: 9px;
+                                    border-bottom-left-radius: 9px; }
+
+
+QSlider::groove:horizontal#durationSlider {
+    border: 1px solid #999999;
+    height: 8px;
+    background: palette(midlight);
+    margin: 8px 0;
+}
+
+QSlider::handle:horizontal#durationSlider {
+    background: palette(window);
+    border: 1px solid #999999;
+    width: 30px;
+    margin: -8px 0;
+    border-radius: 3px;
+}
