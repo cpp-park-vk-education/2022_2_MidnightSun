@@ -1,6 +1,6 @@
 #pragma once
 
-#include "QFileSystemController.hpp"
+#include "FileSystemController.hpp"
 
 #include <QAction>
 #include <QFileDialog>
@@ -27,5 +27,5 @@ class FileSystemView : public QMainWindow {
     QAction* actionAddFile_;
 
     FileSystemUIModel* model_;
-    QFileSystemController* controller_;
+    FileSystemController* controller_;
 };

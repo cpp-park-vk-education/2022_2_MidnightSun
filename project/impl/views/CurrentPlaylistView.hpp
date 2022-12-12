@@ -1,6 +1,7 @@
 #pragma once
 
-#include <QCurrentPlaylistController.hpp>
+#include "QCurrentPlaylistController.hpp"
+#include "QCurrentPlaylistUIModel.hpp"
 
 #include <QAction>
 #include <QMenu>
@@ -10,7 +11,7 @@
 class CurrentPlaylistView : public QTableWidget {
  Q_OBJECT
  public:
-    explicit CurrentPlaylistView(QWidget* parent);
+    explicit CurrentPlaylistView(CurrentPlaylistUIModel* model, QWidget* parent);
     ~CurrentPlaylistView() = default;
 
     void setCurrentPlaylistMediator(Mediator* mediator);
@@ -23,7 +24,7 @@ class CurrentPlaylistView : public QTableWidget {
     void trackClicked();
 
  private:
-    CurrentPlaylistUIModel* model_;
+    QCurrentPlaylistUIModel* model_;
     QCurrentPlaylistController* controller_;
     
     QTableWidget* currentPlaylistWidget_;

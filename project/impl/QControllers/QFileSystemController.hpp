@@ -1,17 +1,13 @@
-#pragma once
+// #pragma once
 
-#include "FileSystemController.hpp"
-#include <QObject>
+// #include "FileSystemUIModel.hpp"
 
-class QFileSystemController : public QObject {
- Q_OBJECT
- public:
-    explicit QFileSystemController(FileSystemUIModel* model);
+// class QFileSystemController {
 
-//  private slots:
- public slots:
-    void openFile(std::string path);
- 
- private:
-    FileSystemController* controller_;
-};
+// }
+
+// // class FileSystemUIModel : public Sender {
+// //  public:
+// //     void setFileSystemMediator(Mediator* mediator);
+// //     void openFile(std::string path);    
+// // };

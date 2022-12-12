@@ -90,9 +90,9 @@
 
 
 
-CurrentPlaylistView::CurrentPlaylistView(QWidget* parent)
-    : model_(new CurrentPlaylistUIModel),
-      controller_(new QCurrentPlaylistController(model_)),
+CurrentPlaylistView::CurrentPlaylistView(CurrentPlaylistUIModel* model, QWidget* parent)
+    : model_(new QCurrentPlaylistUIModel(model)),
+      controller_(new QCurrentPlaylistController(model)),
       currentPlaylistWidget_(new QTableWidget(parent)),
       menu_(new QMenu(parent)),
       addTrack_(new QAction(currentPlaylistWidget_)),
@@ -172,5 +172,5 @@ void CurrentPlaylistView::setCurrentPlaylistMediator(Mediator* mediator) {
 }
 
 CurrentPlaylistUIModel* CurrentPlaylistView::getModel() {
-    return model_;
+    return model_->model_;
 }

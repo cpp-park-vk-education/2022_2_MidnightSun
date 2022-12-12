@@ -77,6 +77,7 @@ FIND_PACKAGE(Qt5Multimedia REQUIRED)
 
 INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} impl/icons")
 INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} impl/QControllers")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} impl/QModels")
 INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} impl/style")
 INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} impl/views")
 
@@ -111,6 +112,8 @@ SET(IMPL
         impl/QControllers/QCurrentPlaylistController.cpp
         impl/QControllers/QCurrentTrackController.cpp
         impl/QControllers/QFileSystemController.cpp
+        impl/QModels/QCurrentPlaylistUIModel.cpp
+        impl/QModels/QCurrentTrackUIModel.cpp
         impl/views/CurrentPlaylistView.cpp
         impl/views/CurrentTrackView.cpp
         impl/views/FileSystemView.cpp

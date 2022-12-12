@@ -6,7 +6,7 @@ const int MENU_BAR_HEIGHT = 25;
 FileSystemView::FileSystemView(QWidget* parent) 
     : menuBarWidget_(new QMenuBar(parent)),
       model_(new FileSystemUIModel),
-      controller_(new QFileSystemController(model_)) {
+      controller_(new FileSystemController(model_)) {
     menuBarWidget_->setGeometry(QRect(0, 0, 200, 25));
     menuAddFile_ = menuBarWidget_->addMenu("Файл");
     actionAddFile_ = menuAddFile_->addAction("Открыть файл");

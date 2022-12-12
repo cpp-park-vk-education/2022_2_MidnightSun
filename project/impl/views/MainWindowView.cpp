@@ -37,8 +37,8 @@ MainView::MainView()
     : mediator_(new TrackPlaylistModel),
       mainWindowWidget_(nullptr),
       titleBarButtonsWidget_(&mainWindowWidget_),
-      currentTrackView_(&mainWindowWidget_),
-      currentPlaylistView_(&mainWindowWidget_),
+      currentTrackView_(new CurrentTrackUIModel, &mainWindowWidget_),
+      currentPlaylistView_(new CurrentPlaylistUIModel, &mainWindowWidget_),
       leftBoardView_(&mainWindowWidget_),
       fileSystemView_(&mainWindowWidget_) {
 

@@ -45,9 +45,9 @@ const char* DURATION_SLIDER_NAME = "durationSlider";
 
 //////////////////////////////////////// Current Track View ////////////////////////////////////////
 
-CurrentTrackView::CurrentTrackView(QWidget* parent)
-    : model_(new CurrentTrackUIModel),
-      controller_(new QCurrentTrackController(model_)),
+CurrentTrackView::CurrentTrackView(CurrentTrackUIModel* model, QWidget* parent)
+    : model_(new QCurrentTrackUIModel(model)),
+      controller_(new QCurrentTrackController(model)),
       currentTrackWidget_(new QWidget(parent)),
       shuffle_(new QPushButton(parent)),
       previousTrack_(new QPushButton(parent)),
@@ -82,8 +82,11 @@ CurrentTrackView::CurrentTrackView(QWidget* parent)
     connect(play_, SIGNAL(clicked()),
             controller_, SLOT(play()));
     
-    // connect(play_, SIGNAL(clicked()), 
-    //         controller_, SLOT(pause()));
+    connect(play_, SIGNAL(clicked()), 
+            controller_, SLOT(pause()));
+
+    // connect(stop_, SIGNAL(clicked()), 
+            // controller_, SLOT(stop()));
 
     connect(nextTrack_, SIGNAL(clicked()),
             controller_, SLOT(nextTrack()));
@@ -157,6 +160,40 @@ void CurrentTrackView::setStyle(int buttonX, int buttonY,
                               buttonWidth, buttonHeight));
 }
 
+void CurrentTrackView::playButtonChanged() {
+    play_->setObjectName("play");
+    play_->setStyleSheet("QPushButton#play { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/play.png); } QPushButton:hover#play { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/playFocus.png); }");
+}
+
+void CurrentTrackView::pauseButtonChanged() {
+    play_->setObjectName("pause");
+    play_->setStyleSheet("QPushButton#pause { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/pause.png); } QPushButton:hover#pause { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/pauseFocus.png); }");
+}
+
+void CurrentTrackView::shuffleOffButtonChanged() {
+
+}
+
+void CurrentTrackView::shuffleOnButtonChanged() {
+
+}
+
+void CurrentTrackView::repeatOffButtonChanged() {
+
+}
+
+void CurrentTrackView::repeatOnButtonChanged() {
+
+}
+
+void CurrentTrackView::muteOffButtonChanged() {
+
+}
+
+void CurrentTrackView::muteOnButtonChanged() {
+
+}
+
 // void CurrentTrackView::playButtonChanged() {
 //     play_->setObjectName("play");
 //     play_->setStyleSheet("QPushButton#play { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/play.png); } QPushButton:hover#play { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/playFocus.png); }");
@@ -199,5 +236,5 @@ void CurrentTrackView::setCurrentTrackMediator(Mediator* mediator) {
 }
 
 CurrentTrackUIModel* CurrentTrackView::getModel() {
-    return model_;
+    return model_->model_;
 }

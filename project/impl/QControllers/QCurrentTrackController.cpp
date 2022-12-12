@@ -1,46 +1,45 @@
 #include "QCurrentTrackController.hpp"
 
 QCurrentTrackController::QCurrentTrackController(CurrentTrackUIModel* model) 
-    : controller_(new CurrentTrackController(model)) {}
-
+    : model_(new QCurrentTrackUIModel(model)) {}
 
 void QCurrentTrackController::play() {
-    controller_->play();
+    model_->play();
 }
 
 void QCurrentTrackController::pause() {
-    controller_->pause();
+    model_->pause();
 }
 
-void QCurrentTrackController::stop() {
-    controller_->stop();
-}
+// void QCurrentTrackController::stop() {
+//     model_->stop();
+// }
 
 void QCurrentTrackController::repeat() {
-    controller_->repeat();
+    model_->repeat();
 }
 
 void QCurrentTrackController::mute() {
-    controller_->mute();
+    model_->mute();
 }
 
 void QCurrentTrackController::setDuration(int position) {
-    controller_->setDuration(position);
+    model_->setDuration(position);
 }
 
 void QCurrentTrackController::setVolume(int position) {
-    controller_->setVolume(position);
+    model_->setVolume(position);
 }
 
 
 void QCurrentTrackController::shuffle() {
-    controller_->shuffle();
+    model_->shuffle();
 }
 
 void QCurrentTrackController::previousTrack() {
-    controller_->previousTrack();
+    model_->previousTrack();
 }
 
 void QCurrentTrackController::nextTrack() {
-    controller_->nextTrack();
+    model_->nextTrack();
 }

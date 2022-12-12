@@ -1,6 +1,7 @@
 #pragma once
 
-#include "CurrentPlaylistController.hpp"
+// #include "CurrentPlaylistController.hpp"
+#include "QCurrentPlaylistUIModel.hpp"
 #include <QObject>
 
 class QCurrentPlaylistController : public QObject {
@@ -14,5 +15,6 @@ class QCurrentPlaylistController : public QObject {
     void chooseTrack(size_t index);
  
  private:
-    CurrentPlaylistController* controller_;
+    QCurrentPlaylistUIModel* model_;
+    // CurrentPlaylistController* controller_;
 };

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "QCurrentTrackController.hpp"
+#include "QCurrentTrackUIModel.hpp"
 
 #include <QMainWindow>
 #include <QMediaPlayer>
@@ -11,23 +12,23 @@
 class CurrentTrackView : public QObject {
  Q_OBJECT
  public:
-    explicit CurrentTrackView(QWidget* parent = nullptr);
+    CurrentTrackView(CurrentTrackUIModel* model, QWidget* parent = nullptr);
     ~CurrentTrackView() = default;
 
     void setCurrentTrackMediator(Mediator* mediator);
     CurrentTrackUIModel* getModel();
-// private slots:
-//    void playButtonChanged();
-//    void pauseButtonChanged();
+private slots:
+   void playButtonChanged();
+   void pauseButtonChanged();
 
-//    void shuffleOffButtonChanged();
-//    void shuffleOnButtonChanged();
+   void shuffleOffButtonChanged();
+   void shuffleOnButtonChanged();
 
-//    void repeatOffButtonChanged();
-//    void repeatOnButtonChanged();
+   void repeatOffButtonChanged();
+   void repeatOnButtonChanged();
 
-//    void muteOffButtonChanged();
-//    void muteOnButtonChanged();
+   void muteOffButtonChanged();
+   void muteOnButtonChanged();
 
    // void ElapsedTime(qint64 x) {
    //    durationSlider_->setValue(x / 1000);
@@ -42,7 +43,7 @@ public:
                  int buttonWidth, int buttonHeight,
                  const char* buttonName, QWidget* object);
  private:
-    CurrentTrackUIModel* model_;
+    QCurrentTrackUIModel* model_;
     QCurrentTrackController* controller_;
     
 
