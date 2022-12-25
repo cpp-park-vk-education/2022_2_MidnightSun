@@ -1,5 +1,7 @@
 #pragma once
 
+#include <QMediaPlayer>
+
 class ITrack {
  public:
     virtual ~ITrack() = default;
@@ -9,5 +11,5 @@ class ITrack {
     virtual void setVolume(int position) = 0;
     virtual void setDuration(int position) = 0;
 
-    virtual int duration() = 0;
+    virtual QMediaPlayer* mplayer() = 0;
 };

@@ -65,7 +65,16 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.9)
 
 PROJECT(tests)
 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Werror -Wextra -Wpedantic -Wall")
+# FLAGS    = -L /lib64 
+# LIBS     = -lusb-1.0 -l pthread
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Werror -Wextra -Wpedantic -Wall -L /lib64 -lrt -lm -lpthread")
+# set(CMAKE_THREAD_LIBS_INIT "-lpthread")
+# SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+# set(CMAKE_HAVE_THREADS_LIBRARY 1)
+# set(CMAKE_USE_WIN32_THREADS_INIT 0)
+# set(CMAKE_USE_PTHREADS_INIT 1)
+# set(THREADS_PREFER_PTHREAD_FLAG ON)
 
 SET(CMAKE_AUTOMOC ON)
 SET(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -76,8 +85,6 @@ FIND_PACKAGE(Qt5Gui REQUIRED)
 FIND_PACKAGE(Qt5Multimedia REQUIRED)
 
 INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} impl/icons")
-INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} impl/QControllers")
-INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} impl/QModels")
 INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} impl/style")
 INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} impl/views")
 
@@ -109,11 +116,6 @@ SET(LIB
         lib/UIModels/FileSystemUIModel.cpp)
 
 SET(IMPL
-        impl/QControllers/QCurrentPlaylistController.cpp
-        impl/QControllers/QCurrentTrackController.cpp
-        impl/QControllers/QFileSystemController.cpp
-        impl/QModels/QCurrentPlaylistUIModel.cpp
-        impl/QModels/QCurrentTrackUIModel.cpp
         impl/views/CurrentPlaylistView.cpp
         impl/views/CurrentTrackView.cpp
         impl/views/FileSystemView.cpp
@@ -122,4 +124,4 @@ SET(IMPL
         impl/views/TitleBarButtonsView.cpp)
 
 ADD_EXECUTABLE(mplayer main.cpp ${LIB} ${IMPL})
-TARGET_LINK_LIBRARIES(mplayer ${Qt5Widgets_LIBRARIES} ${Qt5Multimedia_LIBRARIES} stdc++fs)
+TARGET_LINK_LIBRARIES(mplayer ${Qt5Widgets_LIBRARIES} ${Qt5Multimedia_LIBRARIES} pthread stdc++fs)

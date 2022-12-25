@@ -4,7 +4,7 @@
 #include <QPushButton>
 #include <QStyle>
 
-const int MAIN_WINDOW_WIDTH = 800;
+const int MAIN_WINDOW_WIDTH = 800 - 125;
 const int MAIN_WINDOW_HEIGHT = 600;
 
 MainWindowWidget::MainWindowWidget(QWidget* parent)
@@ -18,20 +18,16 @@ MainWindowWidget::MainWindowWidget(QWidget* parent)
     setGeometry(QRect(0, 0, MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT));
 }
 
-// cppcheck-suppress unusedFunction
 void MainWindowWidget::mousePressEvent(QMouseEvent *event) {
     if (event->button() == Qt::LeftButton) {
         oldPos = event->pos();
     }
 }
 
-// cppcheck-suppress unusedFunction
 void MainWindowWidget::mouseMoveEvent(QMouseEvent *event) {
     QPoint delta = event->pos() - oldPos;
     move(pos() + delta);
 }
-
-// #include "TrackPlaylistModel.hpp"
 
 MainView::MainView()
     : mediator_(new TrackPlaylistModel),
@@ -39,8 +35,23 @@ MainView::MainView()
       titleBarButtonsWidget_(&mainWindowWidget_),
       currentTrackView_(new CurrentTrackUIModel, &mainWindowWidget_),
       currentPlaylistView_(new CurrentPlaylistUIModel, &mainWindowWidget_),
-      leftBoardView_(&mainWindowWidget_),
+    //   leftBoardView_(&mainWindowWidget_),
       fileSystemView_(&mainWindowWidget_) {
+
+    connect(&currentPlaylistView_, SIGNAL(currentTrackChanged(QString, int, bool)),
+            &currentTrackView_, SLOT(currentTrackChanged(QString, int, bool)));
+
+    // connect(&currentPlaylistView_, SIGNAL(currentTrackChanged(int)),
+    //         &currentTrackView_, SLOT(currentTrackChanged(int)));
+
+    connect(&currentPlaylistView_, SIGNAL(deleteCurrentTrack(QString, int)),
+            &currentTrackView_, SLOT(deleteCurrentTrack(QString, int)));
+
+    connect(&fileSystemView_, SIGNAL(openFile(QString)),
+            &currentPlaylistView_, SLOT(addTrackInWidget(QString)));
+
+    connect(&currentTrackView_, SIGNAL(removeCurrentTrack()),
+            &currentPlaylistView_, SLOT(removeCurrentTrack()));
 
     currentTrackView_.setCurrentTrackMediator(mediator_);
     currentPlaylistView_.setCurrentPlaylistMediator(mediator_);

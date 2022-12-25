@@ -21,7 +21,7 @@ class QTrack : public QObject, public ITrack {
     void setVolume(int position) override;
     void setDuration(int position) override;
 
-    int duration() override;
+    QMediaPlayer* mplayer() override;
  private:
     QMediaPlayer* mplayer_ = nullptr;
 

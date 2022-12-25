@@ -4,23 +4,23 @@
 #include "Track.hpp"
 
 class CurrentTrackUIModel : public Sender {
- public:
+ public:   
     void setCurrentTrackMediator(Mediator* mediator);
 
-    void play();
-    void pause();
-    void stop();
-    void repeat();
-    void mute();
-    void setDuration(int position);
-    void setVolume(int position);
+    void play(int index);
+    void pause(int index);
+    void stop(int index);
+    void repeat(int index);
+    void mute(int index);
+    void setDuration(int index, int position);
+    void setVolume(int index, int position);
 
     void shuffle();
     void previousTrack();
     void nextTrack();
 
-    void chooseTrack(Track* track);
+    void chooseTrack(Track* track, bool prevNextTrack);
 
-public:
-   Track* currentTrack_ = nullptr;
+//  private:
+    std::vector<Track*> currentTracks_;
 };

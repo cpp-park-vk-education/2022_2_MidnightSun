@@ -8,14 +8,14 @@ void Playlist::addTrack(std::string path) {
     tracksList_.push_back(track);
 }
 
-void Playlist::chooseTrack(size_t index) {
+void Playlist::chooseTrack(int index) {
     if (index < tracksList_.size()) {
         currentTrack_ = tracksList_[index];
         currentTrackPosition_ = index;
     }
 }
 
-void Playlist::deleteTrack(size_t index) {
+void Playlist::deleteTrack(int index) {
     if (index >= tracksList_.size()) {
         return;
     }
@@ -41,7 +41,7 @@ void Playlist::deleteTrack(size_t index) {
 void Playlist::previousTrack() {
     if (currentTrackPosition_ != 0) {
         currentTrack_ = tracksList_[--currentTrackPosition_];
-    } 
+    }
 }
 
 void Playlist::nextTrack() {
@@ -63,10 +63,10 @@ Track* Playlist::currentTrack() noexcept {
     return currentTrack_;
 }
 
-Track* Playlist::operator[](size_t index) noexcept {
+Track* Playlist::operator[](int index) noexcept {
     return tracksList_[index];
 }
 
-size_t Playlist::size() const noexcept {
+int Playlist::size() const noexcept {
     return tracksList_.size();
 }

@@ -17,16 +17,12 @@ void FileSystemView::openFile() {
     auto path  = QFileDialog::getOpenFileNames(menuBarWidget_,
                                                "Select Files", 
                                                "/home/marcussss1/Downloads/Sultan_Laguchev_-_Lyubov_khuligana_73517967.mp3",
-                                               "MP3 Files (*.wav)");
+                                               "WAV Files (*.wav)");
     if (!path.empty()) {
         controller_->openFile(path.join("").toStdString());
-        // openFile(path.join("").toStdString());
+        emit openFile(path.join(""));
     }
 }
-
-// void FileSystemView::openFile(std::string path) {
-
-// }
 
 void FileSystemView::setFileSystemMediator(Mediator* mediator) {
     model_->setFileSystemMediator(mediator);

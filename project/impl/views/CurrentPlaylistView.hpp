@@ -1,7 +1,7 @@
 #pragma once
 
-#include "QCurrentPlaylistController.hpp"
-#include "QCurrentPlaylistUIModel.hpp"
+#include "CurrentPlaylistController.hpp"
+// #include "QCurrentPlaylistUIModel.hpp"
 
 #include <QAction>
 #include <QMenu>
@@ -16,16 +16,27 @@ class CurrentPlaylistView : public QTableWidget {
 
     void setCurrentPlaylistMediator(Mediator* mediator);
     CurrentPlaylistUIModel* getModel();
+
+ signals:
+    void currentTrackChanged(QString, int, bool);
+   //  void currentTrackChanged(int);
+    void deleteCurrentTrack(QString, int);
+
  private slots:
-    void addTrackInWidget(QString path);
-    void deleteTrackInWidget();
+    void trackClicked();
+   
+    void addTrackInWidget(QString path); // триггерится другой вьюшкой
+                                         // может также триггерится моим экшеном
+   //  void deleteCurrentTrack();
     void chooseTrackInWidget();
 
-    void trackClicked();
+    void removeCurrentTrack();
 
  private:
-    QCurrentPlaylistUIModel* model_;
-    QCurrentPlaylistController* controller_;
+    size_t currentTracksCount_;
+   
+    CurrentPlaylistUIModel* model_;
+    CurrentPlaylistController* controller_;
     
     QTableWidget* currentPlaylistWidget_;
     QMenu* menu_;

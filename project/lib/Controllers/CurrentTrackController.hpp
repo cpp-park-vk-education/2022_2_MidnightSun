@@ -6,13 +6,13 @@ class CurrentTrackController {
  public:
     explicit CurrentTrackController(CurrentTrackUIModel* model);
 
-    void play();
-    void pause();
-    void stop();
-    void repeat();
-    void mute();
-    void setDuration(int position);
-    void setVolume(int position);
+    void play(int index);
+    void pause(int index);
+    void stop(int index);
+    void repeat(int index);
+    void mute(int index);
+    void setDuration(int index, int position);
+    void setVolume(int index, int position);
 
     void shuffle();
     void previousTrack();

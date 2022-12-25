@@ -10,7 +10,7 @@ LeftBoardWidget::LeftBoardWidget(QWidget* parent)
     leftBoard_->setObjectName("leftBoard");
     leftBoard_->setGeometry(QRect(0, 0,
                                   LEFT_BOARD_WIDTH,
-                                  LEFT_BOARD_HEIGHT));
+                                  LEFT_BOARD_HEIGHT - 125));
 }
 
 LeftBoardWidget::~LeftBoardWidget() {

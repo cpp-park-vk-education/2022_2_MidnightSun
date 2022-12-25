@@ -24,7 +24,8 @@ class MainWindowWidget : public QWidget {
     QPoint oldPos;
 };
 
-class MainView {
+class MainView : public QObject {
+  Q_OBJECT
   public:
     MainView();
     ~MainView() = default;
@@ -38,6 +39,6 @@ class MainView {
 
     CurrentTrackView currentTrackView_;
     CurrentPlaylistView currentPlaylistView_;
-    LeftBoardView leftBoardView_;
+    // LeftBoardView leftBoardView_;
     FileSystemView fileSystemView_;
 };

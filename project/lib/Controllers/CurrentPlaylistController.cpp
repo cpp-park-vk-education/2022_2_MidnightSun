@@ -7,10 +7,10 @@ void CurrentPlaylistController::addTrack(std::string path) {
     model_->addTrack(path);
 }
 
-void CurrentPlaylistController::deleteTrack(size_t index) {
+void CurrentPlaylistController::deleteTrack(int index) {
     model_->deleteTrack(index);
 }
 
-void CurrentPlaylistController::chooseTrack(size_t index) {
+void CurrentPlaylistController::chooseTrack(int index) {
     model_->chooseTrack(index);
 }

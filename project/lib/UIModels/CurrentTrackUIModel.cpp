@@ -4,50 +4,57 @@ void CurrentTrackUIModel::setCurrentTrackMediator(Mediator* mediator) {
     mediator_ = mediator;
 }
 
-void CurrentTrackUIModel::play() {
-    if (currentTrack_) {
-        currentTrack_->play();
+void CurrentTrackUIModel::play(int index) {
+    if (index < currentTracks_.size() && currentTracks_[index]) {
+        currentTracks_[index]->play();
     }
 }
 
-void CurrentTrackUIModel::pause() {
-    if (currentTrack_) {
-        currentTrack_->pause();
+void CurrentTrackUIModel::pause(int index) {
+    if (index < currentTracks_.size() && currentTracks_[index]) {
+        currentTracks_[index]->pause();
     }
 }
 
-void CurrentTrackUIModel::stop() {
-    if (currentTrack_) {
-        currentTrack_->stop();
+void CurrentTrackUIModel::stop(int index) {
+    if (index < currentTracks_.size() && currentTracks_[index]) {
+        currentTracks_[index]->stop();
     }
 }
 
-void CurrentTrackUIModel::repeat() {
-    if (currentTrack_) {
-        currentTrack_->repeat();
+void CurrentTrackUIModel::repeat(int index) {
+    if (index < currentTracks_.size() && currentTracks_[index]) {
+        currentTracks_[index]->repeat();
     }
 }
 
-void CurrentTrackUIModel::mute() {
-    if (currentTrack_) {
-        currentTrack_->mute();
+void CurrentTrackUIModel::mute(int index) {
+    if (index < currentTracks_.size() && currentTracks_[index]) {
+        currentTracks_[index]->mute();
     }
 }
 
-void CurrentTrackUIModel::setDuration(int position) {
-    if (currentTrack_) {
-        currentTrack_->setDuration(position);
+void CurrentTrackUIModel::setDuration(int index, int position) {
+    if (index < currentTracks_.size() && currentTracks_[index]) {
+        currentTracks_[index]->setDuration(position);
     }
 }
 
-void CurrentTrackUIModel::setVolume(int position) {
-    if (currentTrack_) {
-        currentTrack_->setVolume(position);
+void CurrentTrackUIModel::setVolume(int index, int position) {
+    if (index < currentTracks_.size() && currentTracks_[index]) {
+        currentTracks_[index]->setVolume(position);
     }
 }
 
-void CurrentTrackUIModel::chooseTrack(Track* track) {
-    currentTrack_ = track;
+void CurrentTrackUIModel::chooseTrack(Track* track, bool prevNextTrack) {
+    // if (prevNextTrack && currentTrack_) {
+    //     currentTrack_->stop();
+    // }
+    // currentTracks_.push_back(track);
+    // currentTrack_ = track;a
+    // if (prevNextTrack && currentTrack_) {
+    //     currentTrack_->play();
+    // }
 }
 
 
@@ -56,9 +63,9 @@ void CurrentTrackUIModel::shuffle() {
 }
 
 void CurrentTrackUIModel::previousTrack() {
-    mediator_->notifyTrackPlaylist(this, PreviousTrack);
+    mediator_->notifyTrackPlaylist(this, PreviousTrack, true);
 }
 
 void CurrentTrackUIModel::nextTrack() {
-    mediator_->notifyTrackPlaylist(this, NextTrack);
+    mediator_->notifyTrackPlaylist(this, NextTrack, true);
 }

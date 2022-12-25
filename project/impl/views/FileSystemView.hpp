@@ -18,9 +18,12 @@ class FileSystemView : public QMainWindow {
     void setFileSystemMediator(Mediator* mediator);
     FileSystemUIModel* getModel();
 
+ signals:
+    void openFile(QString);
+
  private slots:
     void openFile();
-   //  void openFile(std::string path);
+
  private:
     QMenuBar* menuBarWidget_;
     QMenu* menuAddFile_;

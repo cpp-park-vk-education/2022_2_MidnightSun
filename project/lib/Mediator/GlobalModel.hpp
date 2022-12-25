@@ -11,7 +11,7 @@ class TrackPlaylistModel : public Mediator {
     virtual void setPlaylist(CurrentPlaylistUIModel* model);
     virtual void setFileSystem(FileSystemUIModel* model);
 
-    virtual void notifyTrackPlaylist(Sender* sender, Function function, Track* track = nullptr) override;
+    virtual void notifyTrackPlaylist(Sender* sender, Function function, bool prevNextTrack = false, Track* track = nullptr) override;
     virtual void notifyFileSystemPlaylist(Sender* sender, Function function, std::string path = "") override;
  protected:
     CurrentTrackUIModel* currentTrack_;

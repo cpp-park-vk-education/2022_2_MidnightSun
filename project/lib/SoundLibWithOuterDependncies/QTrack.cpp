@@ -2,6 +2,7 @@
 
 QTrack::QTrack() {
     mplayer_ = new QMediaPlayer;
+
     connect(mplayer_, SIGNAL(durationChanged(qint64)), 
             this, SLOT(duration(qint64)));
 
@@ -49,6 +50,6 @@ void QTrack::setDuration(int position) {
     mplayer_->setPosition(position);
 }
 
-int QTrack::duration() {
-    return qDuration_;
+QMediaPlayer* QTrack::mplayer() {
+    return mplayer_;
 }

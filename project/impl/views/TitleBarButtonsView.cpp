@@ -2,9 +2,9 @@
 
 //////////////////////////////////////// Coordinats x ////////////////////////////////////////
 
-const int CLOSE_X = 765;
-const int ZOOM_X = 730;
-const int MINIMIZE_X = 690;
+const int CLOSE_X = 765 - 125;
+const int ZOOM_X = 730 - 125;
+const int MINIMIZE_X = 690 - 125;
 
 //////////////////////////////////////// Coordinats y ////////////////////////////////////////
 
@@ -48,7 +48,6 @@ CloseButton::CloseButton(QWidget* parent)
     setStyle(CLOSE_X, CLOSE_Y,
              BUTTON_WIDTH, BUTTON_HEIGHT,
              CLOSE_NAME);
-    // connect(CloseButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::QueuedConnection);
 }
 
 ZoomButton::ZoomButton(QWidget* parent)

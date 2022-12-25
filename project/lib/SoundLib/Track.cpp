@@ -55,7 +55,7 @@ void Track::setDuration(int position) noexcept {
     } else {
         currentTime_ = position;
     }
-    track_->setDuration(currentTime_);
+    track_->setDuration(position); // TODO
 }
 
 void Track::setVolume(int position) noexcept {

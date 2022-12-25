@@ -7,8 +7,8 @@ class CurrentPlaylistController {
     explicit CurrentPlaylistController(CurrentPlaylistUIModel* model);
 
     void addTrack(std::string path);
-    void deleteTrack(size_t index);
-    void chooseTrack(size_t index);
+    void deleteTrack(int index);
+    void chooseTrack(int index);
  private:
     CurrentPlaylistUIModel* model_;
 };

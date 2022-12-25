@@ -26,7 +26,7 @@ class Track {
     bool isRepeating() const noexcept;
     bool isMuting() const noexcept;
 
- private:
+//  private:
     ITrack* track_;
 
     std::string path_ = "";

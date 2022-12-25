@@ -8,8 +8,8 @@ class CurrentPlaylistUIModel : public Sender {
     void setCurrentPlaylistMediator(Mediator* mediator);
 
     void addTrack(std::string path);
-    void deleteTrack(size_t index);
-    void chooseTrack(size_t index);
+    void deleteTrack(int index);
+    void chooseTrack(int index);
 
     void shuffle();
     void previousTrack();

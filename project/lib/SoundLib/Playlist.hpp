@@ -9,21 +9,22 @@
 class Playlist {
  public:
     void addTrack(std::string path);
-    void deleteTrack(size_t index);
-    void chooseTrack(size_t index);
+    void deleteTrack(int index);
+    void chooseTrack(int index);
 
     void previousTrack();
     void nextTrack();
     
     void shuffle();
 
-    Track* operator[](size_t index) noexcept;
+    Track* operator[](int index) noexcept;
     Track* currentTrack() noexcept;
-    size_t size() const noexcept;
+    int size() const noexcept;
+
  private:
     std::vector<Track*> tracksList_;
     std::string playlistName_ = "";
-    size_t currentTrackPosition_ = 0;
+    int currentTrackPosition_ = 0;
     Track* currentTrack_ = nullptr;
     Parser parser;
 };
