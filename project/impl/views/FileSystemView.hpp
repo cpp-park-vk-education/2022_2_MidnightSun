@@ -2,6 +2,9 @@
 
 #include "FileSystemController.hpp"
 
+#include <fstream>
+#include <iostream>
+
 #include <QAction>
 #include <QFileDialog>
 #include <QMainWindow>
@@ -19,15 +22,24 @@ class FileSystemView : public QMainWindow {
     FileSystemUIModel* getModel();
 
  signals:
-    void openFile(QString);
+    void openFile(QString, bool);
+    void addTrack(QString, int, int, int, int);
+    void saveFileData();
 
  private slots:
     void openFile();
+    void saveFile();
 
  private:
+    void openTextFile(QString path);
+
+   //  std::vector<std::string> data;
+
     QMenuBar* menuBarWidget_;
     QMenu* menuAddFile_;
+   //  QMenu* menuSaveFile_;
     QAction* actionAddFile_;
+    QAction* actionSaveFile_;
 
     FileSystemUIModel* model_;
     FileSystemController* controller_;

@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <unordered_map>
 
+#include <QMessageBox>
+#include <QInputDialog>
 #include <QLabel>
 #include <QMainWindow>
 #include <QMediaPlayer>
@@ -27,6 +29,8 @@ class CurrentTrackView : public QObject {
 
     void numberCurrentTrackClicked();
 
+    void saveData();
+
     void elapsedTime(qint64 position);
     void remaningTime(qint64 position);
 
@@ -43,7 +47,7 @@ class CurrentTrackView : public QObject {
    //  void deleteCurrentTrack(int currentTrackPosition);
 
  private slots:
-   //  void play();
+    void play();
     void repeat();
     void mute();
     void setDuration(int position);
@@ -57,6 +61,8 @@ class CurrentTrackView : public QObject {
     void repeatAll();
     void muteAll();
     void setVolumeAll(int);
+
+    void addTrack(QString, int, int, int, int);
 
  signals:
     void removeCurrentTrack();
@@ -94,15 +100,19 @@ class CurrentTrackView : public QObject {
 
    //  QSlider* durationSlider_;
     std::vector<QPushButton*> currentTracksNumbers_;
+    std::vector<QPushButton*> playButtons_;
     std::vector<QPushButton*> muteButtons_;
     std::vector<QPushButton*> repeatButtons_;
     std::vector<QSlider*> durationSlider_;
     std::vector<QSlider*> volumeSlider_;
+   
     std::vector<QLabel*> trackNames_;
+    std::vector<QString> paths_; 
 
     std::vector<Track*> playTracks_;
 
-    std::vector<int> durations_;
+    std::vector<int> durationsBegin_;
+    std::vector<int> durationsEnd_;
    //  std::vector<int> a;
    //  QSlider* volumeSlider_;
    //  int a = 0;

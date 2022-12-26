@@ -25,7 +25,7 @@ class CurrentPlaylistView : public QTableWidget {
  private slots:
     void trackClicked();
    
-    void addTrackInWidget(QString path); // триггерится другой вьюшкой
+    void addTrackInWidget(QString path, bool flag); // триггерится другой вьюшкой
                                          // может также триггерится моим экшеном
    //  void deleteCurrentTrack();
     void chooseTrackInWidget();

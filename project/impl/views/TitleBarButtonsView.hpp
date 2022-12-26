@@ -14,7 +14,7 @@ class ITitleBarButton : public QMainWindow {
     void setStyle(int buttonX, int buttonY,
                   int buttonWidth, int buttonHeight,
                   const char* buttonName);
- private:
+//  private:
     QPushButton* button_;
 };
 
@@ -33,7 +33,10 @@ struct MinimizeButton : public ITitleBarButton {
     explicit MinimizeButton(QWidget* parent);
 };
 
-class TitleBarButtonsWidget {
+#include <QDebug>
+
+class TitleBarButtonsWidget : public QObject {
+ Q_OBJECT
  public:
     explicit TitleBarButtonsWidget(QWidget* parent);
     ~TitleBarButtonsWidget();
@@ -43,6 +46,16 @@ class TitleBarButtonsWidget {
 
     TitleBarButtonsWidget& operator=(const TitleBarButtonsWidget& rhs) = delete;
     TitleBarButtonsWidget& operator=(TitleBarButtonsWidget&& rhs) = delete;
+
+ private slots:
+    void close() {
+      QWidget* a = nullptr;
+      a->saveGeometry();
+      // titleBarButtonsWidget_->close();
+      // qDebug() << 1;
+      // int* a = nullptr;
+      // a->
+    }
 
  private:
     QWidget* titleBarButtonsWidget_;
@@ -56,6 +69,6 @@ class TitleBarButtonsView {
  public:
     explicit TitleBarButtonsView(QWidget* parent);
     ~TitleBarButtonsView() = default;
- private:
+//  private:
     TitleBarButtonsWidget titleBarButtonsWidget_;
 };

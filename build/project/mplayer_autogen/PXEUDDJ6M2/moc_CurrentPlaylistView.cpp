@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CurrentPlaylistView_t {
-    QByteArrayData data[9];
-    char stringdata0[134];
+    QByteArrayData data[10];
+    char stringdata0[139];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,14 +38,15 @@ QT_MOC_LITERAL(3, 41, 18), // "deleteCurrentTrack"
 QT_MOC_LITERAL(4, 60, 12), // "trackClicked"
 QT_MOC_LITERAL(5, 73, 16), // "addTrackInWidget"
 QT_MOC_LITERAL(6, 90, 4), // "path"
-QT_MOC_LITERAL(7, 95, 19), // "chooseTrackInWidget"
-QT_MOC_LITERAL(8, 115, 18) // "removeCurrentTrack"
+QT_MOC_LITERAL(7, 95, 4), // "flag"
+QT_MOC_LITERAL(8, 100, 19), // "chooseTrackInWidget"
+QT_MOC_LITERAL(9, 120, 18) // "removeCurrentTrack"
 
     },
     "CurrentPlaylistView\0currentTrackChanged\0"
     "\0deleteCurrentTrack\0trackClicked\0"
-    "addTrackInWidget\0path\0chooseTrackInWidget\0"
-    "removeCurrentTrack"
+    "addTrackInWidget\0path\0flag\0"
+    "chooseTrackInWidget\0removeCurrentTrack"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,9 +69,9 @@ static const uint qt_meta_data_CurrentPlaylistView[] = {
 
  // slots: name, argc, parameters, tag, flags
        4,    0,   56,    2, 0x08 /* Private */,
-       5,    1,   57,    2, 0x08 /* Private */,
-       7,    0,   60,    2, 0x08 /* Private */,
-       8,    0,   61,    2, 0x08 /* Private */,
+       5,    2,   57,    2, 0x08 /* Private */,
+       8,    0,   62,    2, 0x08 /* Private */,
+       9,    0,   63,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::Int, QMetaType::Bool,    2,    2,    2,
@@ -78,7 +79,7 @@ static const uint qt_meta_data_CurrentPlaylistView[] = {
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    6,
+    QMetaType::Void, QMetaType::QString, QMetaType::Bool,    6,    7,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -94,7 +95,7 @@ void CurrentPlaylistView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         case 0: _t->currentTrackChanged((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< bool(*)>(_a[3]))); break;
         case 1: _t->deleteCurrentTrack((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 2: _t->trackClicked(); break;
-        case 3: _t->addTrackInWidget((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 3: _t->addTrackInWidget((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
         case 4: _t->chooseTrackInWidget(); break;
         case 5: _t->removeCurrentTrack(); break;
         default: ;

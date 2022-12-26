@@ -98,6 +98,8 @@ INCLUDE_DIRECTORIES("${PROJECT_SOURCES_DIR} lib/UIModels")
 INCLUDE_DIRECTORIES(${Qt5Widgets_INCLUDES})
 INCLUDE_DIRECTORIES(${Qt5Multimedia_INCLUDES})
 
+# set(app_icon_resource_windows "/home/marcussss1/2022_2_MidnightSun/project/impl/icons/close.png")
+# qt_add_executable(photosurface main.cpp ${app_icon_resource_windows})
 
 SET(CMAKE_CXX_FLAGS "${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 

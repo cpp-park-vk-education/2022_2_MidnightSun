@@ -40,8 +40,8 @@ const char* SHUFFLE_NAME = "shuffle";
 const char* PREVIOUS_TRACK_NAME = "previousTrack";
 const char* PLAY_NAME = "play";
 const char* NEXT_TRACK_NAME = "nextTrack";
-const char* REPEAT_NAME = "repeat";
-const char* MUTE_NAME = "muteOff";
+const char* REPEAT_NAME = "Off";
+const char* MUTE_NAME = "Off";
 const char* VOLUME_SLIDER_NAME = "volumeSlider";
 const char* DURATION_SLIDER_NAME = "durationSlider";
 
@@ -65,18 +65,22 @@ CurrentTrackView::CurrentTrackView(CurrentTrackUIModel* model, QWidget* parent)
     //   mute_(new QPushButton(parent)),
       currentTrackTitle_(new QLabel(parent)),
       currentTracksNumbers_(10, nullptr),
+      playButtons_(10, nullptr),
       muteButtons_(10, nullptr),
       repeatButtons_(10, nullptr),
       durationSlider_(10, nullptr),
       trackNames_(10, nullptr),
+      paths_(10),
     //   durationSlider_(std::vector<QSlider*> {new QSlider(Qt::Horizontal, parent)}),
       volumeSlider_(10, nullptr),
       playTracks_(10, nullptr),
-      durations_(10) {
+      durationsBegin_(10),
+      durationsEnd_(10) {
     //   a(std::vector<int>(10)) { 
 
     for (size_t i = 0; i < 10; ++i) {
         currentTracksNumbers_[i] = new QPushButton(parent);
+        playButtons_[i] = new QPushButton(parent);
         muteButtons_[i] = new QPushButton(parent);
         repeatButtons_[i] = new QPushButton(parent);
         durationSlider_[i] = new QSlider(Qt::Horizontal, parent);
@@ -96,9 +100,9 @@ CurrentTrackView::CurrentTrackView(CurrentTrackUIModel* model, QWidget* parent)
     connect(volumeSliderAll_, SIGNAL(valueChanged(int)),
             this, SLOT(setVolumeAll(int)));
 
-    play_->setObjectName("Play");
-    repeat_->setObjectName("Off");
-    mute_->setObjectName("Off");
+    // play_->setObjectName("Play");
+    // repeat_->setObjectName("Off");
+    // mute_->setObjectName("Off");
 
     // connect(repeat_, SIGNAL(clicked()),
     //         this, SLOT(repeat()));
@@ -141,7 +145,7 @@ CurrentTrackView::CurrentTrackView(CurrentTrackUIModel* model, QWidget* parent)
     //          BUTTON_WIDTH, BUTTON_HEIGHT,
     //          PREVIOUS_TRACK_NAME, previousTrack_);
 
-    setStyle(MUTE_BUTTON_X - 100, PLAY_BUTTON_Y,
+    setStyle(MUTE_BUTTON_X - 240, PLAY_BUTTON_Y,
              PLAY_BUTTON_WIDTH, PLAY_BUTTON_HEIGHT,
              PLAY_NAME, play_);
 
@@ -149,17 +153,26 @@ CurrentTrackView::CurrentTrackView(CurrentTrackUIModel* model, QWidget* parent)
     //          BUTTON_WIDTH, BUTTON_HEIGHT,
     //          NEXT_TRACK_NAME, nextTrack_);
 
-    setStyle(MUTE_BUTTON_X - 40, BUTTON_Y,
+    setStyle(MUTE_BUTTON_X - 180, BUTTON_Y,
              BUTTON_WIDTH, BUTTON_HEIGHT,
              REPEAT_NAME, repeat_); 
 
-    setStyle(MUTE_BUTTON_X + 10, BUTTON_Y,
+    setStyle(MUTE_BUTTON_X - 180 + 50, BUTTON_Y,
              BUTTON_WIDTH, BUTTON_HEIGHT,
              MUTE_NAME, mute_);
 
-    setStyle(VOLUME_SLIDER_X, BUTTON_Y,
+    setStyle(MUTE_BUTTON_X - 180 + 90, BUTTON_Y,
              VOLUME_SLIDER_WIDTH, BUTTON_HEIGHT,
              MUTE_NAME, volumeSliderAll_);
+
+    play_->setObjectName("play");
+    play_->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/play.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/playFocus.png); }");
+
+    repeat_->setObjectName("Off");
+    repeat_->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeat.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeatFocus.png); }");
+
+    mute_->setObjectName("Off");
+    mute_->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/muteOff.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/muteOffFocus.png); }");
 
     // setStyle(CURRENT_TRACK_TITLE, DURATION_SLIDER_Y - 35,
     //          BUTTON_WIDTH + 120, BUTTON_HEIGHT,
@@ -170,6 +183,7 @@ CurrentTrackView::CurrentTrackView(CurrentTrackUIModel* model, QWidget* parent)
     //          MUTE_NAME, mute_);
 
     currentTrackTitle_->setText("Текущий трек:");
+    volumeSliderAll_->setValue(50);
 }
 
 void CurrentTrackView::setStyle(int buttonX, int buttonY,
@@ -220,11 +234,16 @@ void CurrentTrackView::setStyle(int buttonX, int buttonY,
 
 // }
 
+
+
 void CurrentTrackView::repeatAll() {
     if (repeat_->objectName()[1] == "f") {
-        for (auto& it : playTracks_) {
-            if (it != nullptr) {
-                it->repeat();
+        for (size_t i = 0; i < playTracks_.size(); ++i) {
+            if (playTracks_[i] != nullptr) {
+                emit repeatButtons_[i]->clicked();
+            }
+            if (playTracks_[i] != nullptr && !playTracks_[i]->isRepeating()) {
+                emit repeatButtons_[i]->clicked();
             }
         }
         std::string string = "On";
@@ -232,9 +251,12 @@ void CurrentTrackView::repeatAll() {
         repeat_->setObjectName(a);
         repeat_->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeatFocus.png); }");
     } else {
-        for (auto& it : playTracks_) {
-            if (it != nullptr) {
-                it->repeat();
+        for (size_t i = 0; i < playTracks_.size(); ++i) {
+            if (playTracks_[i] != nullptr) {
+                emit repeatButtons_[i]->clicked();
+            }
+            if (playTracks_[i] != nullptr && playTracks_[i]->isRepeating()) {
+                emit repeatButtons_[i]->clicked();
             }
         }
         std::string string = "Off";
@@ -246,9 +268,12 @@ void CurrentTrackView::repeatAll() {
 
 void CurrentTrackView::muteAll() {
     if (mute_->objectName()[1] == "f") {
-        for (auto& it : playTracks_) {
-            if (it != nullptr) {
-                it->mute();
+        for (size_t i = 0; i < playTracks_.size(); ++i) {
+            if (playTracks_[i] != nullptr) {
+                emit muteButtons_[i]->clicked();
+            }
+            if (playTracks_[i] != nullptr && !playTracks_[i]->isMuting()) {
+                emit muteButtons_[i]->clicked();
             }
         }
         std::string string = "On";
@@ -256,9 +281,12 @@ void CurrentTrackView::muteAll() {
         mute_->setObjectName(a);
         mute_->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/muteOn.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/muteOnFocus.png); }");
     } else {
-        for (auto& it : playTracks_) {
-            if (it != nullptr) {
-                it->mute();
+        for (size_t i = 0; i < playTracks_.size(); ++i) {
+            if (playTracks_[i] != nullptr) {
+                emit muteButtons_[i]->clicked();
+            }
+            if (playTracks_[i] != nullptr && playTracks_[i]->isMuting()) {
+                emit muteButtons_[i]->clicked();
             }
         }
         std::string string = "Off";
@@ -268,20 +296,22 @@ void CurrentTrackView::muteAll() {
     }
 }
 
-void CurrentTrackView::setVolumeAll(int) {
-
+void CurrentTrackView::setVolumeAll(int position) {
+    for (size_t i = 0; i < playTracks_.size(); ++i) {
+        if (playTracks_[i] != nullptr) {
+            // qDebug() << i;
+            emit volumeSlider_[i]->valueChanged(position);
+        }
+    }
 }
 
 #include "QTrack.hpp"
-
 #include <Track.hpp>
 
 void CurrentTrackView::currentTrackChanged(QString path, int index, bool flag) {
 
-    // qDebug() << "Ok";
-
-    // connect(currentTracksNumbers_[currentTracksCount_], SIGNAL(clicked()),
-    //         this, SLOT(numberCurrentTrackClicked()));
+    connect(playButtons_[currentTracksCount_], SIGNAL(clicked()),
+            this, SLOT(play()));
 
     connect(muteButtons_[currentTracksCount_], SIGNAL(clicked()),
             this, SLOT(mute()));
@@ -295,21 +325,8 @@ void CurrentTrackView::currentTrackChanged(QString path, int index, bool flag) {
     connect(durationSlider_[currentTracksCount_], SIGNAL(valueChanged(int)),
             this, SLOT(setDuration(int)));
 
-// qDebug() << model_->currentTracks_[0]->track_->duration();
     currentTracksNumbers_[currentTracksCount_]->setObjectName("On" + QString(currentTracksCount_));
-    currentTracksNumbers_[currentTracksCount_]->setStyleSheet("QPushButton {background-color: red}");
-
-    // muteButtons_[currentTracksCount_]->setObjectName("Off" + QString(currentTracksCount_));
-    // muteButtons_[currentTracksCount_]->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/muteOff.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/muteOffFocus.png); }");
-
-    // repeatButtons_[currentTracksCount_]->setObjectName("Off" + QString(currentTracksCount_));
-    // repeatButtons_[currentTracksCount_]->setObjectName("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeat.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeatFocus.png); }");
-
-    currentTracksNumbers_[currentTracksCount_]->setText(QString::fromStdString(std::to_string(currentTracksCount_ + 1)));
-
-    // volumeSlider_[currentTracksCount_]->setText(QString::fromStdString(std::to_string(currentTracksCount_)));
-    // currentTracksNumbers_[currentTracksCount_]->setText(QString::fromStdString(std::to_string(currentTracksCount_ + 1)));
-    
+    currentTracksNumbers_[currentTracksCount_]->setStyleSheet("QPushButton { border: solid; border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/otrezok.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/otrezokFocus.png); }");
 
     std::string on = "On" + std::to_string(currentTracksCount_ + 1);
     std::string off = "Off" + std::to_string(currentTracksCount_ + 1);
@@ -321,29 +338,40 @@ void CurrentTrackView::currentTrackChanged(QString path, int index, bool flag) {
         auto qtrack = new QTrack;
         qtrack->setCurrentTrack(path);
         auto track = new Track(qtrack);
+
+        auto string = path.toStdString();
+        std::reverse(string.begin(), string.end());
+        
+        string = string.substr(string.find('.') + 1);
+        string = string.substr(0, string.find('/'));
+        
+        std::reverse(string.begin(), string.end());
+
         track->setData(path.toStdString(),
-                        path.toStdString().substr(0, path.toStdString().find('-')),
-                        path.toStdString().substr(path.toStdString().find('-') + 1));
+                       string.substr(0, string.find('-')),
+                       string.substr(string.find('-') + 1));
+
         playTracks_[currentTracksCount_] = track;
         playTracks_[currentTracksCount_]->track_->mplayer()->setObjectName(On);
-
 
         connect(playTracks_[currentTracksCount_]->track_->mplayer(), SIGNAL(positionChanged(qint64)), this, SLOT(elapsedTime(qint64)));
         connect(playTracks_[currentTracksCount_]->track_->mplayer(), SIGNAL(durationChanged(qint64)), this, SLOT(remaningTime(qint64)));
     }
-    
-    // qDebug() << "OK";
 
-    trackNames_[currentTracksCount_]->setText(path);
-
+    trackNames_[currentTracksCount_]->setText(QString::fromStdString(playTracks_[currentTracksCount_]->getData()));
+    paths_[currentTracksCount_] = path;
 
     setStyle(CURRENT_TRACK_WIDGET_X - 200, CURRENT_TRACK_WIDGET_Y - 40 * currentTracksCount_,
              CURRENT_TRACK_WIDGET_WIDTH + 200, CURRENT_TRACK_WIDGET_HEIGHT + 40 * currentTracksCount_,
              CURRENT_TRACK_WIDGET_NAME, currentTrackWidget_);
 
     setStyle(5, DURATION_SLIDER_Y - 40 * currentTracksCount_,
-             BUTTON_WIDTH - 6, BUTTON_HEIGHT - 6,
+             BUTTON_WIDTH, BUTTON_HEIGHT,
              On, currentTracksNumbers_[currentTracksCount_]);
+
+    setStyle(MUTE_BUTTON_X - 90, DURATION_SLIDER_Y - 40 * currentTracksCount_,
+             BUTTON_WIDTH, BUTTON_HEIGHT,
+             Off, playButtons_[currentTracksCount_]);
 
     setStyle(MUTE_BUTTON_X + 10, DURATION_SLIDER_Y - 40 * currentTracksCount_,
              BUTTON_WIDTH, BUTTON_HEIGHT,
@@ -354,7 +382,7 @@ void CurrentTrackView::currentTrackChanged(QString path, int index, bool flag) {
              Off, repeatButtons_[currentTracksCount_]);
 
     setStyle(DURATION_SLIDER_X - 20, DURATION_SLIDER_Y - 40 * currentTracksCount_,
-             DURATION_SLIDER_WIDTH, BUTTON_HEIGHT,
+             DURATION_SLIDER_WIDTH - 50, BUTTON_HEIGHT,
              On, durationSlider_[currentTracksCount_]);
 
     setStyle(VOLUME_SLIDER_X, DURATION_SLIDER_Y - 40 * currentTracksCount_,
@@ -362,19 +390,11 @@ void CurrentTrackView::currentTrackChanged(QString path, int index, bool flag) {
              On, volumeSlider_[currentTracksCount_]);
 
     setStyle(DURATION_SLIDER_X - 20, DURATION_SLIDER_Y - 20 - 37 * currentTracksCount_,
-             DURATION_SLIDER_WIDTH, BUTTON_HEIGHT,
+             DURATION_SLIDER_WIDTH - 50, BUTTON_HEIGHT,
              On, trackNames_[currentTracksCount_]);
 
-    // setStyle(CURRENT_TRACK_TITLE, DURATION_SLIDER_Y - 35 - 20 * currentTracksCount_,
-    //          BUTTON_WIDTH + 120, BUTTON_HEIGHT,
-    //          MUTE_NAME, currentTrackTitle_);
-
-    // qDebug() << "Ok";
-
-    // // currentTracksNumbers_[currentTracksCount_]->setObjectName(On);
-    // currentTracksNumbers_[currentTracksCount_]->setStyleSheet("QPushButton {background-color: red}");
-
-    //  qDebug() << "OK";
+    playButtons_[currentTracksCount_]->setObjectName(Off);
+    playButtons_[currentTracksCount_]->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/play.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/playFocus.png); }");
 
     muteButtons_[currentTracksCount_]->setObjectName(Off);
     muteButtons_[currentTracksCount_]->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/muteOff.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/muteOffFocus.png); }");
@@ -382,20 +402,158 @@ void CurrentTrackView::currentTrackChanged(QString path, int index, bool flag) {
     repeatButtons_[currentTracksCount_]->setObjectName(Off);
     repeatButtons_[currentTracksCount_]->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeat.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeatFocus.png); }");
 
-    // model_->currentTracks_[currentTracksCount_]->track_->mplayer()->setObjectName(On);
-    // playTracks_[currentTracksCount_]->track_->mplayer()->setObjectName(On);
+    volumeSlider_[currentTracksCount_]->setValue(50);
 
-    // //  qDebug() << "OK";
-    // //     qDebug() << "pizda";
-
-    // // connect(model_->currentTracks_[currentTracksCount_]->track_->mplayer(), SIGNAL(positionChanged(qint64)), this, SLOT(elapsedTime(qint64)));
-    // // connect(model_->currentTracks_[currentTracksCount_]->track_->mplayer(), SIGNAL(durationChanged(qint64)), this, SLOT(remaningTime(qint64)));
-
-    // connect(playTracks_[currentTracksCount_]->track_->mplayer(), SIGNAL(positionChanged(qint64)), this, SLOT(elapsedTime(qint64)));
-    // connect(playTracks_[currentTracksCount_]->track_->mplayer(), SIGNAL(durationChanged(qint64)), this, SLOT(remaningTime(qint64)));
+    auto durationBegin = QInputDialog::getText(nullptr, tr(""),
+                                           tr("Начало проигрывания(в секундах)"));
+    auto durationBeginInt = durationBegin.toInt();
+    durationSlider_[currentTracksCount_]->setValue(durationBeginInt * 1000);
+    playTracks_[currentTracksCount_]->setDuration(durationBeginInt * 1000);
 
     connect(currentTracksNumbers_[currentTracksCount_], SIGNAL(clicked()),
             this, SLOT(numberCurrentTrackClicked()));
+
+    ++currentTracksCount_;
+}
+
+#include <fstream>
+#include <iostream>
+
+void CurrentTrackView::saveData() {
+    std::ofstream outfile("/home/marcussss1/2022_2_MidnightSun/newPlayer.txt");
+    for (size_t i = 0; i < playTracks_.size(); ++i) {
+        if (playTracks_[i]) {
+            outfile << paths_[i].toStdString() << "\n";
+            outfile << std::to_string(durationsBegin_[i]) << "\n";
+            outfile << std::to_string(durationsEnd_[i]) << "\n";
+            outfile << std::to_string(int(playTracks_[i]->isRepeating())) << "\n";
+            outfile << std::to_string(volumeSlider_[i]->value()) << "\n";
+        }
+    }
+    outfile << "\n";
+    outfile.close();
+}
+
+void CurrentTrackView::addTrack(QString path, int beginDuration, int endDuration, int isRepeating, int volume) {
+
+    connect(playButtons_[currentTracksCount_], SIGNAL(clicked()),
+            this, SLOT(play()));
+
+    connect(muteButtons_[currentTracksCount_], SIGNAL(clicked()),
+            this, SLOT(mute()));
+
+    connect(repeatButtons_[currentTracksCount_], SIGNAL(clicked()),
+            this, SLOT(repeat()));
+
+    connect(volumeSlider_[currentTracksCount_], SIGNAL(valueChanged(int)),
+            this, SLOT(setVolume(int)));
+
+    connect(durationSlider_[currentTracksCount_], SIGNAL(valueChanged(int)),
+            this, SLOT(setDuration(int)));
+
+    currentTracksNumbers_[currentTracksCount_]->setObjectName("On" + QString(currentTracksCount_));
+    currentTracksNumbers_[currentTracksCount_]->setStyleSheet("QPushButton { border: solid; border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/otrezok.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/otrezokFocus.png); }");
+
+    std::string on = "On" + std::to_string(currentTracksCount_ + 1);
+    std::string off = "Off" + std::to_string(currentTracksCount_ + 1);
+
+    const char* On = &on[0];
+    const char* Off = &off[0];
+
+    auto qtrack = new QTrack;
+    qtrack->setCurrentTrack(path);
+    auto track = new Track(qtrack);
+
+    auto string = path.toStdString();
+    std::reverse(string.begin(), string.end());
+    
+    string = string.substr(string.find('.') + 1);
+    string = string.substr(0, string.find('/'));
+    
+    std::reverse(string.begin(), string.end());
+
+    track->setData(path.toStdString(),
+                    string.substr(0, string.find('-')),
+                    string.substr(string.find('-') + 1));
+
+    playTracks_[currentTracksCount_] = track;
+    playTracks_[currentTracksCount_]->track_->mplayer()->setObjectName(On);
+
+    connect(playTracks_[currentTracksCount_]->track_->mplayer(), SIGNAL(positionChanged(qint64)), this, SLOT(elapsedTime(qint64)));
+    connect(playTracks_[currentTracksCount_]->track_->mplayer(), SIGNAL(durationChanged(qint64)), this, SLOT(remaningTime(qint64)));
+
+    trackNames_[currentTracksCount_]->setText(QString::fromStdString(playTracks_[currentTracksCount_]->getData()));
+
+    setStyle(CURRENT_TRACK_WIDGET_X - 200, CURRENT_TRACK_WIDGET_Y - 40 * currentTracksCount_,
+             CURRENT_TRACK_WIDGET_WIDTH + 200, CURRENT_TRACK_WIDGET_HEIGHT + 40 * currentTracksCount_,
+             CURRENT_TRACK_WIDGET_NAME, currentTrackWidget_);
+
+    setStyle(5, DURATION_SLIDER_Y - 40 * currentTracksCount_,
+             BUTTON_WIDTH, BUTTON_HEIGHT,
+             On, currentTracksNumbers_[currentTracksCount_]);
+
+    setStyle(MUTE_BUTTON_X - 90, DURATION_SLIDER_Y - 40 * currentTracksCount_,
+             BUTTON_WIDTH, BUTTON_HEIGHT,
+             Off, playButtons_[currentTracksCount_]);
+
+    setStyle(MUTE_BUTTON_X + 10, DURATION_SLIDER_Y - 40 * currentTracksCount_,
+             BUTTON_WIDTH, BUTTON_HEIGHT,
+             Off, muteButtons_[currentTracksCount_]);
+
+    setStyle(MUTE_BUTTON_X - 40, DURATION_SLIDER_Y - 40 * currentTracksCount_,
+             BUTTON_WIDTH, BUTTON_HEIGHT,
+             Off, repeatButtons_[currentTracksCount_]);
+
+    setStyle(DURATION_SLIDER_X - 20, DURATION_SLIDER_Y - 40 * currentTracksCount_,
+             DURATION_SLIDER_WIDTH - 50, BUTTON_HEIGHT,
+             On, durationSlider_[currentTracksCount_]);
+
+    setStyle(VOLUME_SLIDER_X, DURATION_SLIDER_Y - 40 * currentTracksCount_,
+             VOLUME_SLIDER_WIDTH, BUTTON_HEIGHT,
+             On, volumeSlider_[currentTracksCount_]);
+
+    setStyle(DURATION_SLIDER_X - 20, DURATION_SLIDER_Y - 20 - 37 * currentTracksCount_,
+             DURATION_SLIDER_WIDTH - 50, BUTTON_HEIGHT,
+             On, trackNames_[currentTracksCount_]);
+
+    playButtons_[currentTracksCount_]->setObjectName(Off);
+    playButtons_[currentTracksCount_]->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/play.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/playFocus.png); }");
+
+    muteButtons_[currentTracksCount_]->setObjectName(Off);
+    muteButtons_[currentTracksCount_]->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/muteOff.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/muteOffFocus.png); }");
+
+    // repeatButtons_[currentTracksCount_]->setObjectName(Off);
+    // repeatButtons_[currentTracksCount_]->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeat.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeatFocus.png); }");
+
+    volumeSlider_[currentTracksCount_]->setValue(50);
+
+    auto durationBegin = QInputDialog::getText(nullptr, tr(""),
+                                           tr("Начало проигрывания(в секундах)"));
+    auto durationBeginInt = durationBegin.toInt();
+    durationSlider_[currentTracksCount_]->setValue(durationBeginInt * 1000);
+    playTracks_[currentTracksCount_]->setDuration(durationBeginInt * 1000);
+
+    connect(currentTracksNumbers_[currentTracksCount_], SIGNAL(clicked()),
+            this, SLOT(numberCurrentTrackClicked()));
+
+// QString path, int beginDuration, int endDuration, int isRepeating, int volume
+
+    durationsBegin_[currentTracksCount_] = beginDuration;
+    durationsEnd_[currentTracksCount_] = endDuration;
+
+    playTracks_[currentTracksCount_]->setVolume(volume);
+    playTracks_[currentTracksCount_]->setDuration(beginDuration);
+
+    if (isRepeating) {
+        playTracks_[currentTracksCount_]->repeat();
+        repeatButtons_[currentTracksCount_]->setObjectName(On);
+        repeatButtons_[currentTracksCount_]->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeatFocus.png); }");
+    } else {
+        repeatButtons_[currentTracksCount_]->setObjectName(Off);
+        repeatButtons_[currentTracksCount_]->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeat.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/repeatFocus.png); }");
+    }
+
+    // repeatButtons_[currentTracksCount_];
 
     ++currentTracksCount_;
 }
@@ -450,6 +608,7 @@ void CurrentTrackView::deleteCurrentTrack(QString path, int index) {
 
     for (size_t i = 0; i < 10; ++i) {
         setStyle(0, 0, 0, 0, "Deleted", currentTracksNumbers_[i]);
+        setStyle(0, 0, 0, 0, "Deleted", playButtons_[i]);
         setStyle(0, 0, 0, 0, "Deleted", muteButtons_[i]);
         setStyle(0, 0, 0, 0, "Deleted", repeatButtons_[i]);
         setStyle(0, 0, 0, 0, "Deleted", durationSlider_[i]);
@@ -479,8 +638,21 @@ void CurrentTrackView::elapsedTime(qint64 position) {
     // int index = sender()->objectName().toStdString().back() - '0' - 1;
     // durationSlider_[index]->setValue(position);
     // [ *std::find(index - 1) ]...
+    
     int index = sender()->objectName().toStdString().back() - '0' - 1;
     durationSlider_[index]->setValue(position);
+    // if (durationSlider_[index] == nullptr) {
+    //     // durationSlider_[index]
+    //     return;
+    // }
+    // if (position < durationsEnd_[index] && durationSlider_[index]) {
+        // durationSlider_[index]->s(position);
+    // } else if (playTracks_[index]) {
+    //     // qDebug() << 55;
+    //     playTracks_[index]->stop();
+    //     durationSlider_[index]->setValue(0);
+    // }
+    // durationSlider_[index]->setValue(position);
     // qDebug() << position;
 }
 
@@ -490,7 +662,9 @@ void CurrentTrackView::remaningTime(qint64 position) {
     //  qDebug() << position;
     int index = sender()->objectName().toStdString().back() - '0' - 1;
     durationSlider_[index]->setRange(0, position);
-    durations_[index] = position;
+    durationsEnd_[index] = position;
+    // qDebug() << position;
+    // durationsEnd_[index] = position;
     // qDebug() << 1111;
     // qDebug() << position;
 }
@@ -545,12 +719,9 @@ void CurrentTrackView::currentTrackStatus(int index) {
     // }
 }
 
-#include <QMessageBox>
-#include <QInputDialog>
+
 
 void CurrentTrackView::numberCurrentTrackClicked() {
-
-
 
     auto durationBegin = QInputDialog::getText(nullptr, tr(""),
                                          tr("Начало(в секундах)"));
@@ -567,10 +738,11 @@ void CurrentTrackView::numberCurrentTrackClicked() {
 
     // playTracks_[index]->set(durationBegin);
     playTracks_[index]->setDuration(durationBeginInt * 1000);
-    durations_[index] = durationEndInt * 1000;
+    durationsBegin_[index] = durationBeginInt * 1000;
+    durationsEnd_[index] = durationEndInt * 1000;
 
 
-    // qDebug() << index;
+    // qDebug() << durationsBegin_[index];
     // auto intIndex = index.back() - '0' - 1;
 
     // auto index = index.back() - '0' - 1;
@@ -645,29 +817,23 @@ void CurrentTrackView::numberCurrentTrackClicked() {
 
 void CurrentTrackView::playAll() {
     if (play_->objectName() == "play") {
-        for (auto it : playTracks_) {
-            // qDebug() << it;
-            if (it != nullptr) {
-                // qDebug() << it;
-                // controller_->play(it);
-                // it->setDuration(30000);
-                // it->setDuration(100000);
-                it->play();
-                // it->setDuration(30000);
-                // it->setDuration(100000);
-            //    qDebug() <<  it->track_->mplayer()->duration();
-                // it->setDuration(30000);
+        for (size_t i = 0; i < playTracks_.size(); ++i) {
+            if (playTracks_[i] != nullptr) {
+                emit playButtons_[i]->clicked();
+            }
+            if (playTracks_[i] != nullptr && !playTracks_[i]->isPlaying()) {
+                emit playButtons_[i]->clicked();
             }
         }
         play_->setObjectName("pause");
         play_->setStyleSheet("QPushButton#pause { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/pause.png); } QPushButton:hover#pause { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/pauseFocus.png); }");
     } else {
-        for (auto it : playTracks_) {
-            // qDebug() << it;
-            if (it != nullptr) {
-                // qDebug() << it;
-                // controller_->play(it);
-                it->pause();
+        for (size_t i = 0; i < playTracks_.size(); ++i) {
+            if (playTracks_[i] != nullptr) {
+                emit playButtons_[i]->clicked();
+            }
+            if (playTracks_[i] != nullptr && playTracks_[i]->isPlaying()) {
+                emit playButtons_[i]->clicked();
             }
         }
         play_->setObjectName("play");
@@ -675,6 +841,25 @@ void CurrentTrackView::playAll() {
     }
 }
 
+void CurrentTrackView::play() {
+    int index = sender()->objectName().toStdString().back() - '0' - 1;
+    // playTracks_[index]->play();
+    // controller_->repeat(index);
+    // qDebug() << sender()->objectName();
+    if (playButtons_[index]->objectName()[1] == "f") {
+        playTracks_[index]->play();
+        std::string string = "On" + std::to_string(index + 1);
+        QString a = string.c_str();
+        playButtons_[index]->setObjectName(a);
+        playButtons_[index]->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/pause.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/pauseFocus.png); }");
+    } else {
+        playTracks_[index]->pause();
+        std::string string = "Off" + std::to_string(index + 1);
+        QString a = string.c_str();
+        playButtons_[index]->setObjectName(a);
+        playButtons_[index]->setStyleSheet("QPushButton { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/play.png); } QPushButton:hover { border-image: url(/home/marcussss1/2022_2_MidnightSun/project/impl/icons/playFocus.png); }");
+    }
+}
 
 //TODO REPEAT он ставит чисто флаг
 
@@ -728,13 +913,77 @@ void CurrentTrackView::mute() {
     }
 }
 
+// #include <QMediaPlaylist>>
+
 void CurrentTrackView::setDuration(int position) {
     int index = sender()->objectName().toStdString().back() - '0' - 1;
-    if (position < durations_[index]) {
-        playTracks_[index]->setDuration(position);
-    } else {
-        playTracks_[index]->stop();
+    // qDebug() << durationsEnd_[index];
+    if (playTracks_[index]->isRepeating() && durationsEnd_[index] - position < 1000) {
+        // qDebug() << durationsBegin_[index];
+        if (durationsBegin_[index] - 1000 < 0) {
+            playTracks_[index]->setDuration(0);
+        } else {
+            playTracks_[index]->setDuration(durationsBegin_[index] - 1000);
+        }
+        return;
     }
+
+    if (position < durationsEnd_[index]) {
+        playTracks_[index]->setDuration(position);
+    }
+    // } else if (playTracks_[index]->isRepeating() && durationsEnd_[index] - position < 2000) {
+    //     playTracks_[index]->setDuration(0);
+    // }
+    // } else {
+    //     playTracks_[index]->stop();
+    // }
+    // qDebug() << (posi;
+
+    // if (position < durationsEnd_[index]) {
+    //     playTracks_[index]->setDuration(position);
+    // }
+    // if (playTracks_[index]->isRepeating() && durationsEnd_[index] - position < 1000) {
+    //     playTracks_[index]->setDuration(0);
+    // }
+    //     // if (playTracks_[index]->isRepeating() && durationsEnd_[index] - position < 1000) {
+    //     //     playTracks_[index]->setDuration(0);
+    //     // } else {
+        
+    //     // if (position == durationsEnd_[index]) {
+    //     //     // playTracks_[index]->pause();
+    //     //     qDebug() << "Ok";
+    //     //     playTracks_[index + 1]->play();
+    //     //     // uslee
+    //     // }
+    //     // else {
+    //         playTracks_[index]->setDuration(position);
+    //     // }
+    // } else if (position == durationsEnd_[index] - position < 2000) {
+    //     playTracks_[index]->setDuration(0);
+    //     // playTracks_[index]->play();
+    //     // playTracks_[index]->pause();
+    //     // playTracks_[index]->play();
+    // }
+
+    // if (position < durationsEnd_[index]) {
+    //     if (position > 10000) {
+    //         playTracks_[index]->setDuration(0);
+    //     } else
+    //     playTracks_[index]->setDuration(position);
+    // } else if (position == durationsEnd_[index] && playTracks_[index]->isRepeating()) {
+    //     // playTracks_[index]->setDuration(0);
+    //     // qDebug() << playTracks_[index]->isRepeating();
+    //     // playTracks_[index]->stop();
+    //     // playTracks_[index]->play();
+    //     // QMediaPlaylist *playlist = new QMediaPlaylist();
+    //     // playlist->setPlaybackMode(QMediaPlaylist::Loop);
+
+    //     // QMediaPlayer *music = new QMediaPlayer();
+    //     // playTracks_[index]->track_->mplayer()->setPlaylist(playlist);
+    //     // playTracks_[index]->play();
+    // } else {
+    //     playTracks_[index]->stop();
+    // }
     // } else {
     //     playTracks_[index]->stop();
     // }
@@ -744,8 +993,7 @@ void CurrentTrackView::setDuration(int position) {
 void CurrentTrackView::setVolume(int position) {
     int index = sender()->objectName().toStdString().back() - '0' - 1;
     playTracks_[index]->setVolume(position);
-    // playTracks_[index]->repeat();
-    // controller_->setVolume(index, position);
+    volumeSlider_[index]->setValue(position);
 }
 
 

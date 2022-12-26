@@ -26,6 +26,10 @@ class Track {
     bool isRepeating() const noexcept;
     bool isMuting() const noexcept;
 
+    std::string getData() {
+        return singer_ + " - " + trackName_;
+    }
+
 //  private:
     ITrack* track_;
 

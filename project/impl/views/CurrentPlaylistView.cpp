@@ -36,7 +36,7 @@ CurrentPlaylistView::CurrentPlaylistView(CurrentPlaylistUIModel* model, QWidget*
     menu_->addAction(deleteTrack_);
 }
 
-void CurrentPlaylistView::addTrackInWidget(QString path) { // триггерится другой вьюшкой
+void CurrentPlaylistView::addTrackInWidget(QString path, bool flag) { // триггерится другой вьюшкой
     auto size = currentPlaylistWidget_->rowCount();
 
     currentPlaylistWidget_->setRowCount(size + 1);
@@ -52,6 +52,11 @@ void CurrentPlaylistView::addTrackInWidget(QString path) { // триггерит
     currentPlaylistWidget_->setItem(size, 0, new QTableWidgetItem(path));
     // currentPlaylistWidget_->item(size, 0)->setText(path);
     currentPlaylistWidget_->item(size, 0)->setTextColor(Qt::white);
+
+    if (flag) {
+        currentPlaylistWidget_->setGeometry(QRect(0, 25, 675, 450 - currentTracksCount_ * 40));
+        ++currentTracksCount_;
+    }
 }
 
 void CurrentPlaylistView::removeCurrentTrack() {

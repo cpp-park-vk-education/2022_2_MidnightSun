@@ -41,17 +41,20 @@ MainView::MainView()
     connect(&currentPlaylistView_, SIGNAL(currentTrackChanged(QString, int, bool)),
             &currentTrackView_, SLOT(currentTrackChanged(QString, int, bool)));
 
-    // connect(&currentPlaylistView_, SIGNAL(currentTrackChanged(int)),
-    //         &currentTrackView_, SLOT(currentTrackChanged(int)));
+    connect(&fileSystemView_, SIGNAL(addTrack(QString, int, int, int, int)),
+            &currentTrackView_, SLOT(addTrack(QString, int, int, int, int)));
 
     connect(&currentPlaylistView_, SIGNAL(deleteCurrentTrack(QString, int)),
             &currentTrackView_, SLOT(deleteCurrentTrack(QString, int)));
 
-    connect(&fileSystemView_, SIGNAL(openFile(QString)),
-            &currentPlaylistView_, SLOT(addTrackInWidget(QString)));
+    connect(&fileSystemView_, SIGNAL(openFile(QString, bool)),
+            &currentPlaylistView_, SLOT(addTrackInWidget(QString, bool)));
 
     connect(&currentTrackView_, SIGNAL(removeCurrentTrack()),
             &currentPlaylistView_, SLOT(removeCurrentTrack()));
+
+    connect(&fileSystemView_, SIGNAL(saveFileData()),
+            &currentTrackView_, SLOT(saveData()));
 
     currentTrackView_.setCurrentTrackMediator(mediator_);
     currentPlaylistView_.setCurrentPlaylistMediator(mediator_);

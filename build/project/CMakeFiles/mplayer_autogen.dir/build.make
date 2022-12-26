@@ -68,7 +68,7 @@ include project/CMakeFiles/mplayer_autogen.dir/progress.make
 
 project/CMakeFiles/mplayer_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/marcussss1/2022_2_MidnightSun/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target mplayer"
-	cd /home/marcussss1/2022_2_MidnightSun/build/project && /usr/local/bin/cmake -E cmake_autogen /home/marcussss1/2022_2_MidnightSun/build/project/CMakeFiles/mplayer_autogen.dir/AutogenInfo.json ""
+	cd /home/marcussss1/2022_2_MidnightSun/build/project && /usr/local/bin/cmake -E cmake_autogen /home/marcussss1/2022_2_MidnightSun/build/project/CMakeFiles/mplayer_autogen.dir/AutogenInfo.json Debug
 
 mplayer_autogen: project/CMakeFiles/mplayer_autogen
 mplayer_autogen: project/CMakeFiles/mplayer_autogen.dir/build.make

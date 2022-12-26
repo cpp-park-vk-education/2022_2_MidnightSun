@@ -70,6 +70,8 @@ TitleBarButtonsWidget::TitleBarButtonsWidget(QWidget* parent)
       zoom_(parent),
       minimize_(parent) {
 
+    connect(close_.button_, SIGNAL(clicked()), this, SLOT(close()));
+
     titleBarButtonsWidget_->setObjectName("optionsWindow");
     titleBarButtonsWidget_->setGeometry(QRect(0, 0, OPTIONS_WINDOW_WIDTH, OPTIONS_WINDOW_HEIGHT));
 }

@@ -736,11 +736,11 @@ project/CMakeFiles/mplayer.dir/impl/views/CurrentTrackView.cpp.o: /home/marcusss
   /usr/include/c++/9/bits/hashtable.h \
   /usr/include/c++/9/bits/hashtable_policy.h \
   /usr/include/c++/9/bits/unordered_map.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h \
@@ -769,6 +769,16 @@ project/CMakeFiles/mplayer.dir/impl/views/CurrentTrackView.cpp.o: /home/marcusss
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QInputDialog \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qinputdialog.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
@@ -784,16 +794,12 @@ project/CMakeFiles/mplayer.dir/impl/views/CurrentTrackView.cpp.o: /home/marcusss
   /home/marcussss1/2022_2_MidnightSun/project/lib/SoundLibWithOuterDependncies/QTrack.hpp \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QInputDialog \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qinputdialog.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h
+  /usr/include/c++/9/fstream \
+  /usr/include/c++/9/bits/codecvt.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
+  /usr/include/c++/9/bits/fstream.tcc \
+  /usr/include/c++/9/iostream
 
 project/CMakeFiles/mplayer.dir/impl/views/FileSystemView.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/impl/views/FileSystemView.cpp \
   /usr/include/stdc-predef.h \
@@ -1109,6 +1115,12 @@ project/CMakeFiles/mplayer.dir/impl/views/FileSystemView.cpp.o: /home/marcussss1
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer_impl.h \
   /usr/include/x86_64-linux-gnu/qt5/QtMultimedia/qaudio.h \
   /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkconfiguration.h \
+  /usr/include/c++/9/fstream \
+  /usr/include/c++/9/bits/codecvt.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
+  /usr/include/c++/9/bits/fstream.tcc \
+  /usr/include/c++/9/iostream \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h \
@@ -1911,6 +1923,16 @@ project/CMakeFiles/mplayer.dir/impl/views/MainWindowView.cpp.o: /home/marcussss1
   /usr/include/c++/9/bits/hashtable.h \
   /usr/include/c++/9/bits/hashtable_policy.h \
   /usr/include/c++/9/bits/unordered_map.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QInputDialog \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qinputdialog.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
@@ -1923,16 +1945,22 @@ project/CMakeFiles/mplayer.dir/impl/views/MainWindowView.cpp.o: /home/marcussss1
   /home/marcussss1/2022_2_MidnightSun/project/impl/views/FileSystemView.hpp \
   /home/marcussss1/2022_2_MidnightSun/project/lib/Controllers/FileSystemController.hpp \
   /home/marcussss1/2022_2_MidnightSun/project/lib/UIModels/FileSystemUIModel.hpp \
+  /usr/include/c++/9/fstream \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
+  /usr/include/c++/9/bits/fstream.tcc \
+  /usr/include/c++/9/iostream \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFileDialog \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h \
   /home/marcussss1/2022_2_MidnightSun/project/impl/views/LeftWallView.hpp \
   /home/marcussss1/2022_2_MidnightSun/project/impl/views/TitleBarButtonsView.hpp \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
   /home/marcussss1/2022_2_MidnightSun/project/lib/Mediator/GlobalModel.hpp \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QBoxLayout \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
@@ -2257,7 +2285,18 @@ project/CMakeFiles/mplayer.dir/impl/views/TitleBarButtonsView.cpp.o: /home/marcu
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
+  /usr/include/c++/9/functional \
+  /usr/include/c++/9/bits/refwrap.h \
+  /usr/include/c++/9/bits/std_function.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h
 
 project/CMakeFiles/mplayer.dir/lib/Controllers/CurrentPlaylistController.cpp.o: /home/marcussss1/2022_2_MidnightSun/project/lib/Controllers/CurrentPlaylistController.cpp \
   /usr/include/stdc-predef.h \
@@ -6348,6 +6387,16 @@ project/CMakeFiles/mplayer.dir/main.cpp.o: /home/marcussss1/2022_2_MidnightSun/p
   /usr/include/c++/9/bits/hashtable.h \
   /usr/include/c++/9/bits/hashtable_policy.h \
   /usr/include/c++/9/bits/unordered_map.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QInputDialog \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qinputdialog.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
@@ -6360,16 +6409,22 @@ project/CMakeFiles/mplayer.dir/main.cpp.o: /home/marcussss1/2022_2_MidnightSun/p
   /home/marcussss1/2022_2_MidnightSun/project/impl/views/FileSystemView.hpp \
   /home/marcussss1/2022_2_MidnightSun/project/lib/Controllers/FileSystemController.hpp \
   /home/marcussss1/2022_2_MidnightSun/project/lib/UIModels/FileSystemUIModel.hpp \
+  /usr/include/c++/9/fstream \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
+  /usr/include/c++/9/bits/fstream.tcc \
+  /usr/include/c++/9/iostream \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFileDialog \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h \
   /home/marcussss1/2022_2_MidnightSun/project/impl/views/LeftWallView.hpp \
   /home/marcussss1/2022_2_MidnightSun/project/impl/views/TitleBarButtonsView.hpp \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
   /home/marcussss1/2022_2_MidnightSun/project/lib/Mediator/GlobalModel.hpp
 
 project/CMakeFiles/mplayer.dir/mplayer_autogen/mocs_compilation.cpp.o: project/mplayer_autogen/mocs_compilation.cpp \
@@ -6797,6 +6852,16 @@ project/CMakeFiles/mplayer.dir/mplayer_autogen/mocs_compilation.cpp.o: project/m
   /usr/include/c++/9/bits/hashtable.h \
   /usr/include/c++/9/bits/hashtable_policy.h \
   /usr/include/c++/9/bits/unordered_map.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QInputDialog \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qinputdialog.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
@@ -6812,6 +6877,11 @@ project/CMakeFiles/mplayer.dir/mplayer_autogen/mocs_compilation.cpp.o: project/m
   /home/marcussss1/2022_2_MidnightSun/project/impl/views/FileSystemView.hpp \
   /home/marcussss1/2022_2_MidnightSun/project/lib/Controllers/FileSystemController.hpp \
   /home/marcussss1/2022_2_MidnightSun/project/lib/UIModels/FileSystemUIModel.hpp \
+  /usr/include/c++/9/fstream \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
+  /usr/include/c++/9/bits/fstream.tcc \
+  /usr/include/c++/9/iostream \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFileDialog \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h \
@@ -6819,7 +6889,6 @@ project/CMakeFiles/mplayer.dir/mplayer_autogen/mocs_compilation.cpp.o: project/m
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h \
@@ -6840,6 +6909,8 @@ project/CMakeFiles/mplayer.dir/mplayer_autogen/mocs_compilation.cpp.o: project/m
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h \
   /home/marcussss1/2022_2_MidnightSun/project/impl/views/LeftWallView.hpp \
   /home/marcussss1/2022_2_MidnightSun/project/impl/views/TitleBarButtonsView.hpp \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
   /home/marcussss1/2022_2_MidnightSun/project/lib/Mediator/GlobalModel.hpp \
   project/mplayer_autogen/PXEUDDJ6M2/moc_TitleBarButtonsView.cpp \
   project/mplayer_autogen/D5O55GDJLR/moc_QTrack.cpp
@@ -6881,8 +6952,6 @@ project/mplayer_autogen/mocs_compilation.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile:
 
-/home/marcussss1/2022_2_MidnightSun/project/impl/views/MainWindowView.hpp:
-
 /home/marcussss1/2022_2_MidnightSun/project/impl/views/MainWindowView.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h:
@@ -6899,6 +6968,20 @@ project/mplayer_autogen/mocs_compilation.cpp:
 
 /home/marcussss1/2022_2_MidnightSun/project/impl/views/FileSystemView.cpp:
 
+/usr/include/c++/9/bits/fstream.tcc:
+
+/home/marcussss1/2022_2_MidnightSun/project/impl/views/MainWindowView.hpp:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSlider:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel:
+
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h:
@@ -6908,12 +6991,6 @@ project/mplayer_autogen/mocs_compilation.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qinputdialog.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSlider:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox:
 
@@ -7015,6 +7092,8 @@ project/mplayer_autogen/mocs_compilation.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug:
+
 /usr/include/x86_64-linux-gnu/bits/fp-logb.h:
 
 /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
@@ -7046,6 +7125,8 @@ project/mplayer_autogen/mocs_compilation.cpp:
 /usr/include/c++/9/bits/sstream.tcc:
 
 /usr/include/c++/9/codecvt:
+
+/usr/include/c++/9/fstream:
 
 /usr/include/c++/9/bits/locale_conv.h:
 
@@ -7114,6 +7195,8 @@ project/mplayer_autogen/PXEUDDJ6M2/moc_CurrentTrackView.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtMultimedia/qtmultimediaglobal.h:
+
+/usr/include/c++/9/iostream:
 
 /usr/include/c++/9/bits/parse_numbers.h:
 
